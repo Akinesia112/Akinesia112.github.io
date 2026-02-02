@@ -72,6 +72,15 @@ p {
   color: #fff;
 }
 
+/* Fix: keep profile photo inside sidebar */
+.sidebar-wrapper .profile-container .profile {
+  display: block;
+  max-width: 100%;
+  height: auto;
+  margin: 0 auto 15px auto;
+  object-fit: cover;
+}
+
 .sidebar-wrapper .name {
   font-size: 32px;
   font-weight: 900;
