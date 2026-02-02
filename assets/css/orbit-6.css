@@ -81,6 +81,10 @@ p {
   object-fit: cover;
 }
 
+.sidebar-wrapper .profile-container {
+  overflow: hidden;
+}
+
 .sidebar-wrapper .name {
   font-size: 32px;
   font-weight: 900;
