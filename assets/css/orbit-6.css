@@ -377,5 +377,14 @@ p {
 }
 
 
+/* Full-page graffiti overlay */
+#graffiti{
+  position: fixed;
+  inset: 0;
+  width: 100vw;
+  height: 100vh;
+  pointer-events: none; /* keep site clickable */
+  z-index: 9999;
+}
 
 

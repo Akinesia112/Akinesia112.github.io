@@ -458,7 +458,172 @@
       img.addEventListener("mouseleave", () => img.setAttribute("src", a));
     })();
   </script>
-  
+
+<canvas id="graffiti"></canvas>
+<script>
+    (() => {
+      const canvas = document.getElementById("graffiti");
+      if (!canvas) return;
+    
+      const ctx = canvas.getContext("2d", { alpha: true });
+      const DPR = () => Math.max(1, Math.min(2, window.devicePixelRatio || 1));
+    
+      const COLORS = ["#000000", "#c49be5", "#FFAC00"];
+    
+      let w = 0, h = 0, dpr = DPR();
+      function resize() {
+        dpr = DPR();
+        w = Math.floor(window.innerWidth);
+        h = Math.floor(window.innerHeight);
+        canvas.width = Math.floor(w * dpr);
+        canvas.height = Math.floor(h * dpr);
+        canvas.style.width = w + "px";
+        canvas.style.height = h + "px";
+        ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+      }
+      resize();
+      window.addEventListener("resize", resize);
+    
+      // --- particle system ---
+      const particles = [];
+      const now = () => performance.now();
+    
+      function rand(a, b) { return a + Math.random() * (b - a); }
+      function pick(arr) { return arr[(Math.random() * arr.length) | 0]; }
+    
+      function addParticle(x, y, color, vx, vy, r, life, drip=0) {
+        particles.push({
+          x, y, vx, vy,
+          r,
+          color,
+          born: now(),
+          life,
+          drip,  // 0..1, higher = more gravity/drill feel
+          rot: rand(0, Math.PI * 2)
+        });
+      }
+    
+      function splat(x, y) {
+        // main burst
+        const color = pick(COLORS);
+        const n = 120;
+        for (let i = 0; i < n; i++) {
+          const ang = rand(0, Math.PI * 2);
+          const spd = Math.pow(Math.random(), 0.35) * rand(60, 420); // heavy center, long tails
+          const vx = Math.cos(ang) * spd;
+          const vy = Math.sin(ang) * spd;
+          const r  = Math.pow(Math.random(), 0.25) * rand(0.6, 4.6);
+          const life = rand(450, 1400);
+          const drip = Math.random() < 0.25 ? rand(0.2, 0.8) : 0;
+          addParticle(x, y, color, vx, vy, r, life, drip);
+        }
+        // thick core
+        for (let k = 0; k < 6; k++) {
+          addParticle(x + rand(-6, 6), y + rand(-6, 6), color, rand(-30,30), rand(-30,30), rand(6, 12), rand(700, 1500), rand(0.2, 0.7));
+        }
+      }
+    
+      function sprayTrail(x, y) {
+        // small continuous spray (drill mode)
+        const color = pick(COLORS);
+        const n = 16;
+        for (let i = 0; i < n; i++) {
+          const ang = rand(-Math.PI, Math.PI);
+          const spd = rand(40, 180);
+          const vx = Math.cos(ang) * spd;
+          const vy = Math.sin(ang) * spd;
+          addParticle(x + rand(-3,3), y + rand(-3,3), color, vx, vy, rand(0.4, 2.3), rand(300, 900), rand(0.1, 0.6));
+        }
+      }
+    
+      // --- rendering ---
+      let lastT = now();
+      function tick() {
+        const t = now();
+        const dt = Math.min(33, t - lastT); // ms
+        lastT = t;
+    
+        // fade slightly to feel like paint settling (optional)
+        // comment this out if you want "permanent" paint
+        ctx.fillStyle = "rgba(0,0,0,0.00)";
+        ctx.fillRect(0, 0, w, h);
+    
+        // draw particles
+        for (let i = particles.length - 1; i >= 0; i--) {
+          const p = particles[i];
+          const age = t - p.born;
+          if (age > p.life) { particles.splice(i, 1); continue; }
+    
+          const k = age / p.life;
+          const drag = 0.985 - 0.15 * k;
+          p.vx *= drag;
+          p.vy *= drag;
+    
+          // subtle gravity + drip
+          p.vy += (p.drip ? (18 * p.drip) : 4) * (dt / 16.67);
+    
+          p.x += p.vx * (dt / 1000);
+          p.y += p.vy * (dt / 1000);
+    
+          // "ink spread": radius grows a bit then stabilizes
+          const rr = p.r * (1 + 0.9 * Math.sin(Math.min(1, k) * Math.PI));
+          const alpha = 0.95 * (1 - 0.85 * Math.pow(k, 1.6));
+    
+          ctx.beginPath();
+          ctx.fillStyle = hexToRgba(p.color, alpha);
+          ctx.arc(p.x, p.y, Math.max(0.35, rr), 0, Math.PI * 2);
+          ctx.fill();
+    
+          // add a tiny splatter ellipse for graffiti texture
+          if (Math.random() < 0.14) {
+            ctx.save();
+            ctx.translate(p.x, p.y);
+            ctx.rotate(p.rot);
+            ctx.globalAlpha = alpha * 0.8;
+            ctx.fillStyle = p.color;
+            ctx.beginPath();
+            ctx.ellipse(rand(-2,2), rand(-2,2), rand(0.4, 2.6), rand(0.2, 1.6), 0, 0, Math.PI * 2);
+            ctx.fill();
+            ctx.restore();
+          }
+        }
+    
+        requestAnimationFrame(tick);
+      }
+    
+      function hexToRgba(hex, a) {
+        const h = hex.replace("#","").trim();
+        const r = parseInt(h.slice(0,2),16);
+        const g = parseInt(h.slice(2,4),16);
+        const b = parseInt(h.slice(4,6),16);
+        return `rgba(${r},${g},${b},${a})`;
+      }
+    
+      requestAnimationFrame(tick);
+    
+      // --- interaction: click -> burst, then "drill" track mouse for a while ---
+      let drillUntil = 0;
+      let lastMove = 0;
+      const DRILL_MS = 1600;        // trail duration after click
+      const MOVE_THROTTLE = 14;     // ms
+    
+      window.addEventListener("click", (e) => {
+        const x = e.clientX, y = e.clientY;
+        splat(x, y);
+        drillUntil = now() + DRILL_MS;
+      });
+    
+      window.addEventListener("mousemove", (e) => {
+        const t = now();
+        if (t > drillUntil) return;
+        if (t - lastMove < MOVE_THROTTLE) return;
+        lastMove = t;
+        sprayTrail(e.clientX, e.clientY);
+      });
+    
+    })();
+    </script>
+    
   
 </body>
 </html>
