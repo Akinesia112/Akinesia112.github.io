@@ -512,7 +512,7 @@
           const vx = Math.cos(ang) * spd;
           const vy = Math.sin(ang) * spd;
           const r  = Math.pow(Math.random(), 0.25) * rand(0.6, 4.6);
-          const life = 1000;
+          const life = rand(450, 1400);
           const drip = Math.random() < 0.25 ? rand(0.2, 0.8) : 0;
           addParticle(x, y, color, vx, vy, r, life, drip);
         }
