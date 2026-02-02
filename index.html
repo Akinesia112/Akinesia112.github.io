@@ -512,13 +512,13 @@
           const vx = Math.cos(ang) * spd;
           const vy = Math.sin(ang) * spd;
           const r  = Math.pow(Math.random(), 0.25) * rand(0.6, 4.6);
-          const life = rand(450, 1400);
+          const life = 1000;
           const drip = Math.random() < 0.25 ? rand(0.2, 0.8) : 0;
           addParticle(x, y, color, vx, vy, r, life, drip);
         }
         // thick core
         for (let k = 0; k < 6; k++) {
-          addParticle(x + rand(-6, 6), y + rand(-6, 6), color, rand(-30,30), rand(-30,30), rand(6, 12), rand(700, 1500), rand(0.2, 0.7));
+          addParticle(x + rand(-6, 6), y + rand(-6, 6), color, rand(-30,30), rand(-30,30), rand(6, 12), 1000, rand(0.2, 0.7));
         }
       }
     
@@ -531,7 +531,7 @@
           const spd = rand(40, 180);
           const vx = Math.cos(ang) * spd;
           const vy = Math.sin(ang) * spd;
-          addParticle(x + rand(-3,3), y + rand(-3,3), color, vx, vy, rand(0.4, 2.3), rand(300, 900), rand(0.1, 0.6));
+          addParticle(x + rand(-3,3), y + rand(-3,3), color, vx, vy, rand(0.4, 2.3), 1000, rand(0.1, 0.6));
         }
       }
     
@@ -544,7 +544,6 @@
     
         // fade slightly to feel like paint settling (optional)
         // comment this out if you want "permanent" paint
-        ctx.fillStyle = "rgba(0,0,0,0.00)";
         ctx.fillRect(0, 0, w, h);
     
         // draw particles
@@ -566,7 +565,7 @@
     
           // "ink spread": radius grows a bit then stabilizes
           const rr = p.r * (1 + 0.9 * Math.sin(Math.min(1, k) * Math.PI));
-          const alpha = 0.95 * (1 - 0.85 * Math.pow(k, 1.6));
+          const alpha = Math.max(0, 1 - (k*k)); // ease-out
     
           ctx.beginPath();
           ctx.fillStyle = hexToRgba(p.color, alpha);
