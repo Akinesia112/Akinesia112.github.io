@@ -352,6 +352,12 @@ p {
 }
 
 .main-wrapper .company img {
+  width: 40px;
+  height: 40px;
+  object-fit: contain;
   vertical-align: middle;
   margin-right: 10px;
 }
+
+
+
