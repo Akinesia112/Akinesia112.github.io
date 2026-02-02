@@ -351,13 +351,19 @@ p {
   }
 }
 
-.main-wrapper .company img {
+/* Unified square logos for main sections (no cropping) */
+.main-wrapper .company img,
+.main-wrapper .honors-section .company img,
+.main-wrapper .experiences-section .company img {
   width: 40px;
   height: 40px;
-  object-fit: contain;
+  object-fit: contain;     /* keep full logo, no crop */
+  object-position: center; /* center inside square */
   vertical-align: middle;
   margin-right: 10px;
+  display: inline-block;
 }
+
 
 
 
