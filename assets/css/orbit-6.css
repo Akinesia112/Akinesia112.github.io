@@ -364,6 +364,18 @@ p {
   display: inline-block;
 }
 
+.sidebar-wrapper .profile-container .portrait-hint {
+  margin: 8px 0 2px 0;
+  font-size: 12px;
+  opacity: 0.85;
+}
+
+.sidebar-wrapper .profile-container .portrait-duality {
+  margin: 0 0 12px 0;
+  font-size: 12px;
+  opacity: 0.95;
+}
+
 
 
 
