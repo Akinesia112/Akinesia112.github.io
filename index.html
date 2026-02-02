@@ -27,8 +27,10 @@
     class="profile"
     height="150"
     src="assets/images/Shih_YuLai2024.JPG"
-    style="cursor:pointer;"
+    style="cursor:default;"
 />
+<p class="portrait-hint">Hover over</p>
+<p class="portrait-duality">Scientist me × Artist me</p>
 <h1 class="name">Shih-Yu Lai</h1>
 <h3 class="tagline">National Taiwan University (CSIE, AI Program)</h3><h3 class="tagline">賴溡雨</h3><h3 class="tagline">CS Graduate Student · AI Researcher</h3><h3 class="tagline"> <a href="assets/CV/Shih_YuLai_CV.pdf" target="_blank">CV</a> </h3>
 </div><!--//profile-container-->
@@ -443,12 +445,11 @@
       // Preload to avoid flicker
       [a, b].forEach((src) => { const im = new Image(); im.src = src; });
   
-      img.addEventListener("click", () => {
-        const cur = img.getAttribute("src");
-        img.setAttribute("src", cur === a ? b : a);
-      });
+      img.addEventListener("mouseenter", () => img.setAttribute("src", b));
+      img.addEventListener("mouseleave", () => img.setAttribute("src", a));
     })();
   </script>
+  
   
 </body>
 </html>
