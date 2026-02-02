@@ -544,6 +544,7 @@
     
         // fade slightly to feel like paint settling (optional)
         // comment this out if you want "permanent" paint
+        ctx.fillStyle = "rgba(0,0,0,0.00)";
         ctx.fillRect(0, 0, w, h);
     
         // draw particles
@@ -565,7 +566,7 @@
     
           // "ink spread": radius grows a bit then stabilizes
           const rr = p.r * (1 + 0.9 * Math.sin(Math.min(1, k) * Math.PI));
-          const alpha = Math.max(0, 1 - (k*k)); // ease-out
+          const alpha = 0.95 * (1 - 0.85 * Math.pow(k, 1.6));
     
           ctx.beginPath();
           ctx.fillStyle = hexToRgba(p.color, alpha);
