@@ -22,7 +22,13 @@
 <div class="wrapper">
 <div class="sidebar-wrapper">
 <div class="profile-container">
-<img alt="Shih-Yu Lai" class="profile" height="250" src="assets/images/Shih_YuLai.jpg"/>
+    <img id="profile-photo"
+    alt="Shih-Yu Lai"
+    class="profile"
+    height="250"
+    src="assets/images/Shih_YuLai.jpg"
+    style="cursor:pointer;"
+/>
 <h1 class="name">Shih-Yu Lai</h1>
 <h3 class="tagline">National Taiwan University (CSIE, AI Program)</h3><h3 class="tagline">賴溡雨</h3><h3 class="tagline">CS Graduate Student · AI Researcher</h3><h3 class="tagline"> <a href="assets/CV/Shih_YuLai_CV.pdf" target="_blank">CV</a> </h3>
 </div><!--//profile-container-->
@@ -271,5 +277,23 @@
 <small class="copyright">Designed by Xiaoying Riley · Last updated by Shih-Yu Lai 02/02/2026</small>
 </div><!--//container-->
 </footer><!--//footer-->
+<script>
+    (function () {
+      const img = document.getElementById("profile-photo");
+      if (!img) return;
+  
+      const a = "assets/images/Shih_YuLai.jpg";
+      const b = "assets/images/Shih_YuLai2024.jpg";
+  
+      // Preload to avoid flicker
+      [a, b].forEach((src) => { const im = new Image(); im.src = src; });
+  
+      img.addEventListener("click", () => {
+        const cur = img.getAttribute("src");
+        img.setAttribute("src", cur === a ? b : a);
+      });
+    })();
+  </script>
+  
 </body>
 </html>
