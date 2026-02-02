@@ -350,3 +350,8 @@ p {
     margin-bottom: 0;
   }
 }
+
+.main-wrapper .company img {
+  vertical-align: middle;
+  margin-right: 10px;
+}
