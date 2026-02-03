@@ -387,4 +387,46 @@ p {
   z-index: 9999;
 }
 
+/* ===== Playlist (sidebar) ===== */
+.playlist-note-title{
+  font-weight: 800;
+  margin-bottom: 6px;
+}
+.playlist-note-desc{
+  opacity: 0.85;
+  line-height: 1.35;
+}
+
+/* reuse the same “card” language */
+.playlist-card{
+  border-radius: 28px;
+  padding: 18px;
+  background:
+    radial-gradient(120% 160% at 20% 0%, rgba(196,155,229,0.25) 0%, rgba(0,0,0,0) 55%),
+    radial-gradient(140% 180% at 100% 40%, rgba(255,172,0,0.12) 0%, rgba(0,0,0,0) 60%),
+    linear-gradient(180deg, rgba(40,0,18,0.65) 0%, rgba(0,0,0,0.85) 100%);
+  box-shadow: 0 22px 55px rgba(0,0,0,0.55);
+  overflow: hidden; /* prevents iframe from spilling outside rounded corners */
+}
+
+.playlist-embed{
+  display: block;
+  width: 100%;
+  border: 0;
+}
+
+/* tighter for sidebar */
+.playlist-card--sidebar{
+  margin-top: 12px;
+  padding: 12px;
+  border-radius: 22px;
+}
+
+/* YouTube tint */
+.playlist-card-youtube{
+  background:
+    radial-gradient(120% 160% at 20% 0%, rgba(255,172,0,0.18) 0%, rgba(0,0,0,0) 55%),
+    radial-gradient(140% 180% at 100% 40%, rgba(196,155,229,0.14) 0%, rgba(0,0,0,0) 60%),
+    linear-gradient(180deg, rgba(0,0,0,0.75) 0%, rgba(0,0,0,0.92) 100%);
+}
 
