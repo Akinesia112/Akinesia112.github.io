@@ -343,26 +343,13 @@ p {
 }
 
 @media (min-width: 992px) {
-  .sidebar-wrapper {
-    width: 420px;              /* 你要更寬就調這裡：400~480 都合理 */
-  }
-  .main-wrapper {
-    margin-left: 420px;        /* 必須跟 sidebar 同寬，否則會蓋到內容 */
+  .skillset .level-title {
+    display: inline-block;
+    float: left;
+    width: 30%;
+    margin-bottom: 0;
   }
 }
-
-/* playlist 區塊排版 */
-.playlist-container.container-block { margin-top: 18px; }
-.playlist-note-title { font-weight: 700; }
-.playlist-note-desc { opacity: .85; line-height: 1.35; }
-
-/* 讓 embed 變成「卡片感」且吃滿 sidebar 寬度 */
-.playlist-card--sidebar {
-  margin-top: 12px;
-  border-radius: 16px;
-  overflow: hidden;
-}
-.playlist-embed { display: block; width: 100%; border: 0; }
 
 /* Unified square logos for main sections (no cropping) */
 .main-wrapper .company img,
@@ -431,5 +418,20 @@ p {
     linear-gradient(180deg, rgba(0,0,0,0.75) 0%, rgba(0,0,0,0.92) 100%);
 }
 
+/* Sidebar playlist card */
+.playlist-card--sidebar {
+  margin-top: 12px;
+  border-radius: 16px;
+  overflow: hidden;
+}
 
+.playlist-embed {
+  width: 100%;
+  border: 0;
+  display: block;
+}
+
+/* Optional: tighten spacing in sidebar blocks */
+.playlist-note-title { font-weight: 700; }
+.playlist-note-desc { opacity: 0.85; font-size: 0.9em; }
 
