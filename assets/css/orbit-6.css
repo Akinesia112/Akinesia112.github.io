@@ -435,3 +435,9 @@ p {
 .playlist-note-title { font-weight: 700; }
 .playlist-note-desc { opacity: 0.85; font-size: 0.9em; }
 
+.publication-section .level-title img,
+.poster-theses-section .level-title img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
