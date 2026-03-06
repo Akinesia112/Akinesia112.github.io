@@ -449,3 +449,29 @@ p {
   height: 110px;
   object-fit: cover;
 }
+
+.publication-section .skillset .item {
+  display: flex;
+  align-items: flex-start;
+  gap: 16px;
+}
+
+.publication-section .skillset .item .level-title {
+  flex: 0 0 110px;   /* fixed width, never shrink or grow */
+  width: 110px;
+  height: 110px;
+  overflow: hidden;
+  margin: 0;
+}
+
+.publication-section .skillset .item .level-title img {
+  width: 110px;
+  height: 110px;
+  object-fit: cover;
+  display: block;
+}
+
+.publication-section .skillset .item .project-tagline {
+  flex: 1;           /* takes remaining space */
+  min-width: 0;      /* prevents overflow */
+}
