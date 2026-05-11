@@ -17,6 +17,225 @@
 <link href="assets/plugins/bootstrap/css/bootstrap.min.css" rel="stylesheet"/>
 <!-- Theme CSS -->
 <link href="assets/css/orbit-6.css" id="theme-style" rel="stylesheet"/>
+
+<!-- =========================================================
+     ADAPTIVE LAYOUT + PUBLICATION TAGS / FILTER UI (added)
+     ========================================================= -->
+<style>
+  /* ---------- Adaptive page width ---------- */
+  html, body { overflow-x: hidden; }
+  .wrapper {
+    max-width: 1600px !important;
+    width: 100% !important;
+    margin: 0 auto !important;
+    box-sizing: border-box;
+  }
+  @media (min-width: 992px) {
+    .wrapper {
+      display: flex !important;
+      align-items: stretch;
+      gap: 0;
+    }
+    .sidebar-wrapper {
+      width: 320px !important;
+      min-width: 280px;
+      max-width: 360px;
+      flex: 0 0 auto;
+      box-sizing: border-box;
+    }
+    .main-wrapper {
+      flex: 1 1 auto !important;
+      width: auto !important;
+      max-width: none !important;
+      min-width: 0;
+      box-sizing: border-box;
+    }
+  }
+  @media (min-width: 1400px) {
+    .sidebar-wrapper { width: 360px !important; max-width: 400px; }
+  }
+  /* Container blocks inside main shouldn't overflow */
+  .main-wrapper .section,
+  .main-wrapper .container-block { box-sizing: border-box; }
+  img { max-width: 100%; height: auto; }
+  .project-tagline { display: block; }
+
+  /* ---------- Publications filter controls ---------- */
+  .pub-controls {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 18px;
+    flex-wrap: wrap;
+  }
+  .pub-toggle {
+    display: inline-flex;
+    background: #f4f4f7;
+    border: 1px solid #e4e3ea;
+    border-radius: 999px;
+    padding: 3px;
+    box-shadow: 0 1px 2px rgba(0,0,0,0.04);
+  }
+  .pub-toggle button {
+    border: none;
+    background: transparent;
+    padding: 7px 16px;
+    font-size: 13px;
+    font-weight: 500;
+    color: #6b6b76;
+    border-radius: 999px;
+    cursor: pointer;
+    transition: all 0.18s ease;
+    letter-spacing: 0.02em;
+  }
+  .pub-toggle button:hover { color: #2a2a2a; }
+  .pub-toggle button.active {
+    background: #2a2a2a;
+    color: #fff;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.18);
+  }
+  .pub-toggle button i { margin-right: 6px; font-size: 11px; }
+
+  /* ---------- Filter chip bar (visible only in tag mode) ---------- */
+  .pub-filter-bar {
+    background: #faf9fc;
+    border: 1px solid #ece9f2;
+    border-radius: 14px;
+    padding: 14px 16px;
+    margin-bottom: 22px;
+    display: none;
+  }
+  .pub-filter-bar.active { display: block; }
+  .pub-filter-row { display: flex; align-items: center; flex-wrap: wrap; gap: 8px; margin-bottom: 8px; }
+  .pub-filter-row:last-child { margin-bottom: 0; }
+  .pub-filter-label {
+    font-size: 11px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: #8a8794;
+    margin-right: 6px;
+    min-width: 64px;
+  }
+  .pub-clear {
+    margin-left: auto;
+    border: none;
+    background: transparent;
+    color: #8a8794;
+    font-size: 12px;
+    cursor: pointer;
+    text-decoration: underline;
+    padding: 4px 6px;
+  }
+  .pub-clear:hover { color: #2a2a2a; }
+
+  /* ---------- Tag chips ---------- */
+  .tag-chip {
+    display: inline-flex;
+    align-items: center;
+    font-size: 11px;
+    font-weight: 600;
+    padding: 3px 9px;
+    border-radius: 999px;
+    line-height: 1.4;
+    letter-spacing: 0.02em;
+    user-select: none;
+    transition: all 0.15s ease;
+    border: 1px solid transparent;
+  }
+  /* Inline tags (inside each paper) — smaller, decorative */
+  .pub-tags {
+    display: inline-flex;
+    flex-wrap: wrap;
+    gap: 5px;
+    margin-top: 6px;
+  }
+  .pub-tags .tag-chip { font-size: 10.5px; padding: 2px 8px; }
+
+  /* Filter chips (in the filter bar) — clickable */
+  .filter-chip {
+    cursor: pointer;
+    opacity: 0.55;
+  }
+  .filter-chip:hover { opacity: 1; transform: translateY(-1px); }
+  .filter-chip.selected {
+    opacity: 1;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.12);
+  }
+
+  /* ---- Tag colors drawn from orbit-6.css palette ----
+     Lavender #c49be5  · Orange #FFAC00  · Coral #fb866a
+     Steel #5f8697     · Cool gray #97AAC3
+     Dark teal #2e4049 · Slate #3F4650 · Body #545E6C · Gray #7a7a7a   */
+
+  /* Domain — filled, soft tint of the brand hue */
+  .tag-AI         { background: rgba(196,155,229,0.18); color: #6b3aa6; border-color: rgba(196,155,229,0.55); }
+  .tag-Robotics   { background: rgba(255,172,0,0.18);   color: #9c6a00; border-color: rgba(255,172,0,0.55); }
+  .tag-Graphics   { background: rgba(251,134,106,0.20); color: #b65339; border-color: rgba(251,134,106,0.55); }
+  .tag-HPC        { background: rgba(95,134,151,0.18);  color: #3d6573; border-color: rgba(95,134,151,0.55); }
+  .tag-Audio      { background: rgba(151,170,195,0.28); color: #4f6480; border-color: rgba(151,170,195,0.65); }
+
+  /* Method — outlined; uses the darker neutral end of the palette */
+  .tag-Graph              { background: #fff; color: #2e4049; border-color: #2e4049; }
+  .tag-RL                 { background: #fff; color: #3F4650; border-color: #3F4650; }
+  .tag-DSP                { background: #fff; color: #545E6C; border-color: #545E6C; }
+  .tag-PhysicsInformedML  { background: #fff; color: #7a7a7a; border-color: #7a7a7a; }
+
+  /* Selected filter chips — full brand color, white text */
+  .filter-chip.tag-AI.selected         { background: #c49be5; color: #fff; border-color: #c49be5; }
+  .filter-chip.tag-Robotics.selected   { background: #FFAC00; color: #fff; border-color: #FFAC00; }
+  .filter-chip.tag-Graphics.selected   { background: #fb866a; color: #fff; border-color: #fb866a; }
+  .filter-chip.tag-HPC.selected        { background: #5f8697; color: #fff; border-color: #5f8697; }
+  .filter-chip.tag-Audio.selected      { background: #97AAC3; color: #fff; border-color: #97AAC3; }
+  .filter-chip.tag-Graph.selected              { background: #2e4049; color: #fff; border-color: #2e4049; }
+  .filter-chip.tag-RL.selected                 { background: #3F4650; color: #fff; border-color: #3F4650; }
+  .filter-chip.tag-DSP.selected                { background: #545E6C; color: #fff; border-color: #545E6C; }
+  .filter-chip.tag-PhysicsInformedML.selected  { background: #7a7a7a; color: #fff; border-color: #7a7a7a; }
+
+  /* Empty state */
+  .pub-empty {
+    display: none;
+    text-align: center;
+    color: #8a8794;
+    padding: 36px 12px;
+    font-size: 14px;
+  }
+  .pub-empty.active { display: block; }
+
+  /* Subtle hide animation for filtered-out items */
+  .skillset[data-pub-item] { transition: opacity 0.18s ease; }
+  .skillset[data-pub-item].is-hidden { display: none; }
+
+  /* Mode B: regrouped-by-tag view */
+  .pub-group-view { display: none; }
+  .pub-group-view.active { display: block; }
+  .pub-date-view.is-hidden { display: none; }
+
+  .pub-group {
+    margin-bottom: 28px;
+  }
+  .pub-group-header {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 14px;
+    padding-bottom: 8px;
+    border-bottom: 1px solid #ece9f2;
+  }
+  .pub-group-header .tag-chip { font-size: 12px; padding: 4px 11px; }
+  .pub-group-header .pub-group-count {
+    font-size: 11px;
+    color: #8a8794;
+    letter-spacing: 0.04em;
+  }
+
+  /* Small screens: condense controls */
+  @media (max-width: 600px) {
+    .pub-toggle button { padding: 6px 11px; font-size: 12px; }
+    .pub-filter-label { min-width: 0; }
+  }
+</style>
 </head>
 <body>
 <div class="wrapper">
@@ -165,6 +384,41 @@
 </section><!--//section-->
 <section class="section publication-section">
 <h2 class="section-title"><span class="icon-holder"><i class="fas fa-archive"></i></span>Publications</h2>
+
+<!-- ============ Filter / Toggle controls ============ -->
+<div class="pub-controls" id="pub-controls">
+  <div class="pub-toggle" role="tablist" aria-label="Publication view toggle">
+    <button id="btn-view-date" class="active" type="button" aria-pressed="true">
+      <i class="fas fa-clock"></i>By Date
+    </button>
+    <button id="btn-view-tag" type="button" aria-pressed="false">
+      <i class="fas fa-tags"></i>By Tag
+    </button>
+  </div>
+</div>
+
+<!-- ============ Tag filter bar (visible in Tag view) ============ -->
+<div class="pub-filter-bar" id="pub-filter-bar">
+  <div class="pub-filter-row">
+    <span class="pub-filter-label">Domain</span>
+    <span class="tag-chip filter-chip tag-AI" data-tag="AI">#AI</span>
+    <span class="tag-chip filter-chip tag-Robotics" data-tag="Robotics">#Robotics</span>
+    <span class="tag-chip filter-chip tag-Graphics" data-tag="Graphics">#Graphics</span>
+    <span class="tag-chip filter-chip tag-HPC" data-tag="HPC">#HPC</span>
+    <span class="tag-chip filter-chip tag-Audio" data-tag="Audio">#Audio</span>
+    <button type="button" class="pub-clear" id="pub-clear">Clear all</button>
+  </div>
+  <div class="pub-filter-row">
+    <span class="pub-filter-label">Method</span>
+    <span class="tag-chip filter-chip tag-Graph" data-tag="Graph">#Graph</span>
+    <span class="tag-chip filter-chip tag-RL" data-tag="RL">#RL</span>
+    <span class="tag-chip filter-chip tag-DSP" data-tag="DSP">#DSP</span>
+    <span class="tag-chip filter-chip tag-PhysicsInformedML" data-tag="PhysicsInformedML">#Physics-informed ML</span>
+  </div>
+</div>
+
+<!-- ============ View A: By Date (original chronological grouping) ============ -->
+<div class="pub-date-view" id="pub-date-view">
 <div class="item">
 
 
@@ -190,7 +444,7 @@
   <div class="item">
     <h3 class="job-title">Selected (5)</h3>
 
-    <div class="skillset">
+    <div class="skillset" data-pub-item data-tags="AI,Robotics,RL">
       <div class="item">
         <h3 class="level-title">
           <div style="width: 110px; height: 110px; overflow: hidden; display: flex; align-items: center; justify-content: center;">
@@ -206,11 +460,16 @@
           <div class="author-list">
             <span class="me">Shih-Yu Lai</span>
           </div>
+          <div class="pub-tags">
+            <span class="tag-chip tag-AI">#AI</span>
+            <span class="tag-chip tag-Robotics">#Robotics</span>
+            <span class="tag-chip tag-RL">#RL</span>
+          </div>
         </span>
       </div>
     </div>
 
-    <div class="skillset">
+    <div class="skillset" data-pub-item data-tags="AI,Audio,DSP">
       <div class="item">
         <h3 class="level-title">
           <div style="width: 110px; height: 110px; overflow: hidden; display: flex; align-items: center; justify-content: center;">
@@ -226,11 +485,16 @@
           <div class="author-list">
             Yen-Shan Chen, <span class="me">Shih-Yu Lai</span>, Ying-Jung Tsou, Yi-Cheng Lin, Bing-Yu Chen, Yun-Nung Chen, Hung-Yi Lee, Shang-Tse Chen
           </div>
+          <div class="pub-tags">
+            <span class="tag-chip tag-AI">#AI</span>
+            <span class="tag-chip tag-Audio">#Audio</span>
+            <span class="tag-chip tag-DSP">#DSP</span>
+          </div>
         </span>
       </div>
     </div>
 
-    <div class="skillset">
+    <div class="skillset" data-pub-item data-tags="AI,HPC,Graph">
       <div class="item">
         <h3 class="level-title">
           <div style="width: 110px; height: 110px; overflow: hidden; display: flex; align-items: center; justify-content: center;">
@@ -246,11 +510,16 @@
           <div class="author-list">
             <span class="me">Shih-Yu Lai</span>, Fukuharu Tanaka, Hamada Rizk, Hirozumi Yamaguchi
           </div>
+          <div class="pub-tags">
+            <span class="tag-chip tag-AI">#AI</span>
+            <span class="tag-chip tag-HPC">#HPC</span>
+            <span class="tag-chip tag-Graph">#Graph</span>
+          </div>
         </span>
       </div>
     </div>
 
-    <div class="skillset">
+    <div class="skillset" data-pub-item data-tags="AI,Robotics,Graphics,Graph,RL,PhysicsInformedML">
       <div class="item">
         <h3 class="level-title">
           <img height="110" src="assets/images/DASTGCN-SNN-DDPG.png" alt="DASTGCN-SNN-DDPG teaser" />
@@ -264,11 +533,19 @@
           <div class="author-list">
             <span class="me">Shih-Yu Lai</span>, Chia-Ching Yen, Yang-Ting Shen, Bing-Yu Chen
           </div>
+          <div class="pub-tags">
+            <span class="tag-chip tag-AI">#AI</span>
+            <span class="tag-chip tag-Robotics">#Robotics</span>
+            <span class="tag-chip tag-Graphics">#Graphics</span>
+            <span class="tag-chip tag-Graph">#Graph</span>
+            <span class="tag-chip tag-RL">#RL</span>
+            <span class="tag-chip tag-PhysicsInformedML">#Physics-informed ML</span>
+          </div>
         </span>
       </div>
     </div>
 
-    <div class="skillset">
+    <div class="skillset" data-pub-item data-tags="AI,Robotics,Graphics,Graph,RL">
       <div class="item">
         <h3 class="level-title">
           <img height="110" src="assets/images/GAT-DQN.png" alt="GAT-DQN teaser" />
@@ -282,6 +559,13 @@
           <div class="author-list">
             <span class="me">Shih-Yu Lai</span>, Chia-Ching Yen, Yang-Ting Shen, Bing-Yu Chen
           </div>
+          <div class="pub-tags">
+            <span class="tag-chip tag-AI">#AI</span>
+            <span class="tag-chip tag-Robotics">#Robotics</span>
+            <span class="tag-chip tag-Graphics">#Graphics</span>
+            <span class="tag-chip tag-Graph">#Graph</span>
+            <span class="tag-chip tag-RL">#RL</span>
+          </div>
         </span>
       </div>
     </div>
@@ -292,7 +576,7 @@
   <h3 class="job-title">Others (6)</h3>
   <div class="details">
 
-    <div class="skillset">
+    <div class="skillset" data-pub-item data-tags="AI,Graph,RL">
       <div class="item">
         <h3 class="level-title">
           <img height="110" src="assets/images/M3.png" alt="M3 teaser" />
@@ -306,11 +590,16 @@
           <div class="author-list">
             <span class="me">Shih-Yu Lai</span>, Tzu-Hsin Hsieh, Pei-Chi Tsai, Chao-Chun Kung, Sing-Kai Ling, Hsun-Ping Hsieh
           </div>
+          <div class="pub-tags">
+            <span class="tag-chip tag-AI">#AI</span>
+            <span class="tag-chip tag-Graph">#Graph</span>
+            <span class="tag-chip tag-RL">#RL</span>
+          </div>
         </span>
       </div>
     </div>
 
-    <div class="skillset">
+    <div class="skillset" data-pub-item data-tags="AI">
       <div class="item">
         <h3 class="level-title">
           <img height="110" src="assets/images/LINKin-PARK.png" alt="LINKin-PARK teaser" />
@@ -324,11 +613,14 @@
           <div class="author-list">
             Teng-Yuan Tsou, <span class="me">Shih-Yu Lai</span>, Hsuan-Ching Chen, Jung-Tsang Yeh, Pei-Xuan Li, Tzu-Chang Lee, Hsun-Ping Hsieh
           </div>
+          <div class="pub-tags">
+            <span class="tag-chip tag-AI">#AI</span>
+          </div>
         </span>
       </div>
     </div>
 
-    <div class="skillset">
+    <div class="skillset" data-pub-item data-tags="AI,Graph">
       <div class="item">
         <h3 class="level-title">
           <img height="110" src="assets/images/GreenSpot.png" alt="GreenSpot teaser" />
@@ -342,11 +634,15 @@
           <div class="author-list">
             <span class="me">Shih-Yu Lai</span>, Tzu-Hsin Hsieh, Sing-Kai Ling, Pei-Chi Tsai, Chao-Chun Kung, Hsun-Ping Hsieh
           </div>
+          <div class="pub-tags">
+            <span class="tag-chip tag-AI">#AI</span>
+            <span class="tag-chip tag-Graph">#Graph</span>
+          </div>
         </span>
       </div>
     </div>
 
-    <div class="skillset">
+    <div class="skillset" data-pub-item data-tags="AI">
       <div class="item">
         <h3 class="level-title">
           <img height="110" src="assets/images/ACCEPT.png" alt="ACCEPT teaser" />
@@ -360,11 +656,14 @@
           <div class="author-list">
             Teng-Yuan Tsou, <span class="me">Shih-Yu Lai</span>, Jung-Tsang Yeh, Hsuan-Ching Chen, Pei-Xuan Li, Tzu-Chang Lee, Hsun-Ping Hsieh
           </div>
+          <div class="pub-tags">
+            <span class="tag-chip tag-AI">#AI</span>
+          </div>
         </span>
       </div>
     </div>
 
-    <div class="skillset">
+    <div class="skillset" data-pub-item data-tags="AI">
       <div class="item">
         <h3 class="level-title">
           <img height="110" src="assets/images/FootprintsofTravel.png" alt="Footprints of Travel teaser" />
@@ -378,11 +677,14 @@
           <div class="author-list">
             <span class="me">Shih-Yu Lai</span>, Dai-En Liu, Zong-Fan Yeh, Chun-Che Hsu, Fu-Yao Chang, Ming-Zhi Tsai, Ruei-Hong Lin
           </div>
+          <div class="pub-tags">
+            <span class="tag-chip tag-AI">#AI</span>
+          </div>
         </span>
       </div>
     </div>
 
-    <div class="skillset">
+    <div class="skillset" data-pub-item data-tags="AI">
       <div class="item">
         <h3 class="level-title">
           <img height="110" src="assets/images/UrbanCrowds.png" alt="UrbanCrowds teaser" />
@@ -396,6 +698,9 @@
           <div class="author-list">
             Hsun-Ping Hsieh, Tzu-Chang Lee, <span class="me">Shih-Yu Lai</span>, Pei-Chi Tsai, Tzu-Hsin Hsieh
           </div>
+          <div class="pub-tags">
+            <span class="tag-chip tag-AI">#AI</span>
+          </div>
         </span>
       </div>
     </div>
@@ -405,6 +710,13 @@
 
 </body>
 </html>
+</div><!--//pub-date-view-->
+
+<!-- ============ View B: By Tag (regrouped, populated by JS) ============ -->
+<div class="pub-group-view" id="pub-group-view"></div>
+
+<!-- Empty state when filters select nothing -->
+<div class="pub-empty" id="pub-empty">No publications match the selected tags.</div>
     
 <section class="section poster-theses-section">
 <h2 class="section-title"><span class="icon-holder"><i class="fas fa-archive"></i></span>Thesis</h2>
@@ -873,6 +1185,160 @@
     
     })();
     </script>
+
+<!-- ============ Publication view toggle + tag filter logic ============ -->
+<script>
+(function () {
+  const TAG_LABELS = {
+    AI: "#AI",
+    Robotics: "#Robotics",
+    Graphics: "#Graphics",
+    HPC: "#HPC",
+    Audio: "#Audio",
+    Graph: "#Graph",
+    RL: "#RL",
+    DSP: "#DSP",
+    PhysicsInformedML: "#Physics-informed ML"
+  };
+  const TAG_ORDER = ["AI", "Robotics", "Graphics", "HPC", "Audio", "Graph", "RL", "DSP", "PhysicsInformedML"];
+
+  const dateView    = document.getElementById("pub-date-view");
+  const groupView   = document.getElementById("pub-group-view");
+  const filterBar   = document.getElementById("pub-filter-bar");
+  const emptyMsg    = document.getElementById("pub-empty");
+  const btnDate     = document.getElementById("btn-view-date");
+  const btnTag      = document.getElementById("btn-view-tag");
+  const clearBtn    = document.getElementById("pub-clear");
+
+  if (!dateView || !groupView) return;
+
+  // Collect every publication item with its tags
+  const items = Array.from(dateView.querySelectorAll(".skillset[data-pub-item]"))
+    .map((node) => ({
+      node,
+      tags: (node.getAttribute("data-tags") || "").split(",").map(s => s.trim()).filter(Boolean)
+    }));
+
+  const selected = new Set();
+
+  // Build the grouped-by-tag view structure
+  function buildGroupView() {
+    groupView.innerHTML = "";
+    TAG_ORDER.forEach(tag => {
+      const matched = items.filter(it => it.tags.includes(tag));
+      if (matched.length === 0) return;
+
+      const group = document.createElement("div");
+      group.className = "pub-group";
+      group.setAttribute("data-group-tag", tag);
+
+      const header = document.createElement("div");
+      header.className = "pub-group-header";
+      const chip = document.createElement("span");
+      chip.className = "tag-chip tag-" + tag;
+      chip.textContent = TAG_LABELS[tag];
+      const count = document.createElement("span");
+      count.className = "pub-group-count";
+      count.textContent = matched.length + " paper" + (matched.length === 1 ? "" : "s");
+      header.appendChild(chip);
+      header.appendChild(count);
+      group.appendChild(header);
+
+      matched.forEach(it => {
+        // Clone node into the grouped view (so toggling between views remains lossless)
+        const clone = it.node.cloneNode(true);
+        clone.setAttribute("data-clone", "1");
+        group.appendChild(clone);
+      });
+
+      groupView.appendChild(group);
+    });
+  }
+
+  // Apply filter selection to currently visible view
+  function applyFilter() {
+    const sel = Array.from(selected);
+    const tagMode = groupView.classList.contains("active");
+
+    let anyVisible = false;
+
+    if (tagMode) {
+      // In tag mode, each group corresponds to one tag.
+      // If filters are selected, only show groups whose tag is selected.
+      // Within each visible group, show all items belonging to that tag.
+      groupView.querySelectorAll(".pub-group").forEach(group => {
+        const t = group.getAttribute("data-group-tag");
+        const groupVisible = sel.length === 0 || selected.has(t);
+        group.style.display = groupVisible ? "" : "none";
+        if (groupVisible) anyVisible = true;
+      });
+    } else {
+      // In date mode, show items whose tags intersect with selected (OR logic).
+      // If no filter is selected, show everything.
+      items.forEach(it => {
+        const matches = sel.length === 0 || it.tags.some(t => selected.has(t));
+        it.node.classList.toggle("is-hidden", !matches);
+        if (matches) anyVisible = true;
+      });
+    }
+
+    emptyMsg.classList.toggle("active", !anyVisible);
+  }
+
+  // Toggle a filter chip
+  function setupChips() {
+    filterBar.querySelectorAll(".filter-chip").forEach(chip => {
+      chip.addEventListener("click", () => {
+        const tag = chip.getAttribute("data-tag");
+        if (selected.has(tag)) {
+          selected.delete(tag);
+          chip.classList.remove("selected");
+        } else {
+          selected.add(tag);
+          chip.classList.add("selected");
+        }
+        applyFilter();
+      });
+    });
+    clearBtn.addEventListener("click", () => {
+      selected.clear();
+      filterBar.querySelectorAll(".filter-chip.selected").forEach(c => c.classList.remove("selected"));
+      applyFilter();
+    });
+  }
+
+  function switchToDate() {
+    btnDate.classList.add("active");
+    btnTag.classList.remove("active");
+    btnDate.setAttribute("aria-pressed", "true");
+    btnTag.setAttribute("aria-pressed", "false");
+    dateView.classList.remove("is-hidden");
+    groupView.classList.remove("active");
+    filterBar.classList.remove("active");
+    // Reset filter when switching back to chronological view
+    selected.clear();
+    filterBar.querySelectorAll(".filter-chip.selected").forEach(c => c.classList.remove("selected"));
+    applyFilter();
+  }
+
+  function switchToTag() {
+    btnTag.classList.add("active");
+    btnDate.classList.remove("active");
+    btnTag.setAttribute("aria-pressed", "true");
+    btnDate.setAttribute("aria-pressed", "false");
+    dateView.classList.add("is-hidden");
+    groupView.classList.add("active");
+    filterBar.classList.add("active");
+    applyFilter();
+  }
+
+  // Init
+  buildGroupView();
+  setupChips();
+  btnDate.addEventListener("click", switchToDate);
+  btnTag.addEventListener("click", switchToTag);
+})();
+</script>
 
 <script src="https://unpkg.com/twemoji@latest/dist/twemoji.min.js" crossorigin="anonymous"></script>
 <script>
