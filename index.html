@@ -24,35 +24,45 @@
 <style>
   /* ---------- Adaptive page width ---------- */
   html, body { overflow-x: hidden; }
+
+  /* Restored from the (removed) nested style block in publications */
+  .author-list { font-size: 0.9em; color: #555; margin-top: 4px; }
+  .author-list .me { font-weight: bold; color: #222; }
   .wrapper {
-    max-width: 1600px !important;
+    max-width: none !important;
     width: 100% !important;
-    margin: 0 auto !important;
+    margin: 30px 0 0 0 !important;
     box-sizing: border-box;
   }
+  /* The sidebar uses position:absolute; right:0 of the wrapper, so when
+     the wrapper fills the viewport, the sidebar pins to the right edge.
+     We bump its width on larger viewports and match main-wrapper padding. */
   @media (min-width: 992px) {
-    .wrapper {
-      display: flex !important;
-      align-items: stretch;
-      gap: 0;
-    }
     .sidebar-wrapper {
-      width: 320px !important;
-      min-width: 280px;
-      max-width: 360px;
-      flex: 0 0 auto;
-      box-sizing: border-box;
+      width: 280px !important;
     }
     .main-wrapper {
-      flex: 1 1 auto !important;
-      width: auto !important;
-      max-width: none !important;
-      min-width: 0;
-      box-sizing: border-box;
+      padding-right: 320px !important;
+      padding-left: 60px !important;
     }
   }
   @media (min-width: 1400px) {
-    .sidebar-wrapper { width: 360px !important; max-width: 400px; }
+    .sidebar-wrapper {
+      width: 340px !important;
+    }
+    .main-wrapper {
+      padding-right: 380px !important;
+      padding-left: 80px !important;
+    }
+  }
+  @media (min-width: 1800px) {
+    .sidebar-wrapper {
+      width: 380px !important;
+    }
+    .main-wrapper {
+      padding-right: 420px !important;
+      padding-left: 100px !important;
+    }
   }
   /* Container blocks inside main shouldn't overflow */
   .main-wrapper .section,
@@ -419,32 +429,11 @@
 
 <!-- ============ View A: By Date (original chronological grouping) ============ -->
 <div class="pub-date-view" id="pub-date-view">
-<div class="item">
-
-
-<!DOCTYPE html>
-<html>
-<head>
-<meta charset="UTF-8">
-<style>
-  .author-list {
-    font-size: 0.9em;
-    color: #555;
-    margin-top: 4px;
-  }
-  .author-list .me {
-    font-weight: bold;
-    color: #222;
-  }
-</style>
-</head>
-<body>
-
 <div class="details">
   <div class="item">
     <h3 class="job-title">Selected (5)</h3>
 
-    <div class="skillset" data-pub-item data-tags="AI,Robotics,RL">
+    <div class="skillset" data-pub-item data-tags="AI,Robotics">
       <div class="item">
         <h3 class="level-title">
           <div style="width: 110px; height: 110px; overflow: hidden; display: flex; align-items: center; justify-content: center;">
@@ -463,7 +452,6 @@
           <div class="pub-tags">
             <span class="tag-chip tag-AI">#AI</span>
             <span class="tag-chip tag-Robotics">#Robotics</span>
-            <span class="tag-chip tag-RL">#RL</span>
           </div>
         </span>
       </div>
@@ -708,8 +696,6 @@
   </div>
 </div>
 
-</body>
-</html>
 </div><!--//pub-date-view-->
 
 <!-- ============ View B: By Tag (regrouped, populated by JS) ============ -->
