@@ -17,10 +17,13 @@
   html, body { overflow-x: hidden; }
 
   /* ============================================================
-     GLOBAL BACKGROUND — one continuous gradient over the entire
-     page. Dark band only at the very top; long tail of white.
+     GLOBAL BACKGROUND — gradient scrolls with the document.
+     The dark band is anchored to the top of the page, and as the
+     reader scrolls past ~680px (right after the opening quote),
+     everything below becomes pure white.
      ============================================================ */
-  html {
+  html { background: #ffffff !important; }
+  body {
     background:
       linear-gradient(
         180deg,
@@ -33,14 +36,13 @@
         #c4c4c8 440px,
         #e2e2e4 520px,
         #f4f4f5 600px,
-        #ffffff 680px,
-        #ffffff 100%
+        #ffffff 680px
       ) !important;
-    background-attachment: fixed !important;
+    background-color: #ffffff !important;
     background-repeat: no-repeat !important;
+    background-attachment: scroll !important;
     min-height: 100vh;
   }
-  body { background: transparent !important; }
 
   /* ============================================================
      KILL the inherited orbit-6 "panel" look:
