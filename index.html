@@ -3,54 +3,52 @@
 <html lang="en">
 <head>
 <title>Shih-Yu Lai</title>
-<!-- Meta -->
 <meta charset="utf-8"/>
 <meta content="IE=edge" http-equiv="X-UA-Compatible"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
 <meta content="Responsive HTML5 Resume/CV Template for Developers" name="description"/>
 <meta content="Xiaoying Riley at 3rd Wave Media" name="author"/>
-<!-- Google Font -->
 <link href="https://fonts.googleapis.com/css?family=Roboto:400,500,400italic,300italic,300,500italic,700,700italic,900,900italic" rel="stylesheet" type="text/css"/>
-<!-- FontAwesome JS -->
 <script crossorigin="anonymous" defer="" integrity="sha384-3LK/3kTpDE/Pkp8gTNp2gR/2gOiwQ6QaO7Td0zV76UFJVhqLl4Vl3KL1We6q6wR9" src="https://use.fontawesome.com/releases/v5.1.0/js/all.js"></script>
-<!-- Global CSS -->
 <link href="assets/plugins/bootstrap/css/bootstrap.min.css" rel="stylesheet"/>
-<!-- Theme CSS -->
 <link href="assets/css/orbit-6.css" id="theme-style" rel="stylesheet"/>
 
 <style>
   html, body { overflow-x: hidden; }
 
-  /* GLOBAL BLACK -> WHITE GRADIENT BACKGROUND */
+  /* ============================================================
+     GLOBAL BACKGROUND — light overall, only a narrow dark strip
+     at the very top.
+     ============================================================ */
   body {
-    background: linear-gradient(
-      180deg,
-      #0d0d10 0%,
-      #1a1a1f 8%,
-      #2a2a30 16%,
-      #4a4a52 28%,
-      #7a7a82 42%,
-      #b0b0b6 58%,
-      #d8d8dc 72%,
-      #ececef 84%,
-      #ffffff 100%
-    ) !important;
+    background:
+      linear-gradient(
+        180deg,
+        #14141a 0%,
+        #14141a 4%,
+        #2a2a32 8%,
+        #4f4f58 12%,
+        #8a8a92 16%,
+        #c0c0c4 20%,
+        #e6e6e8 24%,
+        #f6f6f7 28%,
+        #ffffff 34%,
+        #ffffff 100%
+      ) !important;
     background-attachment: fixed !important;
     background-repeat: no-repeat !important;
     min-height: 100vh;
   }
+
+  /* Sidebar transparent — gradient shows through behind avatar */
   .sidebar-wrapper {
     background: transparent !important;
     color: #ffffff !important;
   }
-  .sidebar-wrapper .name,
-  .sidebar-wrapper .tagline,
   .sidebar-wrapper .container-block-title,
   .sidebar-wrapper .degree,
   .sidebar-wrapper .meta,
   .sidebar-wrapper .time,
-  .sidebar-wrapper .contact-list a,
-  .sidebar-wrapper .contact-list i,
   .sidebar-wrapper .portrait-duality {
     color: #ffffff !important;
   }
@@ -60,12 +58,12 @@
   .sidebar-wrapper a { color: #ffffff !important; }
   .sidebar-wrapper a:hover { color: #c49be5 !important; }
 
-  /* Main content as a white card on lighter portion of gradient */
+  /* Main content as a white card on the light portion of gradient */
   .main-wrapper {
     background: #ffffff;
     border-radius: 18px 18px 0 0;
     box-shadow: 0 -8px 40px rgba(0,0,0,0.06);
-    padding-top: 50px !important;
+    padding-top: 0 !important;
     padding-bottom: 60px !important;
   }
   .footer .copyright { color: #555 !important; }
@@ -78,6 +76,7 @@
     margin: 30px 0 0 0 !important;
     box-sizing: border-box;
   }
+
   @media (min-width: 992px) {
     .sidebar-wrapper { width: 280px !important; }
     .main-wrapper {
@@ -104,6 +103,65 @@
   img { max-width: 100%; height: auto; }
   .project-tagline { display: block; }
 
+  /* ============================================================
+     SIDEBAR — only avatar + education on desktop.
+     (Name + taglines removed; brand sits in top-nav instead.)
+     ============================================================ */
+  .sidebar-wrapper .profile-container {
+    padding: 30px 22px 18px 22px !important;
+    background: transparent !important;
+    text-align: center;
+  }
+  .sidebar-wrapper .profile-container img.profile,
+  .sidebar-wrapper #profile-photo {
+    display: block;
+    margin: 0 auto 10px auto !important;
+    width: 200px !important;
+    height: 200px !important;
+    max-width: 80%;
+    border-radius: 50%;
+    object-fit: cover;
+    border: none !important;
+    box-shadow: 0 6px 24px rgba(0,0,0,0.25);
+  }
+  .sidebar-wrapper .portrait-duality {
+    text-align: center;
+    font-size: 12px;
+    margin: 6px 0 0 0;
+    opacity: 0.75;
+  }
+
+  /* Education styling inside sidebar */
+  .sidebar-wrapper .education-container {
+    padding: 18px 22px 24px 22px;
+  }
+  .sidebar-wrapper .education-container .container-block-title {
+    text-align: center;
+    font-size: 14px;
+    letter-spacing: 0.08em;
+    padding-bottom: 8px;
+    border-bottom: 1px solid rgba(255,255,255,0.18);
+  }
+  .sidebar-wrapper .education-container .item {
+    text-align: center;
+    margin-top: 14px;
+  }
+  .sidebar-wrapper .education-container .degree {
+    font-size: 13px;
+    line-height: 1.45;
+    color: #ffffff;
+    margin: 0 0 4px 0;
+  }
+  .sidebar-wrapper .education-container .meta {
+    font-size: 12.5px;
+    color: rgba(255,255,255,0.78) !important;
+    margin: 0 0 2px 0;
+  }
+  .sidebar-wrapper .education-container .time {
+    font-size: 12px;
+    color: rgba(255,255,255,0.70) !important;
+  }
+
   /* RESPONSIVE SIDEBAR — stacked + centered on narrow screens */
   @media (max-width: 991px) {
     .wrapper { position: relative; }
@@ -114,7 +172,7 @@
       margin: 0 auto !important;
       right: auto !important;
       top: auto !important;
-      padding: 28px 22px 30px 22px !important;
+      padding: 18px 22px 10px 22px !important;
       box-sizing: border-box;
       text-align: center;
     }
@@ -125,79 +183,62 @@
       margin: 0 auto;
     }
     .sidebar-wrapper .profile-container {
-      text-align: center;
-      padding: 0 0 18px 0;
+      padding: 6px 0 12px 0 !important;
     }
     .sidebar-wrapper .profile-container img.profile,
     .sidebar-wrapper #profile-photo {
-      display: block;
-      margin: 0 auto 18px auto !important;
-      width: 220px !important;
-      height: 220px !important;
-      max-width: 60vw;
-      max-height: 60vw;
-      border-radius: 50% !important;
-      object-fit: cover;
-      border: none !important;
+      width: 200px !important;
+      height: 200px !important;
+      max-width: 55vw;
+      max-height: 55vw;
     }
-    .sidebar-wrapper .portrait-duality {
-      text-align: center;
-      font-size: 12px;
-      margin-top: -6px;
-      margin-bottom: 14px;
-      opacity: 0.7;
+    .sidebar-wrapper .education-container {
+      padding: 8px 0 18px 0;
     }
-    .sidebar-wrapper .name {
-      text-align: center;
-      font-size: 28px;
-      margin: 6px 0 6px 0;
-    }
-    .sidebar-wrapper .tagline {
-      text-align: center;
-      font-size: 14px;
-      margin: 2px 0;
-    }
-    .sidebar-wrapper .container-block-title { text-align: center; }
-    .sidebar-wrapper .education-container .item { text-align: center; }
   }
 
-  /* HORIZONTAL CONTACT BAR (CV / Email / Scholar / LinkedIn / GitHub) */
-  .contact-container .contact-list {
-    list-style: none !important;
-    padding: 0 !important;
-    margin: 18px 0 0 0 !important;
-    display: flex !important;
-    flex-direction: row !important;
+  /* ============================================================
+     HORIZONTAL CONTACT BAR — moved into main content (top of card).
+     Lives outside the sidebar so it gets the full main-wrapper width
+     and will never get clipped by the narrow sidebar column.
+     ============================================================ */
+  .contact-bar {
+    display: flex;
+    flex-direction: row;
     flex-wrap: wrap;
-    justify-content: center !important;
+    justify-content: center;
     align-items: center;
-    gap: 18px 22px;
+    gap: 14px 24px;
+    padding: 26px 20px 4px 20px;
+    list-style: none;
+    margin: 0;
   }
-  .contact-container .contact-list li {
-    display: inline-flex !important;
+  .contact-bar li {
+    display: inline-flex;
     align-items: center;
-    gap: 6px;
-    text-align: left !important;
-    margin: 0 !important;
-    padding: 0 !important;
+    gap: 7px;
     font-size: 14px;
     line-height: 1;
     white-space: nowrap;
+    margin: 0;
+    padding: 0;
   }
-  .contact-container .contact-list li i {
+  .contact-bar li i {
     font-size: 14px;
-    opacity: 0.9;
+    color: #6b6b76;
   }
-  .contact-container .contact-list li a {
+  .contact-bar li a {
+    color: #2a2a2a;
     text-decoration: none;
     font-weight: 500;
   }
-  .contact-container .contact-list li a:hover {
+  .contact-bar li a:hover {
+    color: #6b3aa6;
     text-decoration: underline;
   }
   @media (max-width: 600px) {
-    .contact-container .contact-list { gap: 12px 16px; }
-    .contact-container .contact-list li { font-size: 13px; }
+    .contact-bar { gap: 10px 18px; padding: 18px 12px 0 12px; }
+    .contact-bar li { font-size: 13px; }
   }
 
   /* Publications filter controls */
@@ -348,7 +389,7 @@
     .pub-filter-label { min-width: 0; }
   }
 
-  /* PUBLICATION ACTION BUTTONS — pill icon buttons (PDF / Cite) */
+  /* Publication action buttons — pill icon buttons */
   .pub-actions {
     display: inline-flex;
     flex-wrap: wrap;
@@ -420,7 +461,7 @@
   .about-details > p, .about-details > ul { margin-bottom: 14px; }
   .about-details > p:first-of-type, .about-details > ul:first-of-type { margin-top: 4px; }
 
-  /* Music expandable block (sits in About section after Projects/Community Services) */
+  /* Music expandable */
   .music-details {
     margin: 14px 0;
     border: 1px solid #ece9f2;
@@ -472,7 +513,7 @@
     border: 0;
   }
 
-  /* Top navigation bar (dark glass) */
+  /* Top navigation bar (dark glass on the thin dark strip) */
   .top-nav {
     position: fixed;
     top: 0; left: 0; right: 0;
@@ -484,9 +525,17 @@
     transition: background 0.25s ease, box-shadow 0.25s ease;
   }
   .top-nav.scrolled {
-    background: rgba(15, 15, 20, 0.92);
-    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.30);
+    background: rgba(255, 255, 255, 0.94);
+    border-bottom: 1px solid rgba(0,0,0,0.06);
+    box-shadow: 0 2px 12px rgba(0,0,0,0.06);
   }
+  .top-nav.scrolled .top-nav-brand { color: #2a2a2a; }
+  .top-nav.scrolled .top-nav-brand .brand-zh { color: #7a7a7a; }
+  .top-nav.scrolled .top-nav-links a { color: #6b6b76; }
+  .top-nav.scrolled .top-nav-links a:hover { color: #2a2a2a; background: rgba(196,155,229,0.10); }
+  .top-nav.scrolled .top-nav-links a.active { color: #6b3aa6; }
+  .top-nav.scrolled .top-nav-toggle { color: #2a2a2a; border-color: rgba(0,0,0,0.12); }
+
   .top-nav-inner {
     max-width: 1600px;
     margin: 0 auto;
@@ -503,6 +552,7 @@
     letter-spacing: -0.01em;
     white-space: nowrap;
     text-decoration: none;
+    transition: color 0.25s ease;
   }
   .top-nav-brand:hover { color: #c49be5; text-decoration: none; }
   .top-nav-brand .brand-zh {
@@ -510,6 +560,7 @@
     color: rgba(255,255,255,0.65);
     margin-left: 8px;
     font-size: 14px;
+    transition: color 0.25s ease;
   }
   .top-nav-links {
     display: flex;
@@ -526,10 +577,10 @@
     font-weight: 600;
     letter-spacing: 0.04em;
     text-transform: uppercase;
-    color: rgba(255,255,255,0.70);
+    color: rgba(255,255,255,0.78);
     text-decoration: none;
     border-radius: 8px;
-    transition: all 0.18s ease;
+    transition: color 0.25s ease, background 0.18s ease;
     position: relative;
   }
   .top-nav-links a:hover {
@@ -573,6 +624,10 @@
       min-width: 180px;
       display: none;
     }
+    .top-nav.scrolled .top-nav-links {
+      background: #fff;
+      border-color: rgba(0,0,0,0.08);
+    }
     .top-nav-links.open { display: flex; }
     .top-nav-links a { padding: 10px 14px; }
     .top-nav-links a.active::after { display: none; }
@@ -605,44 +660,45 @@
 
 <div class="wrapper">
 <div class="sidebar-wrapper">
+
+<!-- ONLY: profile photo + education. Name/taglines removed. -->
 <div class="profile-container">
     <img id="profile-photo"
-    alt="Shih-Yu Lai"
-    class="profile"
-    height="150"
-    src="assets/images/Shih_YuLai2024.JPG"
-    style="cursor:default;"
-/>
-<p class="portrait-duality">Scientist me × Artist me (Hover over)</p>
-<h1 class="name">Shih-Yu Lai</h1>
-<h3 class="tagline">National Taiwan University (CSIE, AI Program)</h3>
-<h3 class="tagline">賴溡雨</h3>
-<h3 class="tagline">CS Graduate Student · AI Researcher</h3>
-</div>
-
-<!-- Horizontal contact bar: CV | Email | Google Scholar | LinkedIn | GitHub -->
-<div class="contact-container container-block">
-    <ul class="list-unstyled contact-list">
-        <li class="cv"><i class="fas fa-file-alt"></i><a href="assets/CV/Shih_YuLai_CV.pdf" target="_blank">CV</a></li>
-        <li class="email"><i class="fas fa-envelope"></i><a href="mailto:akinesia112@gmail.com">Email</a></li>
-        <li class="scholar"><i class="fas fa-graduation-cap"></i><a href="https://scholar.google.com/citations?user=VByo09gAAAAJ&hl=en" target="_blank">Google Scholar</a></li>
-        <li class="linkedin"><i class="fab fa-linkedin-in"></i><a href="https://www.linkedin.com/in/shih-yu-lai" target="_blank">LinkedIn</a></li>
-        <li class="github"><i class="fab fa-github"></i><a href="https://github.com/Akinesia112" target="_blank">GitHub</a></li>
-    </ul>
+         alt="Shih-Yu Lai"
+         class="profile"
+         src="assets/images/Shih_YuLai2024.JPG"
+         style="cursor:default;" />
+    <p class="portrait-duality">Scientist me × Artist me (hover)</p>
 </div>
 
 <div class="education-container container-block">
 <h2 class="container-block-title">Education</h2>
-<div class="item"><h4 class="degree">M.S. in Computer Science and Information Engineering (AI Program)</h4><h5 class="meta">National Taiwan University</h5><div class="time">Feb. 2025 – Expected Jun. 2027</div></div>
+<div class="item">
+  <h4 class="degree">M.S. in Computer Science and Information Engineering (AI Program)</h4>
+  <h5 class="meta">National Taiwan University</h5>
+  <div class="time">Feb. 2025 – Expected Jun. 2027</div>
 </div>
+</div>
+
 </div><!--//sidebar-wrapper-->
 
 <div class="main-wrapper">
+
+<!-- Contact bar lives at the top of the main (white) area so it has
+     full width and won't get clipped at any viewport. -->
+<ul class="contact-bar">
+    <li><i class="fas fa-file-alt"></i><a href="assets/CV/Shih_YuLai_CV.pdf" target="_blank">CV</a></li>
+    <li><i class="fas fa-envelope"></i><a href="mailto:akinesia112@gmail.com">Email</a></li>
+    <li><i class="fas fa-graduation-cap"></i><a href="https://scholar.google.com/citations?user=VByo09gAAAAJ&hl=en" target="_blank">Google Scholar</a></li>
+    <li><i class="fab fa-linkedin-in"></i><a href="https://www.linkedin.com/in/shih-yu-lai" target="_blank">LinkedIn</a></li>
+    <li><i class="fab fa-github"></i><a href="https://github.com/Akinesia112" target="_blank">GitHub</a></li>
+</ul>
+
 <section class="section summary-section" id="about">
     <p class="opening-quote">
         ‘Science plus arts multiplied by faith then divided by the number of our ethnic race.’
         <span class="opening-quote-src">— Nujabes, feat. Shing02, <i>Luv(sic) pt2</i> </span>
-      </p>
+    </p>
           
 <h2 class="section-title"><span class="icon-holder"><i class="fas fa-user"></i></span>About Myself</h2>
 <div class="summary">
@@ -722,7 +778,6 @@
     </p>
 </details>
 
-<!-- Music block placed AFTER Projects/Community Services -->
 <details class="music-details">
     <summary><strong>Music — YouTube Playlist</strong></summary>
     <p class="music-note">Update sometimes, depends on your donation or my mood.</p>
@@ -1104,6 +1159,8 @@
 
 <div class="pub-group-view" id="pub-group-view"></div>
 <div class="pub-empty" id="pub-empty">No publications match the selected tags.</div>
+
+</section>
     
 <section class="section poster-theses-section" id="thesis">
 <h2 class="section-title"><span class="icon-holder"><i class="fas fa-archive"></i></span>Thesis</h2>
@@ -1221,6 +1278,7 @@
 </ul>
 </div>
 </div>
+</section>
 
 <section class="section honors-section" id="honors">
     <h2 class="section-title"><span class="icon-holder"><i class="fas fa-trophy"></i></span>Honors &amp; Awards</h2>
@@ -1304,8 +1362,6 @@
     </div>
 </section>
 
-</section>
-
 <section class="section experiences-section" id="service">
 <h2 class="section-title"><span class="icon-holder"><i class="fas fa-briefcase"></i></span>Academic &amp; Community Service</h2>
 <div class="item">
@@ -1365,7 +1421,7 @@
 </div><!--//wrapper-->
 
 <div style="width:300px; max-width:100%; margin:0 auto;">
-      <script type='text/javascript' id='clustrmaps' src='//cdn.clustrmaps.com/map_v2.js?cl=7a7a7a&w=a&t=n&d=vB-nhNKOa7tb-GN0q-od_1fdnb6k3CWPehxCb6YERlg&co=000000&cmo=dfcbef&cmn=2f9ebf'></script>
+  <script type='text/javascript' id='clustrmaps' src='//cdn.clustrmaps.com/map_v2.js?cl=7a7a7a&w=a&t=n&d=vB-nhNKOa7tb-GN0q-od_1fdnb6k3CWPehxCb6YERlg&co=000000&cmo=dfcbef&cmn=2f9ebf'></script>
 </div>  
 <footer class="footer">
 <div class="text-center">
@@ -1522,17 +1578,13 @@
   const btnDate     = document.getElementById("btn-view-date");
   const btnTag      = document.getElementById("btn-view-tag");
   const clearBtn    = document.getElementById("pub-clear");
-
   if (!dateView || !groupView) return;
-
   const items = Array.from(dateView.querySelectorAll(".skillset[data-pub-item]"))
     .map((node) => ({
       node,
       tags: (node.getAttribute("data-tags") || "").split(",").map(s => s.trim()).filter(Boolean)
     }));
-
   const selected = new Set();
-
   function buildGroupView() {
     groupView.innerHTML = "";
     TAG_ORDER.forEach(tag => {
@@ -1560,7 +1612,6 @@
       groupView.appendChild(group);
     });
   }
-
   function applyFilter() {
     const sel = Array.from(selected);
     const tagMode = groupView.classList.contains("active");
@@ -1581,7 +1632,6 @@
     }
     emptyMsg.classList.toggle("active", !anyVisible);
   }
-
   function setupChips() {
     filterBar.querySelectorAll(".filter-chip").forEach(chip => {
       chip.addEventListener("click", () => {
@@ -1597,7 +1647,6 @@
       applyFilter();
     });
   }
-
   function switchToDate() {
     btnDate.classList.add("active");
     btnTag.classList.remove("active");
@@ -1610,7 +1659,6 @@
     filterBar.querySelectorAll(".filter-chip.selected").forEach(c => c.classList.remove("selected"));
     applyFilter();
   }
-
   function switchToTag() {
     btnTag.classList.add("active");
     btnDate.classList.remove("active");
@@ -1621,7 +1669,6 @@
     filterBar.classList.add("active");
     applyFilter();
   }
-
   buildGroupView();
   setupChips();
   btnDate.addEventListener("click", switchToDate);
@@ -1631,7 +1678,13 @@
 
 <script src="https://unpkg.com/twemoji@latest/dist/twemoji.min.js" crossorigin="anonymous"></script>
 <script>
-  window.addEventListener('load', function() { twemoji.parse(document.body); });
+  // Only parse emoji inside specific containers that actually need flag rendering.
+  // Avoids Twemoji incorrectly transforming nearby text content.
+  window.addEventListener('load', function() {
+    document.querySelectorAll('.summary, .opening-quote').forEach(function(el){
+      twemoji.parse(el);
+    });
+  });
 </script>
 <style>
   img.emoji {
