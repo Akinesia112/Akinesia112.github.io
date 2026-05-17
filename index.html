@@ -18,14 +18,58 @@
 <!-- Theme CSS -->
 <link href="assets/css/orbit-6.css" id="theme-style" rel="stylesheet"/>
 
-<!-- =========================================================
-     ADAPTIVE LAYOUT + PUBLICATION TAGS / FILTER UI (added)
-     ========================================================= -->
 <style>
-  /* ---------- Adaptive page width ---------- */
   html, body { overflow-x: hidden; }
 
-  /* Restored from the (removed) nested style block in publications */
+  /* GLOBAL BLACK -> WHITE GRADIENT BACKGROUND */
+  body {
+    background: linear-gradient(
+      180deg,
+      #0d0d10 0%,
+      #1a1a1f 8%,
+      #2a2a30 16%,
+      #4a4a52 28%,
+      #7a7a82 42%,
+      #b0b0b6 58%,
+      #d8d8dc 72%,
+      #ececef 84%,
+      #ffffff 100%
+    ) !important;
+    background-attachment: fixed !important;
+    background-repeat: no-repeat !important;
+    min-height: 100vh;
+  }
+  .sidebar-wrapper {
+    background: transparent !important;
+    color: #ffffff !important;
+  }
+  .sidebar-wrapper .name,
+  .sidebar-wrapper .tagline,
+  .sidebar-wrapper .container-block-title,
+  .sidebar-wrapper .degree,
+  .sidebar-wrapper .meta,
+  .sidebar-wrapper .time,
+  .sidebar-wrapper .contact-list a,
+  .sidebar-wrapper .contact-list i,
+  .sidebar-wrapper .portrait-duality {
+    color: #ffffff !important;
+  }
+  .sidebar-wrapper .container-block-title {
+    border-bottom-color: rgba(255,255,255,0.18) !important;
+  }
+  .sidebar-wrapper a { color: #ffffff !important; }
+  .sidebar-wrapper a:hover { color: #c49be5 !important; }
+
+  /* Main content as a white card on lighter portion of gradient */
+  .main-wrapper {
+    background: #ffffff;
+    border-radius: 18px 18px 0 0;
+    box-shadow: 0 -8px 40px rgba(0,0,0,0.06);
+    padding-top: 50px !important;
+    padding-bottom: 60px !important;
+  }
+  .footer .copyright { color: #555 !important; }
+
   .author-list { font-size: 0.9em; color: #555; margin-top: 4px; }
   .author-list .me { font-weight: bold; color: #222; }
   .wrapper {
@@ -34,49 +78,34 @@
     margin: 30px 0 0 0 !important;
     box-sizing: border-box;
   }
-  /* The sidebar uses position:absolute; right:0 of the wrapper, so when
-     the wrapper fills the viewport, the sidebar pins to the right edge.
-     We bump its width on larger viewports and match main-wrapper padding. */
   @media (min-width: 992px) {
-    .sidebar-wrapper {
-      width: 280px !important;
-    }
+    .sidebar-wrapper { width: 280px !important; }
     .main-wrapper {
       padding-right: 320px !important;
       padding-left: 60px !important;
     }
   }
   @media (min-width: 1400px) {
-    .sidebar-wrapper {
-      width: 340px !important;
-    }
+    .sidebar-wrapper { width: 340px !important; }
     .main-wrapper {
       padding-right: 380px !important;
       padding-left: 80px !important;
     }
   }
   @media (min-width: 1800px) {
-    .sidebar-wrapper {
-      width: 380px !important;
-    }
+    .sidebar-wrapper { width: 380px !important; }
     .main-wrapper {
       padding-right: 420px !important;
       padding-left: 100px !important;
     }
   }
-  /* Container blocks inside main shouldn't overflow */
   .main-wrapper .section,
   .main-wrapper .container-block { box-sizing: border-box; }
   img { max-width: 100%; height: auto; }
   .project-tagline { display: block; }
 
-  /* ============================================================
-     RESPONSIVE SIDEBAR — match Hyunjin Seo's narrow-screen layout
-     On narrow screens: sidebar stacks ABOVE the main content,
-     fully centered (avatar, name, contacts, education, music).
-     ============================================================ */
+  /* RESPONSIVE SIDEBAR — stacked + centered on narrow screens */
   @media (max-width: 991px) {
-    /* Stop the sidebar from absolute-pinning; let it flow above main */
     .wrapper { position: relative; }
     .sidebar-wrapper {
       position: relative !important;
@@ -85,7 +114,7 @@
       margin: 0 auto !important;
       right: auto !important;
       top: auto !important;
-      padding: 28px 22px 18px 22px !important;
+      padding: 28px 22px 30px 22px !important;
       box-sizing: border-box;
       text-align: center;
     }
@@ -95,8 +124,6 @@
       max-width: 760px;
       margin: 0 auto;
     }
-
-    /* Profile area: large round centered avatar like Hyunjin Seo */
     .sidebar-wrapper .profile-container {
       text-align: center;
       padding: 0 0 18px 0;
@@ -116,9 +143,9 @@
     .sidebar-wrapper .portrait-duality {
       text-align: center;
       font-size: 12px;
-      color: #8a8794;
       margin-top: -6px;
       margin-bottom: 14px;
+      opacity: 0.7;
     }
     .sidebar-wrapper .name {
       text-align: center;
@@ -130,35 +157,50 @@
       font-size: 14px;
       margin: 2px 0;
     }
-
-    /* Contacts: center the icons + text */
-    .sidebar-wrapper .contact-container {
-      padding-top: 14px;
-    }
-    .sidebar-wrapper .contact-list {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      gap: 4px;
-      padding-left: 0;
-    }
-    .sidebar-wrapper .contact-list li {
-      text-align: center;
-    }
-
-    /* Education + Music block titles centered */
-    .sidebar-wrapper .container-block-title {
-      text-align: center;
-    }
-    .sidebar-wrapper .education-container .item {
-      text-align: center;
-    }
-    .sidebar-wrapper .playlist-note {
-      text-align: center;
-    }
+    .sidebar-wrapper .container-block-title { text-align: center; }
+    .sidebar-wrapper .education-container .item { text-align: center; }
   }
 
-  /* ---------- Publications filter controls ---------- */
+  /* HORIZONTAL CONTACT BAR (CV / Email / Scholar / LinkedIn / GitHub) */
+  .contact-container .contact-list {
+    list-style: none !important;
+    padding: 0 !important;
+    margin: 18px 0 0 0 !important;
+    display: flex !important;
+    flex-direction: row !important;
+    flex-wrap: wrap;
+    justify-content: center !important;
+    align-items: center;
+    gap: 18px 22px;
+  }
+  .contact-container .contact-list li {
+    display: inline-flex !important;
+    align-items: center;
+    gap: 6px;
+    text-align: left !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    font-size: 14px;
+    line-height: 1;
+    white-space: nowrap;
+  }
+  .contact-container .contact-list li i {
+    font-size: 14px;
+    opacity: 0.9;
+  }
+  .contact-container .contact-list li a {
+    text-decoration: none;
+    font-weight: 500;
+  }
+  .contact-container .contact-list li a:hover {
+    text-decoration: underline;
+  }
+  @media (max-width: 600px) {
+    .contact-container .contact-list { gap: 12px 16px; }
+    .contact-container .contact-list li { font-size: 13px; }
+  }
+
+  /* Publications filter controls */
   .pub-controls {
     display: flex;
     justify-content: flex-end;
@@ -195,7 +237,6 @@
   }
   .pub-toggle button i { margin-right: 6px; font-size: 11px; }
 
-  /* ---------- Filter chip bar (visible only in tag mode) ---------- */
   .pub-filter-bar {
     background: #faf9fc;
     border: 1px solid #ece9f2;
@@ -228,7 +269,6 @@
   }
   .pub-clear:hover { color: #2a2a2a; }
 
-  /* ---------- Tag chips ---------- */
   .tag-chip {
     display: inline-flex;
     align-items: center;
@@ -242,7 +282,6 @@
     transition: all 0.15s ease;
     border: 1px solid transparent;
   }
-  /* Inline tags (inside each paper) — smaller, decorative */
   .pub-tags {
     display: inline-flex;
     flex-wrap: wrap;
@@ -251,36 +290,21 @@
   }
   .pub-tags .tag-chip { font-size: 10.5px; padding: 2px 8px; }
 
-  /* Filter chips (in the filter bar) — clickable */
-  .filter-chip {
-    cursor: pointer;
-    opacity: 0.55;
-  }
+  .filter-chip { cursor: pointer; opacity: 0.55; }
   .filter-chip:hover { opacity: 1; transform: translateY(-1px); }
-  .filter-chip.selected {
-    opacity: 1;
-    box-shadow: 0 2px 6px rgba(0,0,0,0.12);
-  }
+  .filter-chip.selected { opacity: 1; box-shadow: 0 2px 6px rgba(0,0,0,0.12); }
 
-  /* ---- Tag colors drawn from orbit-6.css palette ----
-     Lavender #c49be5  · Orange #FFAC00  · Coral #fb866a
-     Steel #5f8697     · Cool gray #97AAC3
-     Dark teal #2e4049 · Slate #3F4650 · Body #545E6C · Gray #7a7a7a   */
-
-  /* Domain — filled, soft tint of the brand hue */
   .tag-AI         { background: rgba(196,155,229,0.18); color: #6b3aa6; border-color: rgba(196,155,229,0.55); }
   .tag-Robotics   { background: rgba(255,172,0,0.18);   color: #9c6a00; border-color: rgba(255,172,0,0.55); }
   .tag-Graphics   { background: rgba(251,134,106,0.20); color: #b65339; border-color: rgba(251,134,106,0.55); }
   .tag-HPC        { background: rgba(95,134,151,0.18);  color: #3d6573; border-color: rgba(95,134,151,0.55); }
   .tag-Audio      { background: rgba(151,170,195,0.28); color: #4f6480; border-color: rgba(151,170,195,0.65); }
 
-  /* Method — outlined; uses the darker neutral end of the palette */
   .tag-Graph              { background: #fff; color: #2e4049; border-color: #2e4049; }
   .tag-RL                 { background: #fff; color: #3F4650; border-color: #3F4650; }
   .tag-DSP                { background: #fff; color: #545E6C; border-color: #545E6C; }
   .tag-PhysicsInformedML  { background: #fff; color: #7a7a7a; border-color: #7a7a7a; }
 
-  /* Selected filter chips — full brand color, white text */
   .filter-chip.tag-AI.selected         { background: #c49be5; color: #fff; border-color: #c49be5; }
   .filter-chip.tag-Robotics.selected   { background: #FFAC00; color: #fff; border-color: #FFAC00; }
   .filter-chip.tag-Graphics.selected   { background: #fb866a; color: #fff; border-color: #fb866a; }
@@ -291,7 +315,6 @@
   .filter-chip.tag-DSP.selected                { background: #545E6C; color: #fff; border-color: #545E6C; }
   .filter-chip.tag-PhysicsInformedML.selected  { background: #7a7a7a; color: #fff; border-color: #7a7a7a; }
 
-  /* Empty state */
   .pub-empty {
     display: none;
     text-align: center;
@@ -300,19 +323,12 @@
     font-size: 14px;
   }
   .pub-empty.active { display: block; }
-
-  /* Subtle hide animation for filtered-out items */
   .skillset[data-pub-item] { transition: opacity 0.18s ease; }
   .skillset[data-pub-item].is-hidden { display: none; }
-
-  /* Mode B: regrouped-by-tag view */
   .pub-group-view { display: none; }
   .pub-group-view.active { display: block; }
   .pub-date-view.is-hidden { display: none; }
-
-  .pub-group {
-    margin-bottom: 28px;
-  }
+  .pub-group { margin-bottom: 28px; }
   .pub-group-header {
     display: flex;
     align-items: center;
@@ -327,237 +343,244 @@
     color: #8a8794;
     letter-spacing: 0.04em;
   }
-
-  /* Small screens: condense controls */
   @media (max-width: 600px) {
     .pub-toggle button { padding: 6px 11px; font-size: 12px; }
     .pub-filter-label { min-width: 0; }
   }
 
- /* ---------- Expandable About sections ---------- */
-.about-details {
-  margin: 14px 0;
-  border: 1px solid #ece9f2;
-  border-radius: 12px;
-  background: #faf9fc;
-  padding: 0 18px;
-  transition: background 0.2s ease, box-shadow 0.2s ease;
-}
-.about-details[open] {
-  background: #fff;
-  box-shadow: 0 1px 4px rgba(0,0,0,0.04);
-}
-.about-details > summary {
-  cursor: pointer;
-  list-style: none;
-  padding: 14px 0;
-  font-size: 15px;
-  color: #2a2a2a;
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  user-select: none;
-  outline: none;
-}
-.about-details > summary::-webkit-details-marker { display: none; }
-.about-details > summary::before {
-  content: "▶";
-  font-size: 10px;
-  color: #c49be5;
-  transition: transform 0.2s ease;
-  display: inline-block;
-}
-.about-details[open] > summary::before {
-  transform: rotate(90deg);
-}
-.about-details > summary:hover {
-  color: #6b3aa6;
-}
-.about-details > p,
-.about-details > ul {
-  margin-bottom: 14px;
-}
-.about-details > p:first-of-type,
-.about-details > ul:first-of-type {
-  margin-top: 4px;
-}
-
-/* ---------- Sidebar Music expandable variant ---------- */
-.playlist-details {
-  margin: 0;
-  border: 1px solid rgba(255,255,255,0.10);
-  border-radius: 10px;
-  background: rgba(255,255,255,0.04);
-  padding: 0 12px;
-  overflow: hidden;
-}
-.playlist-details[open] {
-  background: rgba(255,255,255,0.06);
-}
-.playlist-details > summary {
-  cursor: pointer;
-  list-style: none;
-  padding: 10px 0;
-  font-size: 13px;
-  color: inherit;
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  user-select: none;
-  outline: none;
-  opacity: 0.92;
-}
-.playlist-details > summary::-webkit-details-marker { display: none; }
-.playlist-details > summary::before {
-  content: "▶";
-  font-size: 9px;
-  color: #c49be5;
-  transition: transform 0.2s ease;
-  display: inline-block;
-}
-.playlist-details[open] > summary::before {
-  transform: rotate(90deg);
-}
-.playlist-details > summary:hover { opacity: 1; }
-.playlist-details .playlist-card {
-  margin: 6px 0 12px 0;
-}
-/* Light-theme override for sidebar Music block when stacked on narrow screens */
-@media (max-width: 991px) {
-  .playlist-details {
-    border-color: #ece9f2;
-    background: #faf9fc;
+  /* PUBLICATION ACTION BUTTONS — pill icon buttons (PDF / Cite) */
+  .pub-actions {
+    display: inline-flex;
+    flex-wrap: wrap;
+    gap: 6px;
+    margin-left: 4px;
+    vertical-align: middle;
   }
-  .playlist-details[open] {
+  .pub-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    padding: 3px 10px;
+    font-size: 12px;
+    font-weight: 500;
+    color: #2a2a2a;
+    background: #f5f5f7;
+    border: 1px solid #e4e3ea;
+    border-radius: 6px;
+    text-decoration: none !important;
+    line-height: 1.5;
+    transition: all 0.15s ease;
+    white-space: nowrap;
+  }
+  .pub-btn i { font-size: 11px; opacity: 0.85; }
+  .pub-btn:hover {
+    background: #fff;
+    border-color: #c49be5;
+    color: #6b3aa6;
+    text-decoration: none !important;
+    box-shadow: 0 1px 4px rgba(196,155,229,0.20);
+  }
+  .pub-btn:focus { outline: none; }
+
+  /* Expandable About sections */
+  .about-details {
+    margin: 14px 0;
+    border: 1px solid #ece9f2;
+    border-radius: 12px;
+    background: #faf9fc;
+    padding: 0 18px;
+    transition: background 0.2s ease, box-shadow 0.2s ease;
+  }
+  .about-details[open] {
     background: #fff;
     box-shadow: 0 1px 4px rgba(0,0,0,0.04);
   }
-  .playlist-details > summary { color: #2a2a2a; }
-}
-
-/* ========== Top navigation bar ========== */
-.top-nav {
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  z-index: 1000;
-  background: rgba(255, 255, 255, 0.85);
-  backdrop-filter: saturate(180%) blur(14px);
-  -webkit-backdrop-filter: saturate(180%) blur(14px);
-  border-bottom: 1px solid rgba(0, 0, 0, 0.06);
-  transition: background 0.25s ease, box-shadow 0.25s ease;
-}
-.top-nav.scrolled {
-  background: rgba(255, 255, 255, 0.95);
-  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.06);
-}
-.top-nav-inner {
-  max-width: 1600px;
-  margin: 0 auto;
-  padding: 14px 32px;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 24px;
-}
-.top-nav-brand {
-  font-size: 17px;
-  font-weight: 700;
-  color: #2a2a2a;
-  letter-spacing: -0.01em;
-  white-space: nowrap;
-  text-decoration: none;
-}
-.top-nav-brand:hover { color: #6b3aa6; text-decoration: none; }
-.top-nav-brand .brand-zh {
-  font-weight: 500;
-  color: #7a7a7a;
-  margin-left: 8px;
-  font-size: 14px;
-}
-.top-nav-links {
-  display: flex;
-  align-items: center;
-  gap: 4px;
-  list-style: none;
-  margin: 0;
-  padding: 0;
-}
-.top-nav-links a {
-  display: inline-block;
-  padding: 8px 14px;
-  font-size: 13px;
-  font-weight: 600;
-  letter-spacing: 0.04em;
-  text-transform: uppercase;
-  color: #6b6b76;
-  text-decoration: none;
-  border-radius: 8px;
-  transition: all 0.18s ease;
-  position: relative;
-}
-.top-nav-links a:hover {
-  color: #2a2a2a;
-  background: rgba(196, 155, 229, 0.10);
-  text-decoration: none;
-}
-.top-nav-links a.active {
-  color: #6b3aa6;
-}
-.top-nav-links a.active::after {
-  content: "";
-  position: absolute;
-  left: 14px;
-  right: 14px;
-  bottom: 2px;
-  height: 2px;
-  background: #c49be5;
-  border-radius: 2px;
-}
-
-/* Hamburger for mobile */
-.top-nav-toggle {
-  display: none;
-  background: transparent;
-  border: 1px solid rgba(0,0,0,0.12);
-  border-radius: 8px;
-  padding: 6px 10px;
-  cursor: pointer;
-  font-size: 16px;
-  color: #2a2a2a;
-}
-@media (max-width: 900px) {
-  .top-nav-inner { padding: 12px 18px; }
-  .top-nav-toggle { display: inline-flex; }
-  .top-nav-links {
-    position: absolute;
-    top: 100%;
-    right: 18px;
-    flex-direction: column;
-    align-items: stretch;
-    background: #fff;
-    border: 1px solid rgba(0,0,0,0.08);
-    border-radius: 12px;
-    padding: 8px;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.10);
-    min-width: 180px;
-    display: none;
+  .about-details > summary {
+    cursor: pointer;
+    list-style: none;
+    padding: 14px 0;
+    font-size: 15px;
+    color: #2a2a2a;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    user-select: none;
+    outline: none;
   }
-  .top-nav-links.open { display: flex; }
-  .top-nav-links a { padding: 10px 14px; }
-  .top-nav-links a.active::after { display: none; }
-}
+  .about-details > summary::-webkit-details-marker { display: none; }
+  .about-details > summary::before {
+    content: "▶";
+    font-size: 10px;
+    color: #c49be5;
+    transition: transform 0.2s ease;
+    display: inline-block;
+  }
+  .about-details[open] > summary::before { transform: rotate(90deg); }
+  .about-details > summary:hover { color: #6b3aa6; }
+  .about-details > p, .about-details > ul { margin-bottom: 14px; }
+  .about-details > p:first-of-type, .about-details > ul:first-of-type { margin-top: 4px; }
 
-/* Push the page content down so it doesn't hide under the fixed nav */
-.wrapper { padding-top: 64px; }
-@media (max-width: 900px) {
-  .wrapper { padding-top: 56px; }
-}
+  /* Music expandable block (sits in About section after Projects/Community Services) */
+  .music-details {
+    margin: 14px 0;
+    border: 1px solid #ece9f2;
+    border-radius: 12px;
+    background: #faf9fc;
+    padding: 0 18px;
+    transition: background 0.2s ease, box-shadow 0.2s ease;
+  }
+  .music-details[open] {
+    background: #fff;
+    box-shadow: 0 1px 4px rgba(0,0,0,0.04);
+  }
+  .music-details > summary {
+    cursor: pointer;
+    list-style: none;
+    padding: 14px 0;
+    font-size: 15px;
+    color: #2a2a2a;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    user-select: none;
+    outline: none;
+  }
+  .music-details > summary::-webkit-details-marker { display: none; }
+  .music-details > summary::before {
+    content: "▶";
+    font-size: 10px;
+    color: #c49be5;
+    transition: transform 0.2s ease;
+    display: inline-block;
+  }
+  .music-details[open] > summary::before { transform: rotate(90deg); }
+  .music-details > summary:hover { color: #6b3aa6; }
+  .music-details .music-note {
+    margin: 0 0 10px 0;
+    font-size: 13px;
+    color: #7a7a7a;
+  }
+  .music-details .music-embed-wrap {
+    margin: 0 0 14px 0;
+    border-radius: 8px;
+    overflow: hidden;
+    background: #000;
+  }
+  .music-details iframe {
+    display: block;
+    width: 100%;
+    border: 0;
+  }
 
-/* Smooth scroll + offset so anchor jumps don't hide under the nav */
-html { scroll-behavior: smooth; }
-section[id] { scroll-margin-top: 80px; }
+  /* Top navigation bar (dark glass) */
+  .top-nav {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 1000;
+    background: rgba(20, 20, 26, 0.78);
+    backdrop-filter: saturate(180%) blur(14px);
+    -webkit-backdrop-filter: saturate(180%) blur(14px);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    transition: background 0.25s ease, box-shadow 0.25s ease;
+  }
+  .top-nav.scrolled {
+    background: rgba(15, 15, 20, 0.92);
+    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.30);
+  }
+  .top-nav-inner {
+    max-width: 1600px;
+    margin: 0 auto;
+    padding: 14px 32px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 24px;
+  }
+  .top-nav-brand {
+    font-size: 17px;
+    font-weight: 700;
+    color: #ffffff;
+    letter-spacing: -0.01em;
+    white-space: nowrap;
+    text-decoration: none;
+  }
+  .top-nav-brand:hover { color: #c49be5; text-decoration: none; }
+  .top-nav-brand .brand-zh {
+    font-weight: 500;
+    color: rgba(255,255,255,0.65);
+    margin-left: 8px;
+    font-size: 14px;
+  }
+  .top-nav-links {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+  .top-nav-links a {
+    display: inline-block;
+    padding: 8px 14px;
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.70);
+    text-decoration: none;
+    border-radius: 8px;
+    transition: all 0.18s ease;
+    position: relative;
+  }
+  .top-nav-links a:hover {
+    color: #ffffff;
+    background: rgba(196, 155, 229, 0.16);
+    text-decoration: none;
+  }
+  .top-nav-links a.active { color: #c49be5; }
+  .top-nav-links a.active::after {
+    content: "";
+    position: absolute;
+    left: 14px; right: 14px; bottom: 2px;
+    height: 2px;
+    background: #c49be5;
+    border-radius: 2px;
+  }
+  .top-nav-toggle {
+    display: none;
+    background: transparent;
+    border: 1px solid rgba(255,255,255,0.20);
+    border-radius: 8px;
+    padding: 6px 10px;
+    cursor: pointer;
+    font-size: 16px;
+    color: #ffffff;
+  }
+  @media (max-width: 900px) {
+    .top-nav-inner { padding: 12px 18px; }
+    .top-nav-toggle { display: inline-flex; }
+    .top-nav-links {
+      position: absolute;
+      top: 100%;
+      right: 18px;
+      flex-direction: column;
+      align-items: stretch;
+      background: rgba(20,20,26,0.96);
+      border: 1px solid rgba(255,255,255,0.10);
+      border-radius: 12px;
+      padding: 8px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.35);
+      min-width: 180px;
+      display: none;
+    }
+    .top-nav-links.open { display: flex; }
+    .top-nav-links a { padding: 10px 14px; }
+    .top-nav-links a.active::after { display: none; }
+  }
+  .wrapper { padding-top: 64px; }
+  @media (max-width: 900px) { .wrapper { padding-top: 56px; } }
+  html { scroll-behavior: smooth; }
+  section[id] { scroll-margin-top: 80px; }
 </style>
 </head>
 <body>
@@ -566,11 +589,9 @@ section[id] { scroll-margin-top: 80px; }
     <a href="#home" class="top-nav-brand">
       Shih-Yu Lai <span class="brand-zh">賴溡雨</span>
     </a>
-
     <button class="top-nav-toggle" id="top-nav-toggle" aria-label="Toggle menu" aria-expanded="false">
       <i class="fas fa-bars"></i>
     </button>
-
     <ul class="top-nav-links" id="top-nav-links">
       <li><a href="#about" data-target="about">About</a></li>
       <li><a href="#publications" data-target="publications">Publications</a></li>
@@ -581,6 +602,7 @@ section[id] { scroll-margin-top: 80px; }
     </ul>
   </div>
 </nav>
+
 <div class="wrapper">
 <div class="sidebar-wrapper">
 <div class="profile-container">
@@ -593,49 +615,28 @@ section[id] { scroll-margin-top: 80px; }
 />
 <p class="portrait-duality">Scientist me × Artist me (Hover over)</p>
 <h1 class="name">Shih-Yu Lai</h1>
-<h3 class="tagline">National Taiwan University (CSIE, AI Program)</h3><h3 class="tagline">賴溡雨</h3><h3 class="tagline">CS Graduate Student · AI Researcher</h3><h3 class="tagline"> <a href="assets/CV/Shih_YuLai_CV.pdf" target="_blank">CV</a> </h3>
-</div><!--//profile-container-->
+<h3 class="tagline">National Taiwan University (CSIE, AI Program)</h3>
+<h3 class="tagline">賴溡雨</h3>
+<h3 class="tagline">CS Graduate Student · AI Researcher</h3>
+</div>
+
+<!-- Horizontal contact bar: CV | Email | Google Scholar | LinkedIn | GitHub -->
 <div class="contact-container container-block">
     <ul class="list-unstyled contact-list">
-        <li class="email"><i class="fas fa-envelope"></i><a href="mailto:akinesia112@gmail.com">akinesia112@gmail.com</a></li>
-        <li class="github"><i class="fab fa-github"></i><a href="https://github.com/Akinesia112">Akinesia112</a></li>
-      
-        <li class="scholar"><i class="fas fa-graduation-cap"></i><a href="https://scholar.google.com/citations?user=VByo09gAAAAJ&hl=en">Google Scholar</a></li>
-      
-        <li class="linkedin"><i class="fab fa-linkedin-in"></i><a href="https://www.linkedin.com/in/shih-yu-lai">shih-yu-lai</a></li>
-      </ul>
-      
-</div><!--//contact-container-->
+        <li class="cv"><i class="fas fa-file-alt"></i><a href="assets/CV/Shih_YuLai_CV.pdf" target="_blank">CV</a></li>
+        <li class="email"><i class="fas fa-envelope"></i><a href="mailto:akinesia112@gmail.com">Email</a></li>
+        <li class="scholar"><i class="fas fa-graduation-cap"></i><a href="https://scholar.google.com/citations?user=VByo09gAAAAJ&hl=en" target="_blank">Google Scholar</a></li>
+        <li class="linkedin"><i class="fab fa-linkedin-in"></i><a href="https://www.linkedin.com/in/shih-yu-lai" target="_blank">LinkedIn</a></li>
+        <li class="github"><i class="fab fa-github"></i><a href="https://github.com/Akinesia112" target="_blank">GitHub</a></li>
+    </ul>
+</div>
+
 <div class="education-container container-block">
 <h2 class="container-block-title">Education</h2>
-<div class="item"><h4 class="degree">M.S. in Computer Science and Information Engineering (AI Program)</h4><h5 class="meta">National Taiwan University</h5><div class="time">Feb. 2025 – Expected Jun. 2027</div></div></div><!--//education-container-->
-<div class="playlist-container container-block">
-  <h2 class="container-block-title">Music</h2>
-
-  <details class="playlist-details">
-    <summary><strong>YouTube Playlist</strong></summary>
-
-    <div class="playlist-note">
-      <div class="playlist-note-desc">Update sometimes, depends on your donation or my mood.</div>
-    </div>
-
-    <!-- YouTube playlist card -->
-    <div class="playlist-card playlist-card--sidebar playlist-card-youtube">
-      <iframe
-        class="playlist-embed"
-        src="https://www.youtube.com/embed/videoseries?list=PLor4Tb0Ha-zeqqUbSxJOqdLR8iJogjk6x&rel=0"
-        title="YouTube playlist"
-        width="100%"
-        height="420"
-        frameborder="0"
-        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-        allowfullscreen
-        loading="lazy">
-      </iframe>
-    </div>
-  </details>
+<div class="item"><h4 class="degree">M.S. in Computer Science and Information Engineering (AI Program)</h4><h5 class="meta">National Taiwan University</h5><div class="time">Feb. 2025 – Expected Jun. 2027</div></div>
 </div>
 </div><!--//sidebar-wrapper-->
+
 <div class="main-wrapper">
 <section class="section summary-section" id="about">
     <p class="opening-quote">
@@ -655,9 +656,7 @@ section[id] { scroll-margin-top: 80px; }
 
 <details class="about-details">
     <summary><strong>Research Areas</strong></summary>
-    <p>
-        I like systematically working through critical problems that sit between disciplines, and my current interests span three core areas:
-    </p>
+    <p>I like systematically working through critical problems that sit between disciplines, and my current interests span three core areas:</p>
     <ul>
         <li><p><strong>Visual Computing &amp; Physics Simulation</strong> — developing neural PDE solvers (e.g., Walk-on-Spheres Monte Carlo for complex geometry) and differentiable physical simulation frameworks (hyper-elastic projective dynamics with positive-definite Hessian projection), with applications spanning CAD-driven robotic fabrication and animation workflows such as editable 3D Gaussian Splatting.</p></li>
         <li><p><strong>Embodied Systems</strong> — training Sim2Real reinforcement learning policies in Isaac Gym/Lab for robotic manipulation on Kuka, UR10, and Hiwin arms, and building large-scale digital twins that fuse multimodal sensing (WiFi, point cloud, RGBD) with graph federated learning foundation models for privacy-preserving human–scene interaction on supercomputers like Fugaku.</p></li>
@@ -722,6 +721,22 @@ section[id] { scroll-margin-top: 80px; }
         All of my projects live on my <a href="https://github.com/Akinesia112">GitHub</a> page, spanning generative modeling, multi-agent RL, multimodal agents, 3D rendering, and intelligent systems. I also contribute back to the community as a reviewer for IEEE ITSC, ACM CHI, HRI, CSCW, and WWW.
     </p>
 </details>
+
+<!-- Music block placed AFTER Projects/Community Services -->
+<details class="music-details">
+    <summary><strong>Music — YouTube Playlist</strong></summary>
+    <p class="music-note">Update sometimes, depends on your donation or my mood.</p>
+    <div class="music-embed-wrap">
+      <iframe
+        src="https://www.youtube.com/embed/videoseries?list=PLor4Tb0Ha-zeqqUbSxJOqdLR8iJogjk6x&rel=0"
+        title="YouTube playlist"
+        height="420"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+        allowfullscreen
+        loading="lazy">
+      </iframe>
+    </div>
+</details>
      
 <p>
     Collaboration is one of the parts of research I enjoy most — technical discussions, sharing expertise, and figuring out what we can build together. If any of the above resonates, <strong>let's discuss</strong>!
@@ -732,14 +747,11 @@ section[id] { scroll-margin-top: 80px; }
 </p>
 
 </div>
+</section>
 
-
-    
-</section><!--//section-->
 <section class="section publication-section" id="publications">
 <h2 class="section-title"><span class="icon-holder"><i class="fas fa-archive"></i></span>Publications</h2>
 
-<!-- ============ Filter / Toggle controls ============ -->
 <div class="pub-controls" id="pub-controls">
   <div class="pub-toggle" role="tablist" aria-label="Publication view toggle">
     <button id="btn-view-date" class="active" type="button" aria-pressed="true">
@@ -751,7 +763,6 @@ section[id] { scroll-margin-top: 80px; }
   </div>
 </div>
 
-<!-- ============ Tag filter bar (visible in Tag view) ============ -->
 <div class="pub-filter-bar" id="pub-filter-bar">
   <div class="pub-filter-row">
     <span class="pub-filter-label">Domain</span>
@@ -771,40 +782,10 @@ section[id] { scroll-margin-top: 80px; }
   </div>
 </div>
 
-<!-- ============ View A: By Date (original chronological grouping) ============ -->
 <div class="pub-date-view" id="pub-date-view">
 <div class="details">
   <div class="item">
     <h3 class="job-title">Selected (6)</h3>
-
-    <!--
-<div class="skillset" data-pub-item data-tags="Graphics,Robotics, HPC,PhysicsInformedML">
-      <div class="item">
-        <h3 class="level-title">
-          <div style="width: 110px; height: 110px; overflow: hidden; display: flex; align-items: center; justify-content: center;">
-            <img src="assets/images/DiffPhD.png" alt="DiffPhD teaser"
-              style="width: 110px; height: 110px; object-fit: contain;" />
-          </div>
-        </h3>
-        <span class="project-tagline">
-          <b>DiffPhD: A Unified Differentiable Solver for Projective Heterogeneous Materials in Elastodynamics with Contact-Rich GPU-Acceleration</b>
-          <br />
-          <i>arXiv Preprint, 2026</i> (1st Author).
-          <a href="https://arxiv.org/abs/2605.14526" target="_blank">[PDF]</a>
-          <div class="author-list">
-            <span class="me">Shih-Yu Lai</span>, Sung-Han Tien, Jui-I Huang, Yen-Chen Tseng, Yi-Ting Chiu, Siyuan Luo, Ziqiu Zeng, Fan Shi, Peter Yichen Chen, Tiantian Liu, Yu-Lun Liu, Bing-Yu Chen
-          </div>
-          <div class="pub-tags">
-            <span class="tag-chip tag-Graphics">#Graphics</span>
-            <span class="tag-chip tag-Robotics">#Robotics</span>
-            <span class="tag-chip tag-HPC">#HPC</span>
-            <span class="tag-chip tag-PhysicsInformedML">#Physics-informed ML</span>
-          </div>
-        </span>
-      </div>
-    </div>
--->
-
 
     <div class="skillset" data-pub-item data-tags="AI,HPC,Graph,PhysicsInformedML">
        <div class="item">
@@ -818,7 +799,9 @@ section[id] { scroll-margin-top: 80px; }
            <b>UMEDA: Unified Multi-modal Efficient Data Fusion for Privacy-Preserving Graph Federated Learning via Spectral-Gated Attention and Diffusion-Based Operator Alignment</b>
            <br />
            <i>arXiv Preprint, 2026</i> (1st Author).
-           <a href="https://arxiv.org/pdf/2605.08288" target="_blank">[PDF]</a>
+           <span class="pub-actions">
+             <a class="pub-btn" href="https://arxiv.org/pdf/2605.08288" target="_blank"><i class="fas fa-file-alt"></i>PDF</a>
+           </span>
            <div class="author-list">
              <span class="me">Shih-Yu Lai</span>, Hirozumi Yamaguchi, Shang-Tse Chen, Yu-Lun Liu, Bing-Yu Chen
            </div>
@@ -844,7 +827,9 @@ section[id] { scroll-margin-top: 80px; }
           <b>MORPH-U: Multi-Objective Resilient Motion Planning for V2X-Enabled Autonomous Driving in High-Uncertainty Environments via Simulation</b>
           <br />
           <i>IEEE ITSC 2026</i> (1st Author, Regular Paper, Just Accepted).
-          <a href="https://arxiv.org/pdf/2509.21670" target="_blank">[PDF]</a>
+          <span class="pub-actions">
+            <a class="pub-btn" href="https://arxiv.org/pdf/2509.21670" target="_blank"><i class="fas fa-file-alt"></i>PDF</a>
+          </span>
           <div class="author-list">
             <span class="me">Shih-Yu Lai</span>
           </div>
@@ -868,7 +853,9 @@ section[id] { scroll-margin-top: 80px; }
           <b>LATENT-MARK: An Audio Watermark Robust to Neural Resynthesis</b>
           <br />
           <i>arXiv Preprint, 2026</i> (Co-1st Author).
-          <a href="https://arxiv.org/pdf/2603.05310" target="_blank">[PDF]</a>
+          <span class="pub-actions">
+            <a class="pub-btn" href="https://arxiv.org/pdf/2603.05310" target="_blank"><i class="fas fa-file-alt"></i>PDF</a>
+          </span>
           <div class="author-list">
             Yen-Shan Chen, <span class="me">Shih-Yu Lai</span>, Ying-Jung Tsou, Yi-Cheng Lin, Bing-Yu Chen, Yun-Nung Chen, Hung-Yi Lee, Shang-Tse Chen
           </div>
@@ -893,7 +880,9 @@ section[id] { scroll-margin-top: 80px; }
           <b>Accelerating Large-Scale Federated Graph Foundation Model Pre-training for Secure Sensing via Hierarchical Parallelism</b>
           <br />
           <i>ISC High Performance 2026</i> (1st Author, Research Poster, Just Accepted).
-          <a href="https://isc.app.swapcard.com/widget/event/isc-high-performance-2026/planning/UGxhbm5pbmdfNDQwOTk2Nw==" target="_blank">[PDF]</a>
+          <span class="pub-actions">
+            <a class="pub-btn" href="https://isc.app.swapcard.com/widget/event/isc-high-performance-2026/planning/UGxhbm5pbmdfNDQwOTk2Nw==" target="_blank"><i class="fas fa-file-alt"></i>PDF</a>
+          </span>
           <div class="author-list">
             <span class="me">Shih-Yu Lai</span>, Fukuharu Tanaka, Hamada Rizk, Hirozumi Yamaguchi
           </div>
@@ -915,8 +904,10 @@ section[id] { scroll-margin-top: 80px; }
           <b>Architectural CAD/CAM in Robotic Fabrication via Differentiable Energy Optimization and Few-Shot Spatiotemporal Graph RL Policy</b>
           <br />
           <i>ACM SIGGRAPH Asia 2025</i> (1st Author, Technical Communication).
-          <a href="assets/papers/DASTGCN-SNN-DDPG.pdf">[PDF]</a>
-          <a href="assets/bib/DASTGCN-SNN-DDPG.bib" download>[Cite]</a> <span class="cite-by"></span>
+          <span class="pub-actions">
+            <a class="pub-btn" href="assets/papers/DASTGCN-SNN-DDPG.pdf"><i class="fas fa-file-alt"></i>PDF</a>
+            <a class="pub-btn" href="assets/bib/DASTGCN-SNN-DDPG.bib" download><i class="fas fa-quote-right"></i>Cite</a>
+          </span>
           <div class="author-list">
             <span class="me">Shih-Yu Lai</span>, Chia-Ching Yen, Yang-Ting Shen, Bing-Yu Chen
           </div>
@@ -941,8 +932,10 @@ section[id] { scroll-margin-top: 80px; }
           <b>Graph Q-Learning for Automatic Assembly in Design-to-Construction</b>
           <br />
           <i>ACM SIGGRAPH Asia 2025</i> (1st Author, Poster).
-          <a href="assets/papers/GAT-DQN.pdf">[PDF]</a>
-          <a href="assets/bib/GAT-DQN.bib" download>[Cite]</a> <span class="cite-by"></span>
+          <span class="pub-actions">
+            <a class="pub-btn" href="assets/papers/GAT-DQN.pdf"><i class="fas fa-file-alt"></i>PDF</a>
+            <a class="pub-btn" href="assets/bib/GAT-DQN.bib" download><i class="fas fa-quote-right"></i>Cite</a>
+          </span>
           <div class="author-list">
             <span class="me">Shih-Yu Lai</span>, Chia-Ching Yen, Yang-Ting Shen, Bing-Yu Chen
           </div>
@@ -972,8 +965,10 @@ section[id] { scroll-margin-top: 80px; }
           <b>M3: Recommendation via Attention-Graph Cluster Q-Learning with Multi-Scale Spatial Heterogeneity for Multi-Purpose, Multi-Stakeholder Green Attractions in Transportation</b>
           <br />
           <i>ACM SIGSPATIAL 2025</i> (1st Author, Research Full Paper).
-          <a href="assets/papers/M3.pdf">[PDF]</a>
-          <a href="assets/bib/M3.bib" download>[Cite]</a> <span class="cite-by"></span>
+          <span class="pub-actions">
+            <a class="pub-btn" href="assets/papers/M3.pdf"><i class="fas fa-file-alt"></i>PDF</a>
+            <a class="pub-btn" href="assets/bib/M3.bib" download><i class="fas fa-quote-right"></i>Cite</a>
+          </span>
           <div class="author-list">
             <span class="me">Shih-Yu Lai</span>, Tzu-Hsin Hsieh, Pei-Chi Tsai, Chao-Chun Kung, Sing-Kai Ling, Hsun-Ping Hsieh
           </div>
@@ -995,8 +990,10 @@ section[id] { scroll-margin-top: 80px; }
           <b>LINKin-PARK: Land Valuation Information and Knowledge in Predictive Analysis and Reporting Kit via Dual Attention-DCCNN</b>
           <br />
           <i>ACM CIKM 2024</i> (2nd Author, Demo Paper).
-          <a href="assets/papers/LINKin-PARK.pdf">[PDF]</a>
-          <a href="assets/bib/LINKin-PARK.bib" download>[Cite]</a> <span class="cite-by"></span>
+          <span class="pub-actions">
+            <a class="pub-btn" href="assets/papers/LINKin-PARK.pdf"><i class="fas fa-file-alt"></i>PDF</a>
+            <a class="pub-btn" href="assets/bib/LINKin-PARK.bib" download><i class="fas fa-quote-right"></i>Cite</a>
+          </span>
           <div class="author-list">
             Teng-Yuan Tsou, <span class="me">Shih-Yu Lai</span>, Hsuan-Ching Chen, Jung-Tsang Yeh, Pei-Xuan Li, Tzu-Chang Lee, Hsun-Ping Hsieh
           </div>
@@ -1016,8 +1013,10 @@ section[id] { scroll-margin-top: 80px; }
           <b>GreenSpot: Improving Public Transport with GIS-Based AR and Cluster-GCN Recommendation</b>
           <br />
           <i>ACM SIGSPATIAL 2024</i> (1st Author, Demo Paper).
-          <a href="assets/papers/GreenSpot.pdf">[PDF]</a>
-          <a href="assets/bib/GreenSpot.bib" download>[Cite]</a> <span class="cite-by"></span>
+          <span class="pub-actions">
+            <a class="pub-btn" href="assets/papers/GreenSpot.pdf"><i class="fas fa-file-alt"></i>PDF</a>
+            <a class="pub-btn" href="assets/bib/GreenSpot.bib" download><i class="fas fa-quote-right"></i>Cite</a>
+          </span>
           <div class="author-list">
             <span class="me">Shih-Yu Lai</span>, Tzu-Hsin Hsieh, Sing-Kai Ling, Pei-Chi Tsai, Chao-Chun Kung, Hsun-Ping Hsieh
           </div>
@@ -1038,8 +1037,10 @@ section[id] { scroll-margin-top: 80px; }
           <b>ACCEPT: A Context-Sensitive, Configurable, and Extensible Prediction Tool using Grid-based Data Processing and Neural Networks in Geospatial Decision Support</b>
           <br />
           <i>ACM SIGSPATIAL 2024</i> (2nd Author, Demo Paper).
-          <a href="assets/papers/ACCEPT.pdf">[PDF]</a>
-          <a href="assets/bib/ACCEPT.bib" download>[Cite]</a> <span class="cite-by"></span>
+          <span class="pub-actions">
+            <a class="pub-btn" href="assets/papers/ACCEPT.pdf"><i class="fas fa-file-alt"></i>PDF</a>
+            <a class="pub-btn" href="assets/bib/ACCEPT.bib" download><i class="fas fa-quote-right"></i>Cite</a>
+          </span>
           <div class="author-list">
             Teng-Yuan Tsou, <span class="me">Shih-Yu Lai</span>, Jung-Tsang Yeh, Hsuan-Ching Chen, Pei-Xuan Li, Tzu-Chang Lee, Hsun-Ping Hsieh
           </div>
@@ -1059,8 +1060,10 @@ section[id] { scroll-margin-top: 80px; }
           <b>Footprints of Travel: AIoT and AR Enhanced Tourist Gaming Experience in Unmanned Cultural Sites</b>
           <br />
           <i>ACM CHI 2024 - EA</i> (1st Author, Student Game Competition).
-          <a href="assets/papers/FootprintsofTravel.pdf">[PDF]</a>
-          <a href="assets/bib/FootprintsofTravel.bib" download>[Cite]</a> <span class="cite-by"></span>
+          <span class="pub-actions">
+            <a class="pub-btn" href="assets/papers/FootprintsofTravel.pdf"><i class="fas fa-file-alt"></i>PDF</a>
+            <a class="pub-btn" href="assets/bib/FootprintsofTravel.bib" download><i class="fas fa-quote-right"></i>Cite</a>
+          </span>
           <div class="author-list">
             <span class="me">Shih-Yu Lai</span>, Dai-En Liu, Zong-Fan Yeh, Chun-Che Hsu, Fu-Yao Chang, Ming-Zhi Tsai, Ruei-Hong Lin
           </div>
@@ -1080,8 +1083,10 @@ section[id] { scroll-margin-top: 80px; }
           <b>Enhancing Urban Crowd Monitoring through Predictive Modelling System with Diverse Geospatial Datasets</b>
           <br />
           <i>ACIS 2023</i> (3rd Author, Proceeding).
-          <a href="assets/papers/UrbanCrowds.pdf">[PDF]</a>
-          <a href="assets/bib/UrbanCrowds.bib" download>[Cite]</a> <span class="cite-by"></span>
+          <span class="pub-actions">
+            <a class="pub-btn" href="assets/papers/UrbanCrowds.pdf"><i class="fas fa-file-alt"></i>PDF</a>
+            <a class="pub-btn" href="assets/bib/UrbanCrowds.bib" download><i class="fas fa-quote-right"></i>Cite</a>
+          </span>
           <div class="author-list">
             Hsun-Ping Hsieh, Tzu-Chang Lee, <span class="me">Shih-Yu Lai</span>, Pei-Chi Tsai, Tzu-Hsin Hsieh
           </div>
@@ -1097,10 +1102,7 @@ section[id] { scroll-margin-top: 80px; }
 
 </div><!--//pub-date-view-->
 
-<!-- ============ View B: By Tag (regrouped, populated by JS) ============ -->
 <div class="pub-group-view" id="pub-group-view"></div>
-
-<!-- Empty state when filters select nothing -->
 <div class="pub-empty" id="pub-empty">No publications match the selected tags.</div>
     
 <section class="section poster-theses-section" id="thesis">
@@ -1110,7 +1112,7 @@ section[id] { scroll-margin-top: 80px; }
 <b>M.S. Thesis (in progress):</b> Neural Physics Solver in Complex Geometry Processing with Walk-on-Spheres Monte Carlo Method for Partial Differential Equations.
     </div>
 </div>
-</section><!--//section-->
+</section>
     
 <section class="section experiences-section" id="experience">
 <h2 class="section-title"><span class="icon-holder"><i class="fas fa-briefcase"></i></span>Research &amp; Work Experience</h2>
@@ -1229,13 +1231,11 @@ section[id] { scroll-margin-top: 80px; }
           <h3 class="job-title">2023 AIoT Innovation Challenge</h3>
           <div class="time">Feb. 2023 – Jun. 2023</div>
         </div>
-  
         <div class="company">
           <img height="40" src="assets/images/IEEE.png" alt="IEEE" />
           <a href="https://signalprocessingsociety.org/" target="_blank" rel="noopener"><b>IEEE Signal Processing Society</b></a>
         </div>
       </div>
-  
       <div class="details">
         <ul>
           <li>
@@ -1255,18 +1255,14 @@ section[id] { scroll-margin-top: 80px; }
           <h3 class="job-title">Overseas Conference Travel Grant</h3>
           <div class="time">2026</div>
         </div>
-  
         <div class="company">
           <img height="40" src="assets/images/RIKEN.png" alt="RIKEN" />
           <a href="https://www.riken.jp/en/" target="_blank" rel="noopener"><b>RIKEN Japan</b></a>
         </div>
       </div>
-  
       <div class="details">
         <ul>
-          <li>
-            Travel support recipient for attending the ISC High Performance conference 2026 (June 22-26, Hamburg, Germany).
-          </li>
+          <li>Travel support recipient for attending the ISC High Performance conference 2026 (June 22-26, Hamburg, Germany).</li>
         </ul>
       </div>
     </div>
@@ -1277,18 +1273,14 @@ section[id] { scroll-margin-top: 80px; }
           <h3 class="job-title">2025 Overseas Conference Travel Grant</h3>
           <div class="time">Dec. 2025</div>
         </div>
-  
         <div class="company">
           <img height="40" src="assets/images/NSTC.png" alt="NSTC" />
           <a href="https://www.nstc.gov.tw/?l=en" target="_blank" rel="noopener"><b>National Science and Technology Council</b></a>
         </div>
       </div>
-  
       <div class="details">
         <ul>
-          <li>
-            Graduate student travel support recipient ($1,000) for SIGGRAPH Asia 2025 conference (December 16 – 18, Hong Kong).
-          </li>
+          <li>Graduate student travel support recipient ($1,000) for SIGGRAPH Asia 2025 conference (December 16 – 18, Hong Kong).</li>
         </ul>
       </div>
     </div>
@@ -1299,25 +1291,21 @@ section[id] { scroll-margin-top: 80px; }
           <h3 class="job-title">Graduate Student Scholarship</h3>
           <div class="time">2025 – 2026</div>
         </div>
-  
         <div class="company">
           <img height="40" src="assets/images/NTU.png" alt="NTU" />
           <a href="https://www.csie.ntu.edu.tw/" target="_blank" rel="noopener"><b>National Taiwan University (NTU CSIE)</b></a>
         </div>
       </div>
-  
       <div class="details">
         <ul>
-          <li>
-            Recipient of the graduate student scholarship for the 2025-2026 academic year.
-          </li>
+          <li>Recipient of the graduate student scholarship for the 2025-2026 academic year.</li>
         </ul>
       </div>
     </div>
 </section>
-  
 
-</section><!--//section-->
+</section>
+
 <section class="section experiences-section" id="service">
 <h2 class="section-title"><span class="icon-holder"><i class="fas fa-briefcase"></i></span>Academic &amp; Community Service</h2>
 <div class="item">
@@ -1372,51 +1360,39 @@ section[id] { scroll-margin-top: 80px; }
         </ul>
         </div>
         </div>
-</section><!--//section-->
-</div><!--//main-body-->
-</div>
-<!-- <div class="text-center">
-    	<a href='https://clustrmaps.com/site/1b7k5'  title='Visit tracker'><img src='//clustrmaps.com/map_v2.png?cl=ffffff&w=a&t=n&d=nztpFZy1d2PMeC2fsGxGzscKOvfhliDuud4rWqhvDdo'/></a>
-    </div> -->
-<!-- <script id="clustrmaps" src="//cdn.clustrmaps.com/map_v2.js?cl=ffffff&amp;w=300&amp;t=tt&amp;d=nztpFZy1d2PMeC2fsGxGzscKOvfhliDuud4rWqhvDdo&amp;co=2d78ad&amp;ct=ffffff&amp;cmo=3acc3a&amp;cmn=ff5353" type="text/javascript"></script> -->
+</section>
+</div><!--//main-wrapper-->
+</div><!--//wrapper-->
+
 <div style="width:300px; max-width:100%; margin:0 auto;">
-    <!-- <script type="text/javascript" id="clstr_globe"
-      src="https://clustrmaps.com/globe.js?d=vB-nhNKOa7tb-GN0q-od_1fdnb6k3CWPehxCb6YERlg"></script> -->
       <script type='text/javascript' id='clustrmaps' src='//cdn.clustrmaps.com/map_v2.js?cl=7a7a7a&w=a&t=n&d=vB-nhNKOa7tb-GN0q-od_1fdnb6k3CWPehxCb6YERlg&co=000000&cmo=dfcbef&cmn=2f9ebf'></script>
 </div>  
 <footer class="footer">
 <div class="text-center">
-<!--/* This template is released under the Creative Commons Attribution 3.0 License. Please keep the attribution link below when using for your own project. Thank you for your support. :) If you'd like to use the template without the attribution, you can check out other commercial license options via our website: themes.3rdwavemedia.com */-->
 <small class="copyright">Stolen from Xiaoying Riley · Last updated by Shih-Yu Lai 02/02/2026</small>
-</div><!--//container-->
-</footer><!--//footer-->
+</div>
+</footer>
+
 <script>
     (function () {
       const img = document.getElementById("profile-photo");
       if (!img) return;
-  
       const a = "assets/images/Shih_YuLai2024.JPG";
       const b = "assets/images/Shih_YuLai.jpg";
-  
-      // Preload to avoid flicker
       [a, b].forEach((src) => { const im = new Image(); im.src = src; });
-  
       img.addEventListener("mouseenter", () => img.setAttribute("src", b));
       img.addEventListener("mouseleave", () => img.setAttribute("src", a));
     })();
-  </script>
+</script>
 
 <canvas id="graffiti"></canvas>
 <script>
     (() => {
       const canvas = document.getElementById("graffiti");
       if (!canvas) return;
-    
       const ctx = canvas.getContext("2d", { alpha: true });
       const DPR = () => Math.max(1, Math.min(2, window.devicePixelRatio || 1));
-    
       const COLORS = ["#000000", "#c49be5", "#FFAC00"];
-    
       let w = 0, h = 0, dpr = DPR();
       function resize() {
         dpr = DPR();
@@ -1430,33 +1406,19 @@ section[id] { scroll-margin-top: 80px; }
       }
       resize();
       window.addEventListener("resize", resize);
-    
-      // --- particle system ---
       const particles = [];
       const now = () => performance.now();
-    
       function rand(a, b) { return a + Math.random() * (b - a); }
       function pick(arr) { return arr[(Math.random() * arr.length) | 0]; }
-    
       function addParticle(x, y, color, vx, vy, r, life, drip=0) {
-        particles.push({
-          x, y, vx, vy,
-          r,
-          color,
-          born: now(),
-          life,
-          drip,  // 0..1, higher = more gravity/drill feel
-          rot: rand(0, Math.PI * 2)
-        });
+        particles.push({ x, y, vx, vy, r, color, born: now(), life, drip, rot: rand(0, Math.PI * 2) });
       }
-    
       function splat(x, y) {
-        // main burst
         const color = pick(COLORS);
         const n = 120;
         for (let i = 0; i < n; i++) {
           const ang = rand(0, Math.PI * 2);
-          const spd = Math.pow(Math.random(), 0.35) * rand(60, 420); // heavy center, long tails
+          const spd = Math.pow(Math.random(), 0.35) * rand(60, 420);
           const vx = Math.cos(ang) * spd;
           const vy = Math.sin(ang) * spd;
           const r  = Math.pow(Math.random(), 0.25) * rand(0.6, 4.6);
@@ -1464,14 +1426,11 @@ section[id] { scroll-margin-top: 80px; }
           const drip = Math.random() < 0.25 ? rand(0.2, 0.8) : 0;
           addParticle(x, y, color, vx, vy, r, life, drip);
         }
-        // thick core
         for (let k = 0; k < 6; k++) {
           addParticle(x + rand(-6, 6), y + rand(-6, 6), color, rand(-30,30), rand(-30,30), rand(6, 12), rand(700, 1500), rand(0.2, 0.7));
         }
       }
-    
       function sprayTrail(x, y) {
-        // small continuous spray (drill mode)
         const color = pick(COLORS);
         const n = 16;
         for (let i = 0; i < n; i++) {
@@ -1482,47 +1441,31 @@ section[id] { scroll-margin-top: 80px; }
           addParticle(x + rand(-3,3), y + rand(-3,3), color, vx, vy, rand(0.4, 2.3), rand(300, 900), rand(0.1, 0.6));
         }
       }
-    
-      // --- rendering ---
       let lastT = now();
       function tick() {
         const t = now();
-        const dt = Math.min(33, t - lastT); // ms
+        const dt = Math.min(33, t - lastT);
         lastT = t;
-    
-        // fade slightly to feel like paint settling (optional)
-        // comment this out if you want "permanent" paint
         ctx.fillStyle = "rgba(0,0,0,0.00)";
         ctx.fillRect(0, 0, w, h);
         ctx.clearRect(0, 0, w, h);
-    
-        // draw particles
         for (let i = particles.length - 1; i >= 0; i--) {
           const p = particles[i];
           const age = t - p.born;
           if (age > p.life) { particles.splice(i, 1); continue; }
-    
           const k = age / p.life;
           const drag = 0.985 - 0.15 * k;
           p.vx *= drag;
           p.vy *= drag;
-    
-          // subtle gravity + drip
           p.vy += (p.drip ? (18 * p.drip) : 4) * (dt / 16.67);
-    
           p.x += p.vx * (dt / 1000);
           p.y += p.vy * (dt / 1000);
-    
-          // "ink spread": radius grows a bit then stabilizes
           const rr = p.r * (1 + 0.9 * Math.sin(Math.min(1, k) * Math.PI));
           const alpha = 0.95 * (1 - 0.85 * Math.pow(k, 1.6));
-    
           ctx.beginPath();
           ctx.fillStyle = hexToRgba(p.color, alpha);
           ctx.arc(p.x, p.y, Math.max(0.35, rr), 0, Math.PI * 2);
           ctx.fill();
-    
-          // add a tiny splatter ellipse for graffiti texture
           if (Math.random() < 0.14) {
             ctx.save();
             ctx.translate(p.x, p.y);
@@ -1535,10 +1478,8 @@ section[id] { scroll-margin-top: 80px; }
             ctx.restore();
           }
         }
-    
         requestAnimationFrame(tick);
       }
-    
       function hexToRgba(hex, a) {
         const h = hex.replace("#","").trim();
         const r = parseInt(h.slice(0,2),16);
@@ -1546,21 +1487,16 @@ section[id] { scroll-margin-top: 80px; }
         const b = parseInt(h.slice(4,6),16);
         return `rgba(${r},${g},${b},${a})`;
       }
-    
       requestAnimationFrame(tick);
-    
-      // --- interaction: click -> burst, then "drill" track mouse for a while ---
       let drillUntil = 0;
       let lastMove = 0;
-      const DRILL_MS = 1600;        // trail duration after click
-      const MOVE_THROTTLE = 14;     // ms
-    
+      const DRILL_MS = 1600;
+      const MOVE_THROTTLE = 14;
       window.addEventListener("click", (e) => {
         const x = e.clientX, y = e.clientY;
         splat(x, y);
         drillUntil = now() + DRILL_MS;
       });
-    
       window.addEventListener("mousemove", (e) => {
         const t = now();
         if (t > drillUntil) return;
@@ -1568,23 +1504,14 @@ section[id] { scroll-margin-top: 80px; }
         lastMove = t;
         sprayTrail(e.clientX, e.clientY);
       });
-    
     })();
-    </script>
+</script>
 
-<!-- ============ Publication view toggle + tag filter logic ============ -->
 <script>
 (function () {
   const TAG_LABELS = {
-    AI: "#AI",
-    Robotics: "#Robotics",
-    Graphics: "#Graphics",
-    HPC: "#HPC",
-    Audio: "#Audio",
-    Graph: "#Graph",
-    RL: "#RL",
-    DSP: "#DSP",
-    PhysicsInformedML: "#Physics-informed ML"
+    AI: "#AI", Robotics: "#Robotics", Graphics: "#Graphics", HPC: "#HPC", Audio: "#Audio",
+    Graph: "#Graph", RL: "#RL", DSP: "#DSP", PhysicsInformedML: "#Physics-informed ML"
   };
   const TAG_ORDER = ["AI", "Robotics", "Graphics", "HPC", "Audio", "Graph", "RL", "DSP", "PhysicsInformedML"];
 
@@ -1598,7 +1525,6 @@ section[id] { scroll-margin-top: 80px; }
 
   if (!dateView || !groupView) return;
 
-  // Collect every publication item with its tags
   const items = Array.from(dateView.querySelectorAll(".skillset[data-pub-item]"))
     .map((node) => ({
       node,
@@ -1607,17 +1533,14 @@ section[id] { scroll-margin-top: 80px; }
 
   const selected = new Set();
 
-  // Build the grouped-by-tag view structure
   function buildGroupView() {
     groupView.innerHTML = "";
     TAG_ORDER.forEach(tag => {
       const matched = items.filter(it => it.tags.includes(tag));
       if (matched.length === 0) return;
-
       const group = document.createElement("div");
       group.className = "pub-group";
       group.setAttribute("data-group-tag", tag);
-
       const header = document.createElement("div");
       header.className = "pub-group-header";
       const chip = document.createElement("span");
@@ -1629,29 +1552,20 @@ section[id] { scroll-margin-top: 80px; }
       header.appendChild(chip);
       header.appendChild(count);
       group.appendChild(header);
-
       matched.forEach(it => {
-        // Clone node into the grouped view (so toggling between views remains lossless)
         const clone = it.node.cloneNode(true);
         clone.setAttribute("data-clone", "1");
         group.appendChild(clone);
       });
-
       groupView.appendChild(group);
     });
   }
 
-  // Apply filter selection to currently visible view
   function applyFilter() {
     const sel = Array.from(selected);
     const tagMode = groupView.classList.contains("active");
-
     let anyVisible = false;
-
     if (tagMode) {
-      // In tag mode, each group corresponds to one tag.
-      // If filters are selected, only show groups whose tag is selected.
-      // Within each visible group, show all items belonging to that tag.
       groupView.querySelectorAll(".pub-group").forEach(group => {
         const t = group.getAttribute("data-group-tag");
         const groupVisible = sel.length === 0 || selected.has(t);
@@ -1659,30 +1573,21 @@ section[id] { scroll-margin-top: 80px; }
         if (groupVisible) anyVisible = true;
       });
     } else {
-      // In date mode, show items whose tags intersect with selected (OR logic).
-      // If no filter is selected, show everything.
       items.forEach(it => {
         const matches = sel.length === 0 || it.tags.some(t => selected.has(t));
         it.node.classList.toggle("is-hidden", !matches);
         if (matches) anyVisible = true;
       });
     }
-
     emptyMsg.classList.toggle("active", !anyVisible);
   }
 
-  // Toggle a filter chip
   function setupChips() {
     filterBar.querySelectorAll(".filter-chip").forEach(chip => {
       chip.addEventListener("click", () => {
         const tag = chip.getAttribute("data-tag");
-        if (selected.has(tag)) {
-          selected.delete(tag);
-          chip.classList.remove("selected");
-        } else {
-          selected.add(tag);
-          chip.classList.add("selected");
-        }
+        if (selected.has(tag)) { selected.delete(tag); chip.classList.remove("selected"); }
+        else { selected.add(tag); chip.classList.add("selected"); }
         applyFilter();
       });
     });
@@ -1701,7 +1606,6 @@ section[id] { scroll-margin-top: 80px; }
     dateView.classList.remove("is-hidden");
     groupView.classList.remove("active");
     filterBar.classList.remove("active");
-    // Reset filter when switching back to chronological view
     selected.clear();
     filterBar.querySelectorAll(".filter-chip.selected").forEach(c => c.classList.remove("selected"));
     applyFilter();
@@ -1718,7 +1622,6 @@ section[id] { scroll-margin-top: 80px; }
     applyFilter();
   }
 
-  // Init
   buildGroupView();
   setupChips();
   btnDate.addEventListener("click", switchToDate);
@@ -1728,12 +1631,9 @@ section[id] { scroll-margin-top: 80px; }
 
 <script src="https://unpkg.com/twemoji@latest/dist/twemoji.min.js" crossorigin="anonymous"></script>
 <script>
-  window.addEventListener('load', function() {
-    twemoji.parse(document.body);
-  });
+  window.addEventListener('load', function() { twemoji.parse(document.body); });
 </script>
 <style>
-  /* This ensures the image flags match your text size perfectly */
   img.emoji {
     width: 1.2em;
     height: 1.2em;
@@ -1751,20 +1651,17 @@ section[id] { scroll-margin-top: 80px; }
     .map(a => document.getElementById(a.getAttribute("data-target")))
     .filter(Boolean);
 
-  // Mobile menu toggle
   if (toggle) {
     toggle.addEventListener("click", () => {
       const open = linksEl.classList.toggle("open");
       toggle.setAttribute("aria-expanded", open ? "true" : "false");
     });
-    // Close menu after clicking a link (mobile)
     links.forEach(a => a.addEventListener("click", () => {
       linksEl.classList.remove("open");
       toggle.setAttribute("aria-expanded", "false");
     }));
   }
 
-  // Add shadow when scrolled
   function onScroll() {
     if (window.scrollY > 8) nav.classList.add("scrolled");
     else nav.classList.remove("scrolled");
@@ -1772,33 +1669,25 @@ section[id] { scroll-margin-top: 80px; }
   window.addEventListener("scroll", onScroll, { passive: true });
   onScroll();
 
-  // Highlight active section in nav
   if ("IntersectionObserver" in window && targets.length) {
     const byId = new Map();
     links.forEach(a => byId.set(a.getAttribute("data-target"), a));
-
-    let visible = new Map(); // id -> intersectionRatio
-
+    let visible = new Map();
     const io = new IntersectionObserver((entries) => {
       entries.forEach(e => {
         if (e.isIntersecting) visible.set(e.target.id, e.intersectionRatio);
         else visible.delete(e.target.id);
       });
-
-      // Pick the most-visible section
       let bestId = null, bestRatio = 0;
       visible.forEach((r, id) => {
         if (r > bestRatio) { bestRatio = r; bestId = id; }
       });
-
       links.forEach(a => a.classList.remove("active"));
       if (bestId && byId.has(bestId)) byId.get(bestId).classList.add("active");
     }, {
-      // Trigger when sections cross the upper third of the viewport
       rootMargin: "-80px 0px -55% 0px",
       threshold: [0, 0.25, 0.5, 0.75, 1]
     });
-
     targets.forEach(t => io.observe(t));
   }
 })();
