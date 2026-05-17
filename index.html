@@ -245,6 +245,54 @@
     .pub-toggle button { padding: 6px 11px; font-size: 12px; }
     .pub-filter-label { min-width: 0; }
   }
+
+ /* ---------- Expandable About sections ---------- */
+.about-details {
+  margin: 14px 0;
+  border: 1px solid #ece9f2;
+  border-radius: 12px;
+  background: #faf9fc;
+  padding: 0 18px;
+  transition: background 0.2s ease, box-shadow 0.2s ease;
+}
+.about-details[open] {
+  background: #fff;
+  box-shadow: 0 1px 4px rgba(0,0,0,0.04);
+}
+.about-details > summary {
+  cursor: pointer;
+  list-style: none;
+  padding: 14px 0;
+  font-size: 15px;
+  color: #2a2a2a;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  user-select: none;
+  outline: none;
+}
+.about-details > summary::-webkit-details-marker { display: none; }
+.about-details > summary::before {
+  content: "▶";
+  font-size: 10px;
+  color: #c49be5;
+  transition: transform 0.2s ease;
+  display: inline-block;
+}
+.about-details[open] > summary::before {
+  transform: rotate(90deg);
+}
+.about-details > summary:hover {
+  color: #6b3aa6;
+}
+.about-details > p,
+.about-details > ul {
+  margin-bottom: 14px;
+}
+.about-details > p:first-of-type,
+.about-details > ul:first-of-type {
+  margin-top: 4px;
+}
 </style>
 </head>
 <body>
@@ -329,20 +377,27 @@
 <h2 class="section-title"><span class="icon-holder"><i class="fas fa-user"></i></span>About Myself</h2>
 <div class="summary">
     <p>
-        Hi! I'm a Master's student in <a href="http://graphics.csie.ntu.edu.tw/~robin/" target="_blank" rel="noopener">Prof. Bing-Yu "Robin" Chen</a>'s group at
-        <a href="https://www.ntu.edu.tw/" target="_blank" rel="noopener"><b>National Taiwan University</b></a> 🇹🇼.
-        My research lies at <span style="color:#c49be5;"><b>Sim–Real Transfer</b></span>: the intersection of
-        <span style="color:#9f9be5;"><b>AI</b> / <b>Graphics</b> / <b>Robotics</b>/ <b>Audio</b>/ <b>HPC</b></span>,
-        with specializations in Physics-informed Machine Learning, Reinforcement Learning, and Graph Learning. I like systematically working through critical problems that sit between disciplines, and my current interests span three core areas:
-    </p>
+    Hi! I'm a Master's student in <a href="http://graphics.csie.ntu.edu.tw/~robin/" target="_blank" rel="noopener">Prof. Bing-Yu "Robin" Chen</a>'s group at
+    <a href="https://www.ntu.edu.tw/" target="_blank" rel="noopener"><b>National Taiwan University</b></a> 🇹🇼.
+    My research lies at <span style="color:#c49be5;"><b>Sim–Real Transfer</b></span>: the intersection of
+    <span style="color:#9f9be5;"><b>AI</b> / <b>Graphics</b> / <b>Robotics</b>/ <b>Audio</b>/ <b>HPC</b></span>,
+    with specializations in Physics-informed Machine Learning, Reinforcement Learning, and Graph Learning.
+</p>
 
+<details class="about-details">
+    <summary><strong>Research Areas</strong></summary>
+    <p>
+        I like systematically working through critical problems that sit between disciplines, and my current interests span three core areas:
+    </p>
     <ul>
-        <li><p><strong>Visual Computing & Physics Simulation</strong> — developing neural PDE solvers (e.g., Walk-on-Spheres Monte Carlo for complex geometry) and differentiable physical simulation frameworks (hyper-elastic projective dynamics with positive-definite Hessian projection), with applications spanning CAD-driven robotic fabrication and animation workflows such as editable 3D Gaussian Splatting.</p></li>
+        <li><p><strong>Visual Computing &amp; Physics Simulation</strong> — developing neural PDE solvers (e.g., Walk-on-Spheres Monte Carlo for complex geometry) and differentiable physical simulation frameworks (hyper-elastic projective dynamics with positive-definite Hessian projection), with applications spanning CAD-driven robotic fabrication and animation workflows such as editable 3D Gaussian Splatting.</p></li>
         <li><p><strong>Embodied Systems</strong> — training Sim2Real reinforcement learning policies in Isaac Gym/Lab for robotic manipulation on Kuka, UR10, and Hiwin arms, and building large-scale digital twins that fuse multimodal sensing (WiFi, point cloud, RGBD) with graph federated learning foundation models for privacy-preserving human–scene interaction on supercomputers like Fugaku.</p></li>
         <li><p><strong>Audio Signal Processing</strong> — combining classical DSP with learned latent-space representations to design audio watermarks robust to neural resynthesis, and modeling spatial audio through room impulse responses (RIRs) in complex room acoustics.</p></li>
     </ul>
+</details>
 
-
+<details class="about-details">
+    <summary><strong>Internships</strong></summary>
     <p>
         Along with my work at NTU, I've had the chance to do research internships and build collaborations across several international groups. I spent time at
         <a href="https://www.aalto.fi/en/aalto-science-institute" target="_blank" rel="noopener"><b>Aalto University</b></a>
@@ -352,10 +407,16 @@
         through the <a href="https://www.r-ccs.riken.jp/en/outreach/schools/20250415-20260319/" target="_blank" rel="noopener">2025 R-CCS International HPC Computational Science Internship Program</a>
         (Large-Scale Digital Twin Research Team, Kobe/Osaka, Japan 🇯🇵; under Team Principal
         <a href="https://mc.net.ist.osaka-u.ac.jp/people/h-yamagu/" target="_blank" rel="noopener">Prof. Hirozumi Yamaguchi</a> and
-        <a href="https://hamada-rizk.com" target="_blank" rel="noopener">Prof. Hamada Rizk</a> of Osaka University). On the industry side, I've worked in R&D at
+        <a href="https://hamada-rizk.com" target="_blank" rel="noopener">Prof. Hamada Rizk</a> of Osaka University). On the industry side, I've worked in R&amp;D at
         <a href="https://moonshine.tw/" target="_blank" rel="noopener"><b>MoonShine Animation Studio</b></a>
         (with Dir. <a href="https://tw.linkedin.com/in/shaune-jan" target="_blank" rel="noopener">Shaune Jan</a>) and
         <a href="https://www.linkedin.com/company/delta-electronics/" target="_blank" rel="noopener"><b>Delta Electronics</b></a>.
+    </p>
+</details>
+
+<details class="about-details">
+    <summary><strong>Collaborations</strong></summary>
+    <p>
         My ongoing academic collaborations extend further to
         <a href="https://yulunalexliu.github.io/" target="_blank" rel="noopener">Prof. Yu-Lun "Alex" Liu</a> (NYCU, Taiwan 🇹🇼),
         <a href="https://ziqiu-zeng.github.io/homepage/" target="_blank" rel="noopener">Ziqiu Zeng</a> (NUS, Singapore 🇸🇬),
@@ -365,34 +426,38 @@
         <a href="https://speech.ee.ntu.edu.tw/~hylee/" target="_blank" rel="noopener">Prof. Hung-Yi Lee</a> (NTU, Taiwan 🇹🇼),
         <a href="https://www.csie.ntu.edu.tw/~stchen/" target="_blank" rel="noopener">Prof. Shang-Tse Chen</a> (NTU, Taiwan 🇹🇼),
         <a href="https://kyungyunlee.github.io" target="_blank" rel="noopener">Kyung Lee</a> (Aalto, Finland 🇫🇮),
-        <a href="https://scholar.google.com/citations?user=1eCeFoIAAAAJ&hl=en" target="_blank" rel="noopener">Nils Meyer-Kahlen</a> (Aalto, Finland 🇫🇮),
-        <a href="https://scholar.google.com/citations?user=gADc7mEAAAAJ&hl=en" target="_blank" rel="noopener">Eloi Moliner</a> (Aalto, Finland 🇫🇮), and
+        <a href="https://scholar.google.com/citations?user=1eCeFoIAAAAJ&amp;hl=en" target="_blank" rel="noopener">Nils Meyer-Kahlen</a> (Aalto, Finland 🇫🇮),
+        <a href="https://scholar.google.com/citations?user=gADc7mEAAAAJ&amp;hl=en" target="_blank" rel="noopener">Eloi Moliner</a> (Aalto, Finland 🇫🇮), and
         <a href="https://samueli.ucla.edu/people/xiang-anthony-chen/" target="_blank" rel="noopener">Prof. Xiang "Anthony" Chen</a> (UCLA, US 🇺🇸).
         Working on state-of-the-art research with international teams has been one of the most rewarding parts of being in research, and is something I now actively look for.
     </p>
+</details>
 
+<details class="about-details">
+    <summary><strong>Before Master</strong></summary>
     <p>
         I also worked closely with multiple academic groups during my undergraduate studies and co-authored
         <span style="color:#c49be5;"><b>8 conference papers</b></span> in top-tier AI/CS venues. These include the
-        <a href="https://hphsieh.github.io/nckuee/index.html" target="_blank" rel="noopener">Urban Science & Computing Lab</a>
-        led by <a href="https://scholar.google.com/citations?hl=en&user=f6SBzrAAAAAJ" target="_blank" rel="noopener">Prof. Hsun-Ping Hsieh</a>,
+        <a href="https://hphsieh.github.io/nckuee/index.html" target="_blank" rel="noopener">Urban Science &amp; Computing Lab</a>
+        led by <a href="https://scholar.google.com/citations?hl=en&amp;user=f6SBzrAAAAAJ" target="_blank" rel="noopener">Prof. Hsun-Ping Hsieh</a>,
         and <a href="https://rccn.dev/en/about/" target="_blank" rel="noopener">RAC-Coon (Robot Aided Creation and Construction Research Group)</a>
         together with <a href="https://nckusynclab.wixsite.com/synclab/people-yang-ting-shen" target="_blank" rel="noopener">Prof. Yang-Ting Shen</a>,
         <a href="https://www.arch.ncku.edu.tw/en/module/pageinfo/1378-i6.html" target="_blank" rel="noopener">Prof. Chia-Ching Yen</a>, and
         <a href="https://www.csie.ncku.edu.tw/en/members/13" target="_blank" rel="noopener">Prof. Wen-Yu Su</a>.
     </p>
-
     <p>
         All of my projects live on my <a href="https://github.com/Akinesia112">GitHub</a> page, spanning generative modeling, multi-agent RL, multimodal agents, 3D rendering, and intelligent systems. I also contribute back to the community as a reviewer for ACM CHI, HRI, CSCW, and WWW.
     </p>
+</details>
 
-    <p>
-        Collaboration is one of the parts of research I enjoy most — technical discussions, sharing expertise, and figuring out what we can build together. If any of the above resonates, <strong>let's discuss</strong>!
-    </p>
+<p>
+    Collaboration is one of the parts of research I enjoy most — technical discussions, sharing expertise, and figuring out what we can build together. If any of the above resonates, <strong>let's discuss</strong>!
+</p>
 
-    <p>
-        Outside of research: graffiti (in legal areas), live houses / music festivals, and traveling.
-    </p>
+<p>
+    Outside of research: graffiti (in legal areas), live houses/music festivals, and traveling.
+</p>
+
 </div>
 
 
