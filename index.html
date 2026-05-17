@@ -17,34 +17,57 @@
   html, body { overflow-x: hidden; }
 
   /* ============================================================
-     GLOBAL BACKGROUND — light overall, only a narrow dark strip
-     at the very top.
+     GLOBAL BACKGROUND — one continuous gradient over the entire
+     page. Dark band only at the very top; long tail of white.
      ============================================================ */
-  body {
+  html {
     background:
       linear-gradient(
         180deg,
-        #14141a 0%,
-        #14141a 4%,
-        #2a2a32 8%,
-        #4f4f58 12%,
-        #8a8a92 16%,
-        #c0c0c4 20%,
-        #e6e6e8 24%,
-        #f6f6f7 28%,
-        #ffffff 34%,
+        #14141a 0px,
+        #14141a 60px,
+        #1f1f26 140px,
+        #3a3a42 220px,
+        #6a6a72 320px,
+        #9a9aa0 420px,
+        #c4c4c8 520px,
+        #e2e2e4 620px,
+        #f4f4f5 720px,
+        #ffffff 820px,
         #ffffff 100%
       ) !important;
     background-attachment: fixed !important;
     background-repeat: no-repeat !important;
     min-height: 100vh;
   }
+  body { background: transparent !important; }
 
-  /* Sidebar transparent — gradient shows through behind avatar */
+  /* ============================================================
+     KILL the inherited orbit-6 "panel" look:
+     - sidebar: no fixed min-height, no panel background
+     - main:    no white card, no rounded corners, no shadow
+     The page is now a single canvas with one shared gradient.
+     ============================================================ */
+  .wrapper {
+    background: transparent !important;
+    box-shadow: none !important;
+    max-width: none !important;
+    width: 100% !important;
+    margin: 0 !important;
+  }
   .sidebar-wrapper {
     background: transparent !important;
     color: #ffffff !important;
+    min-height: 0 !important;
+    height: auto !important;
   }
+  .main-wrapper {
+    background: transparent !important;
+    box-shadow: none !important;
+    border-radius: 0 !important;
+  }
+
+  /* Sidebar text colors (legible on dark top of gradient) */
   .sidebar-wrapper .container-block-title,
   .sidebar-wrapper .degree,
   .sidebar-wrapper .meta,
@@ -58,71 +81,54 @@
   .sidebar-wrapper a { color: #ffffff !important; }
   .sidebar-wrapper a:hover { color: #c49be5 !important; }
 
-  /* Main content as a white card on the light portion of gradient */
-  .main-wrapper {
-    background: #ffffff;
-    border-radius: 18px 18px 0 0;
-    box-shadow: 0 -8px 40px rgba(0,0,0,0.06);
-    padding-top: 0 !important;
-    padding-bottom: 60px !important;
-  }
-  .footer .copyright { color: #555 !important; }
-
-  .author-list { font-size: 0.9em; color: #555; margin-top: 4px; }
-  .author-list .me { font-weight: bold; color: #222; }
+  /* ============================================================
+     LAYOUT — sidebar stacked above main on ALL widths.
+     Cleaner and avoids the "tall column of grey" issue.
+     ============================================================ */
   .wrapper {
-    max-width: none !important;
+    box-sizing: border-box;
+    padding: 64px 0 0 0;
+  }
+  .sidebar-wrapper {
+    position: relative !important;
     width: 100% !important;
-    margin: 30px 0 0 0 !important;
+    right: auto !important;
+    top: auto !important;
+    max-width: 760px;
+    margin: 0 auto !important;
+    padding: 40px 24px 0 24px !important;
+    box-sizing: border-box;
+    text-align: center;
+  }
+  .main-wrapper {
+    padding: 24px 24px 60px 24px !important;
+    max-width: 880px;
+    margin: 0 auto !important;
     box-sizing: border-box;
   }
+  @media (min-width: 1200px) {
+    .sidebar-wrapper { max-width: 880px; }
+    .main-wrapper { max-width: 980px; }
+  }
 
-  @media (min-width: 992px) {
-    .sidebar-wrapper { width: 280px !important; }
-    .main-wrapper {
-      padding-right: 320px !important;
-      padding-left: 60px !important;
-    }
-  }
-  @media (min-width: 1400px) {
-    .sidebar-wrapper { width: 340px !important; }
-    .main-wrapper {
-      padding-right: 380px !important;
-      padding-left: 80px !important;
-    }
-  }
-  @media (min-width: 1800px) {
-    .sidebar-wrapper { width: 380px !important; }
-    .main-wrapper {
-      padding-right: 420px !important;
-      padding-left: 100px !important;
-    }
-  }
-  .main-wrapper .section,
-  .main-wrapper .container-block { box-sizing: border-box; }
-  img { max-width: 100%; height: auto; }
-  .project-tagline { display: block; }
-
-  /* ============================================================
-     SIDEBAR — only avatar + education on desktop.
-     (Name + taglines removed; brand sits in top-nav instead.)
-     ============================================================ */
+  /* Profile (centered, large round avatar like Hyunjin Seo) */
   .sidebar-wrapper .profile-container {
-    padding: 30px 22px 18px 22px !important;
+    padding: 0 0 14px 0 !important;
     background: transparent !important;
     text-align: center;
   }
   .sidebar-wrapper .profile-container img.profile,
   .sidebar-wrapper #profile-photo {
     display: block;
-    margin: 0 auto 10px auto !important;
-    width: 200px !important;
-    height: 200px !important;
-    max-width: 80%;
+    margin: 0 auto 12px auto !important;
+    width: 220px !important;
+    height: 220px !important;
+    max-width: 55vw;
+    max-height: 55vw;
     border-radius: 50%;
     object-fit: cover;
     border: none !important;
-    box-shadow: 0 6px 24px rgba(0,0,0,0.25);
+    box-shadow: 0 10px 30px rgba(0,0,0,0.30);
   }
   .sidebar-wrapper .portrait-duality {
     text-align: center;
@@ -131,20 +137,22 @@
     opacity: 0.75;
   }
 
-  /* Education styling inside sidebar */
+  /* Education */
   .sidebar-wrapper .education-container {
-    padding: 18px 22px 24px 22px;
+    padding: 14px 0 18px 0;
+    max-width: 480px;
+    margin: 0 auto;
   }
   .sidebar-wrapper .education-container .container-block-title {
     text-align: center;
-    font-size: 14px;
-    letter-spacing: 0.08em;
+    font-size: 13px;
+    letter-spacing: 0.10em;
     padding-bottom: 8px;
     border-bottom: 1px solid rgba(255,255,255,0.18);
   }
   .sidebar-wrapper .education-container .item {
     text-align: center;
-    margin-top: 14px;
+    margin-top: 12px;
   }
   .sidebar-wrapper .education-container .degree {
     font-size: 13px;
@@ -162,45 +170,11 @@
     color: rgba(255,255,255,0.70) !important;
   }
 
-  /* RESPONSIVE SIDEBAR — stacked + centered on narrow screens */
-  @media (max-width: 991px) {
-    .wrapper { position: relative; }
-    .sidebar-wrapper {
-      position: relative !important;
-      width: 100% !important;
-      max-width: 640px;
-      margin: 0 auto !important;
-      right: auto !important;
-      top: auto !important;
-      padding: 18px 22px 10px 22px !important;
-      box-sizing: border-box;
-      text-align: center;
-    }
-    .main-wrapper {
-      padding-left: 22px !important;
-      padding-right: 22px !important;
-      max-width: 760px;
-      margin: 0 auto;
-    }
-    .sidebar-wrapper .profile-container {
-      padding: 6px 0 12px 0 !important;
-    }
-    .sidebar-wrapper .profile-container img.profile,
-    .sidebar-wrapper #profile-photo {
-      width: 200px !important;
-      height: 200px !important;
-      max-width: 55vw;
-      max-height: 55vw;
-    }
-    .sidebar-wrapper .education-container {
-      padding: 8px 0 18px 0;
-    }
-  }
-
   /* ============================================================
-     HORIZONTAL CONTACT BAR — moved into main content (top of card).
-     Lives outside the sidebar so it gets the full main-wrapper width
-     and will never get clipped by the narrow sidebar column.
+     HORIZONTAL CONTACT BAR — sits in the sidebar right under
+     Education, so it stays close to the avatar instead of being
+     pushed far down by an empty white card.
+     Uses lighter colors because it's on the mid-grey band.
      ============================================================ */
   .contact-bar {
     display: flex;
@@ -208,10 +182,13 @@
     flex-wrap: wrap;
     justify-content: center;
     align-items: center;
-    gap: 14px 24px;
-    padding: 26px 20px 4px 20px;
+    gap: 12px 22px;
+    padding: 18px 12px 30px 12px;
     list-style: none;
     margin: 0;
+    max-width: 760px;
+    margin-left: auto;
+    margin-right: auto;
   }
   .contact-bar li {
     display: inline-flex;
@@ -225,21 +202,38 @@
   }
   .contact-bar li i {
     font-size: 14px;
-    color: #6b6b76;
+    color: rgba(255,255,255,0.85);
   }
   .contact-bar li a {
-    color: #2a2a2a;
+    color: #ffffff;
     text-decoration: none;
     font-weight: 500;
+    opacity: 0.92;
   }
   .contact-bar li a:hover {
-    color: #6b3aa6;
+    color: #c49be5;
+    opacity: 1;
     text-decoration: underline;
   }
   @media (max-width: 600px) {
-    .contact-bar { gap: 10px 18px; padding: 18px 12px 0 12px; }
+    .contact-bar { gap: 10px 16px; padding: 14px 8px 22px 8px; }
     .contact-bar li { font-size: 13px; }
   }
+
+  /* ============================================================
+     Main content readability:
+     The main section lives on lighter portion of gradient (~white).
+     Use ordinary dark text. No card.
+     ============================================================ */
+  .main-wrapper,
+  .main-wrapper p,
+  .main-wrapper li,
+  .main-wrapper .summary { color: #2a2a2a; }
+
+  img { max-width: 100%; height: auto; }
+  .project-tagline { display: block; }
+  .author-list { font-size: 0.9em; color: #555; margin-top: 4px; }
+  .author-list .me { font-weight: bold; color: #222; }
 
   /* Publications filter controls */
   .pub-controls {
@@ -389,7 +383,7 @@
     .pub-filter-label { min-width: 0; }
   }
 
-  /* Publication action buttons — pill icon buttons */
+  /* Publication action buttons */
   .pub-actions {
     display: inline-flex;
     flex-wrap: wrap;
@@ -423,7 +417,7 @@
   }
   .pub-btn:focus { outline: none; }
 
-  /* Expandable About sections */
+  /* About expandable */
   .about-details {
     margin: 14px 0;
     border: 1px solid #ece9f2;
@@ -496,33 +490,25 @@
   }
   .music-details[open] > summary::before { transform: rotate(90deg); }
   .music-details > summary:hover { color: #6b3aa6; }
-  .music-details .music-note {
-    margin: 0 0 10px 0;
-    font-size: 13px;
-    color: #7a7a7a;
-  }
+  .music-details .music-note { margin: 0 0 10px 0; font-size: 13px; color: #7a7a7a; }
   .music-details .music-embed-wrap {
     margin: 0 0 14px 0;
     border-radius: 8px;
     overflow: hidden;
     background: #000;
   }
-  .music-details iframe {
-    display: block;
-    width: 100%;
-    border: 0;
-  }
+  .music-details iframe { display: block; width: 100%; border: 0; }
 
-  /* Top navigation bar (dark glass on the thin dark strip) */
+  /* Top nav */
   .top-nav {
     position: fixed;
     top: 0; left: 0; right: 0;
     z-index: 1000;
-    background: rgba(20, 20, 26, 0.78);
+    background: rgba(20, 20, 26, 0.82);
     backdrop-filter: saturate(180%) blur(14px);
     -webkit-backdrop-filter: saturate(180%) blur(14px);
     border-bottom: 1px solid rgba(255, 255, 255, 0.08);
-    transition: background 0.25s ease, box-shadow 0.25s ease;
+    transition: background 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
   }
   .top-nav.scrolled {
     background: rgba(255, 255, 255, 0.94);
@@ -632,8 +618,6 @@
     .top-nav-links a { padding: 10px 14px; }
     .top-nav-links a.active::after { display: none; }
   }
-  .wrapper { padding-top: 64px; }
-  @media (max-width: 900px) { .wrapper { padding-top: 56px; } }
   html { scroll-behavior: smooth; }
   section[id] { scroll-margin-top: 80px; }
 </style>
@@ -659,9 +643,10 @@
 </nav>
 
 <div class="wrapper">
+
+<!-- Sidebar: avatar + education only -->
 <div class="sidebar-wrapper">
 
-<!-- ONLY: profile photo + education. Name/taglines removed. -->
 <div class="profile-container">
     <img id="profile-photo"
          alt="Shih-Yu Lai"
@@ -680,12 +665,7 @@
 </div>
 </div>
 
-</div><!--//sidebar-wrapper-->
-
-<div class="main-wrapper">
-
-<!-- Contact bar lives at the top of the main (white) area so it has
-     full width and won't get clipped at any viewport. -->
+<!-- Contact bar sits tight below education, not pushed far down -->
 <ul class="contact-bar">
     <li><i class="fas fa-file-alt"></i><a href="assets/CV/Shih_YuLai_CV.pdf" target="_blank">CV</a></li>
     <li><i class="fas fa-envelope"></i><a href="mailto:akinesia112@gmail.com">Email</a></li>
@@ -693,6 +673,10 @@
     <li><i class="fab fa-linkedin-in"></i><a href="https://www.linkedin.com/in/shih-yu-lai" target="_blank">LinkedIn</a></li>
     <li><i class="fab fa-github"></i><a href="https://github.com/Akinesia112" target="_blank">GitHub</a></li>
 </ul>
+
+</div><!--//sidebar-wrapper-->
+
+<div class="main-wrapper">
 
 <section class="section summary-section" id="about">
     <p class="opening-quote">
@@ -1570,7 +1554,6 @@
     Graph: "#Graph", RL: "#RL", DSP: "#DSP", PhysicsInformedML: "#Physics-informed ML"
   };
   const TAG_ORDER = ["AI", "Robotics", "Graphics", "HPC", "Audio", "Graph", "RL", "DSP", "PhysicsInformedML"];
-
   const dateView    = document.getElementById("pub-date-view");
   const groupView   = document.getElementById("pub-group-view");
   const filterBar   = document.getElementById("pub-filter-bar");
@@ -1580,10 +1563,7 @@
   const clearBtn    = document.getElementById("pub-clear");
   if (!dateView || !groupView) return;
   const items = Array.from(dateView.querySelectorAll(".skillset[data-pub-item]"))
-    .map((node) => ({
-      node,
-      tags: (node.getAttribute("data-tags") || "").split(",").map(s => s.trim()).filter(Boolean)
-    }));
+    .map((node) => ({ node, tags: (node.getAttribute("data-tags") || "").split(",").map(s => s.trim()).filter(Boolean) }));
   const selected = new Set();
   function buildGroupView() {
     groupView.innerHTML = "";
@@ -1678,8 +1658,6 @@
 
 <script src="https://unpkg.com/twemoji@latest/dist/twemoji.min.js" crossorigin="anonymous"></script>
 <script>
-  // Only parse emoji inside specific containers that actually need flag rendering.
-  // Avoids Twemoji incorrectly transforming nearby text content.
   window.addEventListener('load', function() {
     document.querySelectorAll('.summary, .opening-quote').forEach(function(el){
       twemoji.parse(el);
@@ -1687,12 +1665,7 @@
   });
 </script>
 <style>
-  img.emoji {
-    width: 1.2em;
-    height: 1.2em;
-    vertical-align: -0.2em;
-    margin: 0 0.1em;
-  }
+  img.emoji { width: 1.2em; height: 1.2em; vertical-align: -0.2em; margin: 0 0.1em; }
 </style>
 <script>
 (function () {
@@ -1703,7 +1676,6 @@
   const targets = links
     .map(a => document.getElementById(a.getAttribute("data-target")))
     .filter(Boolean);
-
   if (toggle) {
     toggle.addEventListener("click", () => {
       const open = linksEl.classList.toggle("open");
@@ -1714,14 +1686,12 @@
       toggle.setAttribute("aria-expanded", "false");
     }));
   }
-
   function onScroll() {
     if (window.scrollY > 8) nav.classList.add("scrolled");
     else nav.classList.remove("scrolled");
   }
   window.addEventListener("scroll", onScroll, { passive: true });
   onScroll();
-
   if ("IntersectionObserver" in window && targets.length) {
     const byId = new Map();
     links.forEach(a => byId.set(a.getAttribute("data-target"), a));
