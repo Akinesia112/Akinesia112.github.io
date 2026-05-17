@@ -293,9 +293,152 @@
 .about-details > ul:first-of-type {
   margin-top: 4px;
 }
+/* ========== Top navigation bar ========== */
+.top-nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+  background: rgba(255, 255, 255, 0.85);
+  backdrop-filter: saturate(180%) blur(14px);
+  -webkit-backdrop-filter: saturate(180%) blur(14px);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+  transition: background 0.25s ease, box-shadow 0.25s ease;
+}
+.top-nav.scrolled {
+  background: rgba(255, 255, 255, 0.95);
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.06);
+}
+.top-nav-inner {
+  max-width: 1600px;
+  margin: 0 auto;
+  padding: 14px 32px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+}
+.top-nav-brand {
+  font-size: 17px;
+  font-weight: 700;
+  color: #2a2a2a;
+  letter-spacing: -0.01em;
+  white-space: nowrap;
+  text-decoration: none;
+}
+.top-nav-brand:hover { color: #6b3aa6; text-decoration: none; }
+.top-nav-brand .brand-zh {
+  font-weight: 500;
+  color: #7a7a7a;
+  margin-left: 8px;
+  font-size: 14px;
+}
+.top-nav-links {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+.top-nav-links a {
+  display: inline-block;
+  padding: 8px 14px;
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: #6b6b76;
+  text-decoration: none;
+  border-radius: 8px;
+  transition: all 0.18s ease;
+  position: relative;
+}
+.top-nav-links a:hover {
+  color: #2a2a2a;
+  background: rgba(196, 155, 229, 0.10);
+  text-decoration: none;
+}
+.top-nav-links a.active {
+  color: #6b3aa6;
+}
+.top-nav-links a.active::after {
+  content: "";
+  position: absolute;
+  left: 14px;
+  right: 14px;
+  bottom: 2px;
+  height: 2px;
+  background: #c49be5;
+  border-radius: 2px;
+}
+
+/* Hamburger for mobile */
+.top-nav-toggle {
+  display: none;
+  background: transparent;
+  border: 1px solid rgba(0,0,0,0.12);
+  border-radius: 8px;
+  padding: 6px 10px;
+  cursor: pointer;
+  font-size: 16px;
+  color: #2a2a2a;
+}
+@media (max-width: 900px) {
+  .top-nav-inner { padding: 12px 18px; }
+  .top-nav-toggle { display: inline-flex; }
+  .top-nav-links {
+    position: absolute;
+    top: 100%;
+    right: 18px;
+    flex-direction: column;
+    align-items: stretch;
+    background: #fff;
+    border: 1px solid rgba(0,0,0,0.08);
+    border-radius: 12px;
+    padding: 8px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.10);
+    min-width: 180px;
+    display: none;
+  }
+  .top-nav-links.open { display: flex; }
+  .top-nav-links a { padding: 10px 14px; }
+  .top-nav-links a.active::after { display: none; }
+}
+
+/* Push the page content down so it doesn't hide under the fixed nav */
+.wrapper { padding-top: 64px; }
+@media (max-width: 900px) {
+  .wrapper { padding-top: 56px; }
+}
+
+/* Smooth scroll + offset so anchor jumps don't hide under the nav */
+html { scroll-behavior: smooth; }
+section[id] { scroll-margin-top: 80px; }
 </style>
 </head>
 <body>
+<nav class="top-nav" id="top-nav">
+  <div class="top-nav-inner">
+    <a href="#home" class="top-nav-brand">
+      Shih-Yu Lai <span class="brand-zh">賴溡雨</span>
+    </a>
+
+    <button class="top-nav-toggle" id="top-nav-toggle" aria-label="Toggle menu" aria-expanded="false">
+      <i class="fas fa-bars"></i>
+    </button>
+
+    <ul class="top-nav-links" id="top-nav-links">
+      <li><a href="#about" data-target="about">About</a></li>
+      <li><a href="#publications" data-target="publications">Publications</a></li>
+      <li><a href="#thesis" data-target="thesis">Thesis</a></li>
+      <li><a href="#experience" data-target="experience">Experience</a></li>
+      <li><a href="#honors" data-target="honors">Honors</a></li>
+      <li><a href="#service" data-target="service">Service</a></li>
+    </ul>
+  </div>
+</nav>
 <div class="wrapper">
 <div class="sidebar-wrapper">
 <div class="profile-container">
@@ -368,7 +511,7 @@
 </div>
 </div><!--//sidebar-wrapper-->
 <div class="main-wrapper">
-<section class="section summary-section">
+<section class="section summary-section" id="about">
     <p class="opening-quote">
         ‘Science plus arts multiplied by faith then divided by the number of our ethnic race.’
         <span class="opening-quote-src">— Nujabes, feat. Shing02, <i>Luv(sic) pt2</i> </span>
@@ -467,7 +610,7 @@
 
     
 </section><!--//section-->
-<section class="section publication-section">
+<section class="section publication-section" id="publications">
 <h2 class="section-title"><span class="icon-holder"><i class="fas fa-archive"></i></span>Publications</h2>
 
 <!-- ============ Filter / Toggle controls ============ -->
@@ -834,7 +977,7 @@
 <!-- Empty state when filters select nothing -->
 <div class="pub-empty" id="pub-empty">No publications match the selected tags.</div>
     
-<section class="section poster-theses-section">
+<section class="section poster-theses-section" id="thesis">
 <h2 class="section-title"><span class="icon-holder"><i class="fas fa-archive"></i></span>Thesis</h2>
 <div class="item">
 <div class="details">
@@ -843,7 +986,7 @@
 </div>
 </section><!--//section-->
     
-<section class="section experiences-section">
+<section class="section experiences-section" id="experience">
 <h2 class="section-title"><span class="icon-holder"><i class="fas fa-briefcase"></i></span>Research &amp; Work Experience</h2>
     
 <div class="item">
@@ -951,7 +1094,7 @@
 </div>
 </div>
 
-<section class="section honors-section">
+<section class="section honors-section" id="honors">
     <h2 class="section-title"><span class="icon-holder"><i class="fas fa-trophy"></i></span>Honors &amp; Awards</h2>
   
     <div class="item">
@@ -1049,7 +1192,7 @@
   
 
 </section><!--//section-->
-<section class="section experiences-section">
+<section class="section experiences-section" id="service">
 <h2 class="section-title"><span class="icon-holder"><i class="fas fa-briefcase"></i></span>Academic &amp; Community Service</h2>
 <div class="item">
 <div class="meta">
@@ -1472,6 +1615,68 @@
     margin: 0 0.1em;
   }
 </style>
+<script>
+(function () {
+  const nav     = document.getElementById("top-nav");
+  const toggle  = document.getElementById("top-nav-toggle");
+  const linksEl = document.getElementById("top-nav-links");
+  const links   = Array.from(linksEl.querySelectorAll("a[data-target]"));
+  const targets = links
+    .map(a => document.getElementById(a.getAttribute("data-target")))
+    .filter(Boolean);
+
+  // Mobile menu toggle
+  if (toggle) {
+    toggle.addEventListener("click", () => {
+      const open = linksEl.classList.toggle("open");
+      toggle.setAttribute("aria-expanded", open ? "true" : "false");
+    });
+    // Close menu after clicking a link (mobile)
+    links.forEach(a => a.addEventListener("click", () => {
+      linksEl.classList.remove("open");
+      toggle.setAttribute("aria-expanded", "false");
+    }));
+  }
+
+  // Add shadow when scrolled
+  function onScroll() {
+    if (window.scrollY > 8) nav.classList.add("scrolled");
+    else nav.classList.remove("scrolled");
+  }
+  window.addEventListener("scroll", onScroll, { passive: true });
+  onScroll();
+
+  // Highlight active section in nav
+  if ("IntersectionObserver" in window && targets.length) {
+    const byId = new Map();
+    links.forEach(a => byId.set(a.getAttribute("data-target"), a));
+
+    let visible = new Map(); // id -> intersectionRatio
+
+    const io = new IntersectionObserver((entries) => {
+      entries.forEach(e => {
+        if (e.isIntersecting) visible.set(e.target.id, e.intersectionRatio);
+        else visible.delete(e.target.id);
+      });
+
+      // Pick the most-visible section
+      let bestId = null, bestRatio = 0;
+      visible.forEach((r, id) => {
+        if (r > bestRatio) { bestRatio = r; bestId = id; }
+      });
+
+      links.forEach(a => a.classList.remove("active"));
+      if (bestId && byId.has(bestId)) byId.get(bestId).classList.add("active");
+    }, {
+      // Trigger when sections cross the upper third of the viewport
+      rootMargin: "-80px 0px -55% 0px",
+      threshold: [0, 0.25, 0.5, 0.75, 1]
+    });
+
+    targets.forEach(t => io.observe(t));
+  }
+})();
+</script>
   
 </body>
 </html>
