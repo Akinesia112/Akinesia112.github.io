@@ -345,6 +345,8 @@
   .tag-RL                 { background: #fff; color: #3F4650; border-color: #3F4650; }
   .tag-DSP                { background: #fff; color: #545E6C; border-color: #545E6C; }
   .tag-PhysicsInformedML  { background: #fff; color: #7a7a7a; border-color: #7a7a7a; }
+  .tag-SimReal            { background: #fff; color: #6b3aa6; border-color: #c49be5; }
+
 
   .filter-chip.tag-AI.selected         { background: #c49be5; color: #fff; border-color: #c49be5; }
   .filter-chip.tag-Robotics.selected   { background: #FFAC00; color: #fff; border-color: #FFAC00; }
@@ -355,6 +357,7 @@
   .filter-chip.tag-RL.selected                 { background: #3F4650; color: #fff; border-color: #3F4650; }
   .filter-chip.tag-DSP.selected                { background: #545E6C; color: #fff; border-color: #545E6C; }
   .filter-chip.tag-PhysicsInformedML.selected  { background: #7a7a7a; color: #fff; border-color: #7a7a7a; }
+  .filter-chip.tag-SimReal.selected            { background: #c49be5; color: #fff; border-color: #c49be5; }
 
   .pub-empty {
     display: none;
@@ -821,6 +824,7 @@
   </div>
   <div class="pub-filter-row">
     <span class="pub-filter-label">Method</span>
+    <span class="tag-chip filter-chip tag-SimReal" data-tag="SimReal">#Sim-Real Transfer</span>
     <span class="tag-chip filter-chip tag-Graph" data-tag="Graph">#Graph</span>
     <span class="tag-chip filter-chip tag-RL" data-tag="RL">#RL</span>
     <span class="tag-chip filter-chip tag-DSP" data-tag="DSP">#DSP</span>
@@ -833,7 +837,7 @@
   <div class="item">
     <h3 class="job-title">Selected (6)</h3>
     
-    <div class="skillset" data-pub-item data-tags="Graphics,PhysicsInformedML,Simulation">
+    <div class="skillset" data-pub-item data-tags="Graphics,Robotics,SimReal">
   <div class="item">
     <h3 class="level-title">
       <img height="110" src="assets/images/DiffPhD.png" alt="DiffPhD teaser" />
@@ -854,7 +858,7 @@
       <div class="pub-tags">
         <span class="tag-chip tag-Graphics">#Graphics</span>
         <span class="tag-chip tag-Robotics">#Robotics</span>
-        <span class="tag-chip tag-Simulation">#Simulation</span>
+        <span class="tag-chip tag-SimReal">#Sim-Real Transfer</span>
       </div>
     </span>
   </div>
@@ -1608,10 +1612,11 @@
 <script>
 (function () {
   const TAG_LABELS = {
-    AI: "#AI", Robotics: "#Robotics", Graphics: "#Graphics", HPC: "#HPC", Audio: "#Audio",
-    Graph: "#Graph", RL: "#RL", DSP: "#DSP", PhysicsInformedML: "#Physics-informed ML"
-  };
-  const TAG_ORDER = ["AI", "Robotics", "Graphics", "HPC", "Audio", "Graph", "RL", "DSP", "PhysicsInformedML"];
+  AI: "#AI", Robotics: "#Robotics", Graphics: "#Graphics", HPC: "#HPC", Audio: "#Audio",
+  Graph: "#Graph", RL: "#RL", DSP: "#DSP", PhysicsInformedML: "#Physics-informed ML",
+  SimReal: "#Sim-Real Transfer"
+};
+  const TAG_ORDER = ["AI", "Robotics", "Graphics", "HPC", "Audio", "Graph", "RL", "DSP", "PhysicsInformedML", "SimReal"];
   const dateView    = document.getElementById("pub-date-view");
   const groupView   = document.getElementById("pub-group-view");
   const filterBar   = document.getElementById("pub-filter-bar");
