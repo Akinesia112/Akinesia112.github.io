@@ -12,7 +12,6 @@
 <script crossorigin="anonymous" defer="" integrity="sha384-3LK/3kTpDE/Pkp8gTNp2gR/2gOiwQ6QaO7Td0zV76UFJVhqLl4Vl3KL1We6q6wR9" src="https://use.fontawesome.com/releases/v5.1.0/js/all.js"></script>
 <link href="assets/plugins/bootstrap/css/bootstrap.min.css" rel="stylesheet"/>
 <link href="assets/css/orbit-6.css" id="theme-style" rel="stylesheet"/>
-
 <style>
   html, body { overflow-x: hidden; }
 
@@ -630,639 +629,609 @@
   html { scroll-behavior: smooth; }
   section[id] { scroll-margin-top: 80px; }
 </style>
-</head>
+<style id="desktop-readability">
+/* 2026-08 CV alignment: slightly larger desktop presentation and less side whitespace. */
+@media (min-width: 901px) {
+  .sidebar-wrapper { max-width: 980px !important; padding-left: 32px !important; padding-right: 32px !important; }
+  .main-wrapper { max-width: 1080px !important; padding-left: 32px !important; padding-right: 32px !important; font-size: 15.5px; line-height: 1.62; }
+  .main-wrapper .section-title { font-size: 21px; }
+  .main-wrapper .job-title { font-size: 16px; }
+  .main-wrapper .project-tagline { font-size: 14.5px; line-height: 1.55; }
+  .sidebar-wrapper .profile-container img.profile,
+  .sidebar-wrapper #profile-photo { width: 236px !important; height: 236px !important; }
+  .sidebar-wrapper .education-container .degree { font-size: 14px; }
+  .sidebar-wrapper .education-container .meta { font-size: 13.5px; }
+  .contact-bar li { font-size: 14.5px; }
+}
+@media (min-width: 1280px) {
+  .sidebar-wrapper { max-width: 1040px !important; }
+  .main-wrapper { max-width: 1160px !important; }
+}
+.pub-placeholder {
+  width: 110px; height: 110px; display: flex; align-items: center; justify-content: center;
+  box-sizing: border-box; border: 1px solid #e4e3ea; border-radius: 12px;
+  background: #faf9fc; color: #6b3aa6; font-size: 12px; font-weight: 800;
+  letter-spacing: .04em; text-align: center; padding: 8px;
+}
+</style></head>
 <body>
 <nav class="top-nav" id="top-nav">
-  <div class="top-nav-inner">
-    <a href="#home" class="top-nav-brand">
+<div class="top-nav-inner">
+<a class="top-nav-brand" href="#home">
       Shih-Yu Lai <span class="brand-zh">賴溡雨</span>
-    </a>
-    <button class="top-nav-toggle" id="top-nav-toggle" aria-label="Toggle menu" aria-expanded="false">
-      <i class="fas fa-bars"></i>
-    </button>
-    <ul class="top-nav-links" id="top-nav-links">
-      <li><a href="#about" data-target="about">About</a></li>
-      <li><a href="#publications" data-target="publications">Publications</a></li>
-      <li><a href="#thesis" data-target="thesis">Thesis</a></li>
-      <li><a href="#experience" data-target="experience">Experience</a></li>
-      <li><a href="#honors" data-target="honors">Honors</a></li>
-      <li><a href="#service" data-target="service">Service</a></li>
-    </ul>
-  </div>
+</a>
+<button aria-expanded="false" aria-label="Toggle menu" class="top-nav-toggle" id="top-nav-toggle">
+<i class="fas fa-bars"></i>
+</button>
+<ul class="top-nav-links" id="top-nav-links">
+<li><a data-target="about" href="#about">About</a></li>
+<li><a data-target="publications" href="#publications">Publications</a></li>
+<li><a data-target="thesis" href="#thesis">Thesis</a></li>
+<li><a data-target="experience" href="#experience">Experience</a></li>
+<li><a data-target="honors" href="#honors">Honors</a></li>
+<li><a data-target="service" href="#service">Service</a></li>
+</ul>
+</div>
 </nav>
-
 <div class="wrapper">
-
 <!-- Sidebar: avatar + education only -->
 <div class="sidebar-wrapper">
-
 <div class="profile-container">
-    <img id="profile-photo"
-         alt="Shih-Yu Lai"
-         class="profile"
-         src="assets/images/Shih_YuLai2024.JPG"
-         style="cursor:default;" />
-    <p class="portrait-duality">Scientist me × Artist me (hover)</p>
+<img alt="Shih-Yu Lai" class="profile" id="profile-photo" src="assets/images/Shih_YuLai2024.JPG" style="cursor:default;"/>
+<p class="portrait-duality">Scientist me × Artist me (hover)</p>
 </div>
-
 <div class="education-container container-block">
 <h2 class="container-block-title">Education</h2>
 <div class="item">
-  <h4 class="degree">M.S. in Computer Science and Information Engineering (AI Program)</h4>
-  <h5 class="meta">National Taiwan University</h5>
-  <div class="time">Feb. 2025 – Expected Jun. 2027</div>
+<h4 class="degree">M.S. in Computer Science (Artificial Intelligence Program, Admission Rate = 3%)</h4>
+<h5 class="meta">National Taiwan University</h5>
+<div class="time">Feb. 2025 – Expected Jun. 2027</div>
 </div>
 </div>
-
 <!-- Contact bar sits tight below education, not pushed far down -->
 <ul class="contact-bar">
-    <li><i class="fas fa-file-alt"></i><a href="assets/CV/Shih_YuLai_CV.pdf" target="_blank">CV</a></li>
-    <li><i class="fas fa-envelope"></i><a href="mailto:akinesia112@gmail.com">Email</a></li>
-    <li><i class="fas fa-graduation-cap"></i><a href="https://scholar.google.com/citations?user=VByo09gAAAAJ&hl=en" target="_blank">Google Scholar</a></li>
-    <li><i class="fab fa-linkedin-in"></i><a href="https://www.linkedin.com/in/shih-yu-lai" target="_blank">LinkedIn</a></li>
-    <li><i class="fab fa-github"></i><a href="https://github.com/Akinesia112" target="_blank">GitHub</a></li>
+<li><i class="fas fa-file-alt"></i><a href="assets/CV/Shih_YuLai_CV.pdf" target="_blank">CV</a></li>
+<li><i class="fas fa-envelope"></i><a href="mailto:akinesia112@gmail.com">Email</a></li>
+<li><i class="fas fa-graduation-cap"></i><a href="https://scholar.google.com/citations?user=VByo09gAAAAJ&amp;hl=en" target="_blank">Google Scholar</a></li>
+<li><i class="fab fa-linkedin-in"></i><a href="https://www.linkedin.com/in/shih-yu-lai" target="_blank">LinkedIn</a></li>
+<li><i class="fab fa-github"></i><a href="https://github.com/Akinesia112" target="_blank">GitHub</a></li>
 </ul>
-
 </div><!--//sidebar-wrapper-->
-
 <div class="main-wrapper">
-
 <section class="section summary-section" id="about">
-    <p class="opening-quote">
+<p class="opening-quote">
         ‘Science plus arts multiplied by faith then divided by the number of our ethnic race.’
         <span class="opening-quote-src">— Nujabes, feat. Shing02, <i>Luv(sic) pt2</i> </span>
-    </p>
-          
+</p>
 <h2 class="section-title"><span class="icon-holder"><i class="fas fa-user"></i></span>About Myself</h2>
 <div class="summary">
-    <p>
-    Hi! I'm a Master's student in <a href="http://graphics.csie.ntu.edu.tw/~robin/" target="_blank" rel="noopener">Prof. Bing-Yu "Robin" Chen</a>'s group at
-    <a href="https://www.ntu.edu.tw/" target="_blank" rel="noopener"><b>National Taiwan University (CSIE, AI Program)</b></a> 🇹🇼.
-    My research lies at <span style="color:#c49be5;"><b>Sim–Real Transfer</b></span>: the intersection of
-    <span style="color:#9f9be5;"><b>AI</b> / <b>Graphics</b> / <b>Robotics</b>/ <b>Audio</b>/ <b>HPC</b></span>,
-    with specializations in Physics-informed Machine Learning, Reinforcement Learning, and Graph Learning.
+<p>
+Hi! I'm a Master's student at <a href="https://www.ntu.edu.tw/" rel="noopener" target="_blank"><b>National Taiwan University</b></a> 🇹🇼,
+where I am a member of the <a href="http://graphics.csie.ntu.edu.tw/~robin/" rel="noopener" target="_blank"><b>Communications and Multimedia Lab</b></a>
+and advised by <a href="http://graphics.csie.ntu.edu.tw/~robin/" rel="noopener" target="_blank"><b>Prof. Robin Bing-Yu Chen</b></a>.
+I am an AI researcher with international experience in <span style="color:#c49be5;"><b>sim-real learning</b></span> and computational solvers for high-performance, physical and embodied systems.
+My research spans <b>graphics</b>: simulation and animation production; <b>robotics</b>: manipulation, dynamics, and sensing, focusing on physics-informed ML, neural PDE/ODE, reinforcement and robot learning, graph, and generative/multimodal models.
+I also work on <b>audio signal processing and room acoustics</b>, including robust audio watermarking and room impulse response modeling.
 </p>
-
 <details class="about-details">
-    <summary><strong>Research Areas</strong></summary>
-    <p>I like systematically working through critical problems that sit between disciplines, and my current interests span three core areas:</p>
-    <ul>
-        <li><p><strong>Visual Computing &amp; Physics Simulation</strong> — developing neural PDE solvers (e.g., Walk-on-Spheres Monte Carlo for complex geometry) and differentiable physical simulation frameworks (hyper-elastic projective dynamics with positive-definite Hessian projection), with applications spanning CAD-driven robotic fabrication and animation workflows such as editable 3D Gaussian Splatting.</p></li>
-        <li><p><strong>Embodied Systems</strong> — training Sim2Real reinforcement learning policies in Isaac Gym/Lab for robotic manipulation on Kuka, UR10, and Hiwin arms, and building large-scale digital twins that fuse multimodal sensing (WiFi, point cloud, RGBD) with graph federated learning foundation models for privacy-preserving human–scene interaction on supercomputers like Fugaku.</p></li>
-        <li><p><strong>Audio Signal Processing</strong> — combining classical DSP with learned latent-space representations to design audio watermarks robust to neural resynthesis, and modeling spatial audio through room impulse responses (RIRs) in complex room acoustics.</p></li>
-    </ul>
+<summary><strong>Research Areas</strong></summary>
+<p>I like systematically working through critical problems that sit between disciplines, and my current interests span three core areas:</p>
+<ul>
+<li><p><strong>Visual Computing &amp; Physics Simulation</strong> — developing neural PDE solvers (e.g., Walk-on-Spheres Monte Carlo for complex geometry) and differentiable physical simulation frameworks (hyper-elastic projective dynamics with positive-definite Hessian projection), with applications spanning CAD-driven robotic fabrication and animation workflows such as editable 3D Gaussian Splatting.</p></li>
+<li><p><strong>Embodied Systems</strong> — training Sim2Real reinforcement learning policies in Isaac Gym/Lab for robotic manipulation on Kuka, UR10, and Hiwin arms, and building large-scale digital twins that fuse multimodal sensing (WiFi, point cloud, RGBD) with graph federated learning foundation models for privacy-preserving human–scene interaction on supercomputers like Fugaku.</p></li>
+<li><p><strong>Audio Signal Processing</strong> — combining classical DSP with learned latent-space representations to design audio watermarks robust to neural resynthesis, and modeling spatial audio through room impulse responses (RIRs) in complex room acoustics.</p></li>
+</ul>
 </details>
-
 <details class="about-details">
-    <summary><strong>Internships 🇫🇮 🇯🇵 🇹🇼 </strong></summary>
-    <p>
+<summary><strong>Internships 🇫🇮 🇯🇵 🇹🇼 </strong></summary>
+<p>
         Along with my work at NTU, I've had the chance to do research internships and build collaborations across several international groups. I spent time at
-        <a href="https://www.aalto.fi/en/aalto-science-institute" target="_blank" rel="noopener"><b>Aalto University</b></a>
-        through the <a href="https://www.aalto.fi/en/aalto-science-institute-asci/aalto-science-institute-international-summer-research-programme" target="_blank" rel="noopener">2026 Aalto Science Institute (AScI) Summer Research Programme</a>
-        (QuML Group, Espoo, Finland 🇫🇮; advised by <a href="https://people.csail.mit.edu/vgarg/" target="_blank" rel="noopener">Prof. Vikas Garg</a>), and at
-        <a href="https://www.riken.jp/en/research/labs/r-ccs/largesc_digitaltwin/index.html" target="_blank" rel="noopener"><b>RIKEN's Center for Computational Science (R-CCS)</b></a>
-        through the <a href="https://www.r-ccs.riken.jp/en/outreach/schools/20250415-20260319/" target="_blank" rel="noopener">2025 R-CCS International HPC Computational Science Internship Program</a>
+        <a href="https://www.aalto.fi/en/aalto-science-institute" rel="noopener" target="_blank"><b>Aalto University</b></a>
+        through the <a href="https://www.aalto.fi/en/aalto-science-institute-asci/aalto-science-institute-international-summer-research-programme" rel="noopener" target="_blank">2026 Aalto Science Institute (AScI) Summer Research Programme</a>
+        (QuML Group, Espoo, Finland 🇫🇮; advised by <a href="https://people.csail.mit.edu/vgarg/" rel="noopener" target="_blank">Prof. Vikas Garg</a>), and at
+        <a href="https://www.riken.jp/en/research/labs/r-ccs/largesc_digitaltwin/index.html" rel="noopener" target="_blank"><b>RIKEN's Center for Computational Science (R-CCS)</b></a>
+        through the <a href="https://www.r-ccs.riken.jp/en/outreach/schools/20250415-20260319/" rel="noopener" target="_blank">2025 R-CCS International HPC Computational Science Internship Program</a>
         (Large-Scale Digital Twin Research Team, Kobe/Osaka, Japan 🇯🇵; under Team Principal
-        <a href="https://mc.net.ist.osaka-u.ac.jp/people/h-yamagu/" target="_blank" rel="noopener">Prof. Hirozumi Yamaguchi</a> and
-        <a href="https://hamada-rizk.com" target="_blank" rel="noopener">Prof. Hamada Rizk</a> of Osaka University). On the industry side, I've worked in R&amp;D at
-        <a href="https://moonshine.tw/" target="_blank" rel="noopener"><b>MoonShine Animation Studio</b></a>
-        (with Dir. <a href="https://tw.linkedin.com/in/shaune-jan" target="_blank" rel="noopener">Shaune Jan</a>) and
-        <a href="https://www.linkedin.com/company/delta-electronics/" target="_blank" rel="noopener"><b>Delta Electronics</b></a>.
+        <a href="https://mc.net.ist.osaka-u.ac.jp/people/h-yamagu/" rel="noopener" target="_blank">Prof. Hirozumi Yamaguchi</a> and
+        <a href="https://hamada-rizk.com" rel="noopener" target="_blank">Prof. Hamada Rizk</a> of Osaka University). On the industry side, I've worked in R&amp;D at
+        <a href="https://moonshine.tw/" rel="noopener" target="_blank"><b>MoonShine Animation Studio</b></a>
+        (with Dir. <a href="https://tw.linkedin.com/in/shaune-jan" rel="noopener" target="_blank">Shaune Jan</a>) and
+        <a href="https://www.linkedin.com/company/delta-electronics/" rel="noopener" target="_blank"><b>Delta Electronics</b></a>.
     </p>
 </details>
-
 <details class="about-details">
-    <summary><strong>Collaborations 🇺🇸 🇨🇦 🇫🇮 🇸🇬 🇹🇼</strong></summary>
-    <p>
-        My ongoing academic collaborations extend further to
-        <a href="https://yulunalexliu.github.io/" target="_blank" rel="noopener">Prof. Yu-Lun "Alex" Liu</a> (NYCU, Taiwan 🇹🇼),
-        <a href="https://ziqiu-zeng.github.io/homepage/" target="_blank" rel="noopener">Ziqiu Zeng</a> (NUS, Singapore 🇸🇬),
-        <a href="https://fanshi14.github.io/me/" target="_blank" rel="noopener">Fan Shi</a> (NUS, Singapore 🇸🇬),
-        <a href="https://peterchencyc.com/" target="_blank" rel="noopener">Peter Yichen Chen</a> (UBC, Canada 🇨🇦),
-        <a href="https://tiantianliu.cn/" target="_blank" rel="noopener">Tiantian Liu</a> (Meshy AI, US 🇺🇸),
-        <a href="https://vivianchen.idv.tw/" target="_blank" rel="noopener">Prof. Yun-Nung Chen</a> (NTU, Taiwan 🇹🇼),
-        <a href="https://speech.ee.ntu.edu.tw/~hylee/" target="_blank" rel="noopener">Prof. Hung-Yi Lee</a> (NTU, Taiwan 🇹🇼),
-        <a href="https://www.csie.ntu.edu.tw/~stchen/" target="_blank" rel="noopener">Prof. Shang-Tse Chen</a> (NTU, Taiwan 🇹🇼),
-        <a href="https://kyungyunlee.github.io" target="_blank" rel="noopener">Kyung Lee</a> (Aalto, Finland 🇫🇮),
-        <a href="https://scholar.google.com/citations?user=1eCeFoIAAAAJ&amp;hl=en" target="_blank" rel="noopener">Nils Meyer-Kahlen</a> (Aalto, Finland 🇫🇮),
-        <a href="https://scholar.google.com/citations?user=gADc7mEAAAAJ&amp;hl=en" target="_blank" rel="noopener">Eloi Moliner</a> (Aalto, Finland 🇫🇮), and
-        <a href="https://samueli.ucla.edu/people/xiang-anthony-chen/" target="_blank" rel="noopener">Prof. Xiang "Anthony" Chen</a> (UCLA, US 🇺🇸).
-        Working on state-of-the-art research with international teams has been one of the most rewarding parts of being in research, and is something I now actively look for.
-    </p>
+<summary><strong>Collaborations 🇺🇸 🇨🇦 🇫🇮 🇸🇬 🇹🇼</strong></summary>
+<p>
+I have co-worked with cross-cultural (20+ nationalities) researchers from the U.S. DoE, ETH Zurich, NUS, UBC, UCLA, UCL, TU Delft, UOsaka, Aalto, etc.
+My ongoing academic collaborations include
+<a href="https://peterchencyc.com/" rel="noopener" target="_blank">Prof. Peter Yichen Chen</a> (UBC, Canada 🇨🇦),
+<a href="https://tiantianliu.cn/" rel="noopener" target="_blank">Dr. Tiantian Liu</a> (Meshy AI, US 🇺🇸),
+<a href="https://ziqiu-zeng.github.io/homepage/" rel="noopener" target="_blank">Dr. Ziqiu Zeng</a> (NUS, Singapore 🇸🇬),
+<a href="https://fanshi14.github.io/me/" rel="noopener" target="_blank">Prof. Fan Shi</a> (NUS, Singapore 🇸🇬), and
+<a href="https://yulunalexliu.github.io/" rel="noopener" target="_blank">Prof. Yu-Lun “Alex” Liu</a> (NYCU, Taiwan 🇹🇼), as listed in my CV.
+My broader ongoing collaborations also include
+<a href="https://vivianchen.idv.tw/" rel="noopener" target="_blank">Prof. Yun-Nung Chen</a> (NTU, Taiwan 🇹🇼),
+<a href="https://speech.ee.ntu.edu.tw/~hylee/" rel="noopener" target="_blank">Prof. Hung-Yi Lee</a> (NTU, Taiwan 🇹🇼),
+<a href="https://www.csie.ntu.edu.tw/~stchen/" rel="noopener" target="_blank">Prof. Shang-Tse Chen</a> (NTU, Taiwan 🇹🇼),
+<a href="https://kyungyunlee.github.io" rel="noopener" target="_blank">Kyung Lee</a> (Aalto, Finland 🇫🇮),
+<a href="https://scholar.google.com/citations?user=1eCeFoIAAAAJ&amp;hl=en" rel="noopener" target="_blank">Nils Meyer-Kahlen</a> (Aalto, Finland 🇫🇮),
+<a href="https://scholar.google.com/citations?user=gADc7mEAAAAJ&amp;hl=en" rel="noopener" target="_blank">Eloi Moliner</a> (Aalto, Finland 🇫🇮), and
+<a href="https://samueli.ucla.edu/people/xiang-anthony-chen/" rel="noopener" target="_blank">Prof. Xiang “Anthony” Chen</a> (UCLA, US 🇺🇸).
+Working on state-of-the-art research with international teams has been one of the most rewarding parts of being in research, and is something I now actively look for.
+</p>
 </details>
-
 <details class="about-details">
-    <summary><strong>Before Master</strong></summary>
-    <p>
+<summary><strong>Before Master</strong></summary>
+<p>
         I also worked closely with multiple academic groups during my undergraduate studies and co-authored
         <span style="color:#c49be5;"><b>8 conference papers</b></span> in top-tier AI/CS venues. These include the
-        <a href="https://hphsieh.github.io/nckuee/index.html" target="_blank" rel="noopener">Urban Science &amp; Computing Lab</a>
-        led by <a href="https://scholar.google.com/citations?hl=en&amp;user=f6SBzrAAAAAJ" target="_blank" rel="noopener">Prof. Hsun-Ping Hsieh</a>,
-        and <a href="https://rccn.dev/en/about/" target="_blank" rel="noopener">RAC-Coon (Robot Aided Creation and Construction Research Group)</a>
-        together with <a href="https://nckusynclab.wixsite.com/synclab/people-yang-ting-shen" target="_blank" rel="noopener">Prof. Yang-Ting Shen</a>,
-        <a href="https://www.arch.ncku.edu.tw/en/module/pageinfo/1378-i6.html" target="_blank" rel="noopener">Prof. Chia-Ching Yen</a>, and
-        <a href="https://www.csie.ncku.edu.tw/en/members/13" target="_blank" rel="noopener">Prof. Wen-Yu Su</a>.
+        <a href="https://hphsieh.github.io/nckuee/index.html" rel="noopener" target="_blank">Urban Science &amp; Computing Lab</a>
+        led by <a href="https://scholar.google.com/citations?hl=en&amp;user=f6SBzrAAAAAJ" rel="noopener" target="_blank">Prof. Hsun-Ping Hsieh</a>,
+        and <a href="https://rccn.dev/en/about/" rel="noopener" target="_blank">RAC-Coon (Robot Aided Creation and Construction Research Group)</a>
+        together with <a href="https://nckusynclab.wixsite.com/synclab/people-yang-ting-shen" rel="noopener" target="_blank">Prof. Yang-Ting Shen</a>,
+        <a href="https://www.arch.ncku.edu.tw/en/module/pageinfo/1378-i6.html" rel="noopener" target="_blank">Prof. Chia-Ching Yen</a>, and
+        <a href="https://www.csie.ncku.edu.tw/en/members/13" rel="noopener" target="_blank">Prof. Wen-Yu Su</a>.
     </p>
 </details>
-     
 <details class="about-details">
-  <summary><strong>Community Services/Networks</strong></summary>
-
-  <p>
-    I contribute to the research community as a reviewer for IEEE ITSC,
-    ACM SIGGRAPH Asia, CHI, HRI, CSCW, and The Web Conference (WWW).
-  </p>
-
-  <p>
+<summary><strong>Community Services/Networks</strong></summary>
+<p>
+I contribute to the research community as an <b>ACM reviewer</b> for SIGGRAPH Asia, CHI, HRI, CSCW, and The Web Conference (WWW).
+Separately, I serve as an <b>IEEE reviewer</b> for ITSC.
+</p>
+<p>
     If you are looking to connect with excellent researchers, I would also be
     happy to recommend the following friends:
   </p>
-
-  <ul>
-    <li>
-      <strong>
-        <a href="https://www.linkedin.com/in/nikoleta-e-glynatsi-771872123/"
-           target="_blank" rel="noopener noreferrer">
+<ul>
+<li>
+<strong>
+<a href="https://www.linkedin.com/in/nikoleta-e-glynatsi-771872123/" rel="noopener noreferrer" target="_blank">
           Nikoleta E. Glynatsi
         </a>
-      </strong>
-      — RIKEN Center for Computational Science (R-CCS), Japan<br>
+</strong>
+      — RIKEN Center for Computational Science (R-CCS), Japan<br/>
       Game Theory and Evolutionary Dynamics
     </li>
-
-  <li>
-    <strong>
-      <a href="https://www.linkedin.com/in/nassimbeladel/"
-         target="_blank" rel="noopener noreferrer">
+<li>
+<strong>
+<a href="https://www.linkedin.com/in/nassimbeladel/" rel="noopener noreferrer" target="_blank">
         Nassim Beladel
       </a>
-    </strong>
-    — ETH Zurich, Switzerland<br>
+</strong>
+    — ETH Zurich, Switzerland<br/>
     Self-Supervised Learning and Generative Social Choice in Politics and Communities
   </li>
-  
-  <li>
-    <strong>
-      <a href="https://www.linkedin.com/in/louka-verstraete/"
-         target="_blank" rel="noopener noreferrer">
+<li>
+<strong>
+<a href="https://www.linkedin.com/in/louka-verstraete/" rel="noopener noreferrer" target="_blank">
         Louka Verstraete
       </a>
-    </strong>
-    — ETH Zurich, Switzerland<br>
+</strong>
+    — ETH Zurich, Switzerland<br/>
     FPGA Systems and Quantum Physics, with a focus on Fault Tolerance and Quantum Error Correction
   </li>
-  
-  <li>
-    <strong>
-      <a href="https://www.linkedin.com/in/antoine-kempf-420b5a173/"
-         target="_blank" rel="noopener noreferrer">
+<li>
+<strong>
+<a href="https://www.linkedin.com/in/antoine-kempf-420b5a173/" rel="noopener noreferrer" target="_blank">
         Antoine Kempf
       </a>
-    </strong>
-    — CEA, France<br>
+</strong>
+    — CEA, France<br/>
     High-Performance Computing and Numerical Simulation, including Neutron Transport, Kokkos, and Computational Fluid Dynamics
   </li>
-  
-  <li>
-    <strong>
-      <a href="https://tw.linkedin.com/in/yen-shan-chen-667847263"
-         target="_blank" rel="noopener noreferrer">
-        Yen-Shan Chen
+<li>
+<strong>
+<a href="https://scholar.google.com/citations?user=BN7QzxUAAAAJ&amp;hl=zh-TW" rel="noopener noreferrer" target="_blank">
+        Pei-Chi Tsai
       </a>
-    </strong>
-    — National Taiwan University (NTU), Taiwan<br>
+</strong>
+    — <a href="https://scholar.google.com/citations?view_op=view_org&amp;hl=zh-TW&amp;org=7707954445345430443" rel="noopener noreferrer" target="_blank">University College London (UCL)</a>, UK<br/>
+    Cities, Sustainable Strategy, Urban Heat Island, Data Analysis, and Extended Reality
+  </li>
+<li>
+<strong>
+<a href="https://yenshan0530.github.io/" rel="noopener noreferrer" target="_blank">
+        Yen-Shan (Lily) Chen
+      </a>
+</strong>
+    — National Taiwan University (NTU), Taiwan<br/>
     AI Safety and Large Language Models, with a focus on Trustworthy AI, LLM Robustness, Agentic Safety, and Mechanistic Interpretability
   </li>
-  
-  <li>
-    <strong>
-      <a href="https://www.linkedin.com/in/celinehsieh68/"
-         target="_blank" rel="noopener noreferrer">
+<li>
+<strong>
+<a href="https://www.linkedin.com/in/celinehsieh68/" rel="noopener noreferrer" target="_blank">
         Tzu-Hsin Hsieh
       </a>
-    </strong>
-    — Delft University of Technology (TU Delft), the Netherlands<br>
+</strong>
+    — Delft University of Technology (TU Delft), the Netherlands<br/>
     Augmented and Virtual Reality, Human–Computer Interaction, and Artificial Intelligence
   </li>
-
-  </ul>
+</ul>
 </details>
-
-
-
 <details class="music-details">
-    <summary><strong>Music — YouTube Playlist</strong></summary>
-    <p class="music-note">Update sometimes, depends on your donation or my mood.</p>
-    <div class="music-embed-wrap">
-      <iframe
-        src="https://www.youtube.com/embed/videoseries?list=PLor4Tb0Ha-zeqqUbSxJOqdLR8iJogjk6x&rel=0"
-        title="YouTube playlist"
-        height="420"
-        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-        allowfullscreen
-        loading="lazy">
-      </iframe>
-    </div>
+<summary><strong>Music — YouTube Playlist</strong></summary>
+<p class="music-note">Update sometimes, depends on your donation or my mood.</p>
+<div class="music-embed-wrap">
+<iframe allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen="" height="420" loading="lazy" src="https://www.youtube.com/embed/videoseries?list=PLor4Tb0Ha-zeqqUbSxJOqdLR8iJogjk6x&amp;rel=0" title="YouTube playlist">
+</iframe>
+</div>
 </details>
-     
 <p>
     Collaboration is one of the parts of research I enjoy most — technical discussions, sharing expertise, and figuring out what we can build together. If any of the above resonates, <strong>let's discuss</strong>!
 </p>
-
 <p>
     Outside of research: graffiti (in legal areas), live houses/music festivals, and traveling.
 </p>
-
 </div>
 </section>
-
 <section class="section publication-section" id="publications">
 <h2 class="section-title"><span class="icon-holder"><i class="fas fa-archive"></i></span>Publications</h2>
-
 <div class="pub-controls" id="pub-controls">
-  <div class="pub-toggle" role="tablist" aria-label="Publication view toggle">
-    <button id="btn-view-date" class="active" type="button" aria-pressed="true">
-      <i class="fas fa-clock"></i>By Date
+<div aria-label="Publication view toggle" class="pub-toggle" role="tablist">
+<button aria-pressed="true" class="active" id="btn-view-date" type="button">
+<i class="fas fa-clock"></i>By Date
     </button>
-    <button id="btn-view-tag" type="button" aria-pressed="false">
-      <i class="fas fa-tags"></i>By Tag
+<button aria-pressed="false" id="btn-view-tag" type="button">
+<i class="fas fa-tags"></i>By Tag
     </button>
-  </div>
 </div>
-
+</div>
 <div class="pub-filter-bar" id="pub-filter-bar">
-  <div class="pub-filter-row">
-    <span class="pub-filter-label">Domain</span>
-    <span class="tag-chip filter-chip tag-AI" data-tag="AI">#AI</span>
-    <span class="tag-chip filter-chip tag-Robotics" data-tag="Robotics">#Robotics</span>
-    <span class="tag-chip filter-chip tag-Graphics" data-tag="Graphics">#Graphics</span>
-    <span class="tag-chip filter-chip tag-HPC" data-tag="HPC">#HPC</span>
-    <span class="tag-chip filter-chip tag-Audio" data-tag="Audio">#Audio</span>
-    <button type="button" class="pub-clear" id="pub-clear">Clear all</button>
-  </div>
-  <div class="pub-filter-row">
-    <span class="pub-filter-label">Method</span>
-    <span class="tag-chip filter-chip tag-SimReal" data-tag="SimReal">#Sim-Real Transfer</span>
-    <span class="tag-chip filter-chip tag-Graph" data-tag="Graph">#Graph</span>
-    <span class="tag-chip filter-chip tag-RL" data-tag="RL">#RL</span>
-    <span class="tag-chip filter-chip tag-DSP" data-tag="DSP">#DSP</span>
-    <span class="tag-chip filter-chip tag-PhysicsInformedML" data-tag="PhysicsInformedML">#Physics-informed ML</span>
-  </div>
+<div class="pub-filter-row">
+<span class="pub-filter-label">Domain</span>
+<span class="tag-chip filter-chip tag-AI" data-tag="AI">#AI</span>
+<span class="tag-chip filter-chip tag-Robotics" data-tag="Robotics">#Robotics</span>
+<span class="tag-chip filter-chip tag-Graphics" data-tag="Graphics">#Graphics</span>
+<span class="tag-chip filter-chip tag-HPC" data-tag="HPC">#HPC</span>
+<span class="tag-chip filter-chip tag-Audio" data-tag="Audio">#Audio</span>
+<button class="pub-clear" id="pub-clear" type="button">Clear all</button>
 </div>
-
+<div class="pub-filter-row">
+<span class="pub-filter-label">Method</span>
+<span class="tag-chip filter-chip tag-SimReal" data-tag="SimReal">#Sim-Real Transfer</span>
+<span class="tag-chip filter-chip tag-Graph" data-tag="Graph">#Graph</span>
+<span class="tag-chip filter-chip tag-RL" data-tag="RL">#RL</span>
+<span class="tag-chip filter-chip tag-DSP" data-tag="DSP">#DSP</span>
+<span class="tag-chip filter-chip tag-PhysicsInformedML" data-tag="PhysicsInformedML">#Physics-informed ML</span>
+</div>
+</div>
 <div class="pub-date-view" id="pub-date-view">
 <div class="details">
-  <div class="item">
-    <h3 class="job-title">Selected (6)</h3>
-    
-    <div class="skillset" data-pub-item data-tags="Graphics,Robotics,SimReal">
-  <div class="item">
-    <h3 class="level-title">
-      <img height="110" src="assets/images/DiffPhD.png" alt="DiffPhD teaser" />
-    </h3>
-    <span class="project-tagline">
-      <b>DiffPhD: A Unified Differentiable Solver for Projective Heterogeneous Materials in Elastodynamics with Contact-Rich GPU-Acceleration</b>
-      <br />
-      <i>ACM Transactions on Graphics (TOG), SIGGRAPH ASIA 2026</i> (1st Author).
-      <br />
-      <small class="text-muted">preprint arXiv:2605.14526</small>
-      <span class="pub-actions">
-        <a class="pub-btn" href="https://arxiv.org/abs/2605.14526"><i class="fas fa-file-alt"></i>PDF</a>
-        <a class="pub-btn" href="assets/bib/DiffPhD.bib" download><i class="fas fa-quote-right"></i>Cite</a>
-      </span>
-      <div class="author-list">
-        <span class="me">Shih-Yu Lai</span>, Sung-Han Tien, Jui-I Huang, Yen-Chen Tseng, Yi-Ting Chiu, Siyuan Luo, Ziqiu Zeng, Fan Shi, Peter Yichen Chen, Tiantian Liu, Yu-Lun Liu, Bing-Yu Chen
+<div class="item">
+<h3 class="job-title">Selected (6/14)</h3>
+
+
+
+
+
+
+
+<div class="skillset" data-pub-item="" data-tags="Graphics,Robotics,SimReal">
+<div class="item">
+<h3 class="level-title">
+<img alt="DiffPhD teaser" height="110" src="assets/images/DiffPhD.png"/>
+</h3>
+<span class="project-tagline">
+<b>DiffPhD: A Unified Differentiable Solver for Projective Heterogeneous Materials in Elastodynamics with Contact-Rich GPU-Acceleration</b>
+<br>
+<i>ACM Transactions on Graphics (TOG), SIGGRAPH ASIA 2026</i> (1st Author, Q1 Journal: top-tier in graphics, IF=13).<br>
+<small class="text-muted">preprint arXiv:2605.14526</small>
+<span class="pub-actions">
+<a class="pub-btn" href="https://arxiv.org/abs/2605.14526"><i class="fas fa-file-alt"></i>PDF</a>
+<a class="pub-btn" download="" href="assets/bib/DiffPhD.bib"><i class="fas fa-quote-right"></i>Cite</a>
+</span>
+<div class="author-list">
+<span class="me">Shih-Yu Lai</span>, Sung-Han Tien, Jui-I Huang, Yen-Chen Tseng, Yi-Ting Chiu, Siyuan Luo, Ziqiu Zeng, Fan Shi, Peter Yichen Chen, Tiantian Liu, Yu-Lun Liu, Bing-Yu Chen
       </div>
-      <div class="pub-tags">
-        <span class="tag-chip tag-Graphics">#Graphics</span>
-        <span class="tag-chip tag-Robotics">#Robotics</span>
-        <span class="tag-chip tag-SimReal">#Sim-Real Transfer</span>
-      </div>
-    </span>
-  </div>
+<div class="pub-tags">
+<span class="tag-chip tag-Graphics">#Graphics</span>
+<span class="tag-chip tag-Robotics">#Robotics</span>
+<span class="tag-chip tag-SimReal">#Sim-Real Transfer</span>
 </div>
-    
-    <div class="skillset" data-pub-item data-tags="AI,HPC,Graph,PhysicsInformedML">
-       <div class="item">
-         <h3 class="level-title">
-           <div style="width: 110px; height: 110px; overflow: hidden; display: flex; align-items: center; justify-content: center;">
-             <img src="assets/images/Umeda.png" alt="UMEDA teaser"
-               style="width: 110px; height: 110px; object-fit: contain;" />
+</br></br></span>
+</div>
+</div><div class="skillset" data-pub-item="" data-tags="AI,Robotics">
+<div class="item">
+<h3 class="level-title">
+<div style="width: 110px; height: 110px; overflow: hidden; display: flex; align-items: center; justify-content: center;">
+<img alt="ITSC 2026 teaser" src="assets/images/ITSC2026-MORPH-U.png" style="width: 110px; height: 110px; object-fit: contain;"/>
+</div>
+</h3>
+<span class="project-tagline">
+<b>MORPH-U: Multi-Objective Resilient Motion Planning for V2X-Enabled Autonomous Driving in High-Uncertainty Environments via Simulation</b>
+<br>
+<i>IEEE ITSC 2026</i> (1st Author, Regular Paper).<span class="pub-actions">
+<a class="pub-btn" href="https://arxiv.org/pdf/2509.21670" target="_blank"><i class="fas fa-file-alt"></i>PDF</a>
+</span>
+<div class="author-list">
+<span class="me">Shih-Yu Lai</span>
+</div>
+<div class="pub-tags">
+<span class="tag-chip tag-AI">#AI</span>
+<span class="tag-chip tag-Robotics">#Robotics</span>
+</div>
+</br></span>
+</div>
+</div><div class="skillset" data-pub-item="" data-tags="AI,Robotics,Graphics,Graph,RL,PhysicsInformedML">
+<div class="item">
+<h3 class="level-title">
+<img alt="DASTGCN-SNN-DDPG teaser" height="110" src="assets/images/DASTGCN-SNN-DDPG.png"/>
+</h3>
+<span class="project-tagline">
+<b>Architectural CAD/CAM in Robotic Fabrication via Differentiable Energy Optimization and Few-Shot Spatiotemporal Graph RL Policy</b>
+<br/>
+<i>ACM SIGGRAPH Asia 2025</i> (1st Author, Technical Communications).<span class="pub-actions">
+<a class="pub-btn" href="assets/papers/DASTGCN-SNN-DDPG.pdf"><i class="fas fa-file-alt"></i>PDF</a>
+<a class="pub-btn" download="" href="assets/bib/DASTGCN-SNN-DDPG.bib"><i class="fas fa-quote-right"></i>Cite</a>
+</span>
+<div class="author-list">
+<span class="me">Shih-Yu Lai</span>, Chia-Ching Yen, Yang-Ting Shen, Bing-Yu Chen
+          </div>
+<div class="pub-tags">
+<span class="tag-chip tag-AI">#AI</span>
+<span class="tag-chip tag-Robotics">#Robotics</span>
+<span class="tag-chip tag-Graphics">#Graphics</span>
+<span class="tag-chip tag-Graph">#Graph</span>
+<span class="tag-chip tag-RL">#RL</span>
+<span class="tag-chip tag-PhysicsInformedML">#Physics-informed ML</span>
+</div>
+</span>
+</div>
+</div><div class="skillset" data-pub-item="" data-tags="AI,Robotics,Graphics,Graph,RL">
+<div class="item">
+<h3 class="level-title">
+<img alt="GAT-DQN teaser" height="110" src="assets/images/GAT-DQN.png"/>
+</h3>
+<span class="project-tagline">
+<b>Graph Q-Learning for Automatic Assembly in Design-to-Construction</b>
+<br/>
+<i>ACM SIGGRAPH Asia 2025</i> (1st Author, Poster).<span class="pub-actions">
+<a class="pub-btn" href="assets/papers/GAT-DQN.pdf"><i class="fas fa-file-alt"></i>PDF</a>
+<a class="pub-btn" download="" href="assets/bib/GAT-DQN.bib"><i class="fas fa-quote-right"></i>Cite</a>
+</span>
+<div class="author-list">
+<span class="me">Shih-Yu Lai</span>, Chia-Ching Yen, Yang-Ting Shen, Bing-Yu Chen
+          </div>
+<div class="pub-tags">
+<span class="tag-chip tag-AI">#AI</span>
+<span class="tag-chip tag-Robotics">#Robotics</span>
+<span class="tag-chip tag-Graphics">#Graphics</span>
+<span class="tag-chip tag-Graph">#Graph</span>
+<span class="tag-chip tag-RL">#RL</span>
+</div>
+</span>
+</div>
+</div><div class="skillset" data-pub-item="" data-tags="AI,Robotics,PhysicsInformedML">
+<div class="item">
+<h3 class="level-title"><div class="pub-placeholder">EUPHORIA</div></h3>
+<span class="project-tagline">
+<b>EUPHORIA: Efficient Universal Planning via Hybrid Optimization for Robust Industrial Robotic Assembly</b><br/>
+<i>ArXiv 2026</i> (1st Author, Preprint).
+      <div class="pub-tags">
+<span class="tag-chip tag-AI">#AI</span>
+<span class="tag-chip tag-Robotics">#Robotics</span>
+<span class="tag-chip tag-PhysicsInformedML">#Physics-informed ML</span>
+</div>
+</span>
+</div>
+</div><div class="skillset" data-pub-item="" data-tags="AI,HPC,Graph,PhysicsInformedML">
+<div class="item">
+<h3 class="level-title">
+<div style="width: 110px; height: 110px; overflow: hidden; display: flex; align-items: center; justify-content: center;">
+<img alt="UMEDA teaser" src="assets/images/Umeda.png" style="width: 110px; height: 110px; object-fit: contain;"/>
+</div>
+</h3>
+<span class="project-tagline">
+<b>UMEDA: Unified Multi-modal Efficient Data Fusion for Privacy-Preserving Graph Federated Learning via Spectral-Gated Attention and Diffusion-Based Operator Alignment</b>
+<br>
+<i>ArXiv 2026</i> (1st Author, Preprint).<span class="pub-actions">
+<a class="pub-btn" href="https://arxiv.org/pdf/2605.08288" target="_blank"><i class="fas fa-file-alt"></i>PDF</a>
+</span>
+<div class="author-list">
+<span class="me">Shih-Yu Lai</span>, Hirozumi Yamaguchi, Shang-Tse Chen, Yu-Lun Liu, Bing-Yu Chen
            </div>
-         </h3>
-         <span class="project-tagline">
-           <b>UMEDA: Unified Multi-modal Efficient Data Fusion for Privacy-Preserving Graph Federated Learning via Spectral-Gated Attention and Diffusion-Based Operator Alignment</b>
-           <br />
-           <i>arXiv Preprint, 2026</i> (1st Author).
-           <span class="pub-actions">
-             <a class="pub-btn" href="https://arxiv.org/pdf/2605.08288" target="_blank"><i class="fas fa-file-alt"></i>PDF</a>
-           </span>
-           <div class="author-list">
-             <span class="me">Shih-Yu Lai</span>, Hirozumi Yamaguchi, Shang-Tse Chen, Yu-Lun Liu, Bing-Yu Chen
-           </div>
-           <div class="pub-tags">
-             <span class="tag-chip tag-AI">#AI</span>
-             <span class="tag-chip tag-HPC">#HPC</span>
-             <span class="tag-chip tag-Graph">#Graph</span>
-             <span class="tag-chip tag-PhysicsInformedML">#Physics-informed ML</span>
-           </div>
-         </span>
-       </div>
-     </div>
+<div class="pub-tags">
+<span class="tag-chip tag-AI">#AI</span>
+<span class="tag-chip tag-HPC">#HPC</span>
+<span class="tag-chip tag-Graph">#Graph</span>
+<span class="tag-chip tag-PhysicsInformedML">#Physics-informed ML</span>
+</div>
+</br></span>
+</div>
+</div></div>
+</div>
+<div class="item">
+<h3 class="job-title">Others (8/14)</h3>
+<div class="details">
 
-    <div class="skillset" data-pub-item data-tags="AI,Robotics">
-      <div class="item">
-        <h3 class="level-title">
-          <div style="width: 110px; height: 110px; overflow: hidden; display: flex; align-items: center; justify-content: center;">
-            <img src="assets/images/ITSC2026-MORPH-U.png" alt="ITSC 2026 teaser"
-              style="width: 110px; height: 110px; object-fit: contain;" />
-          </div>
-        </h3>
-        <span class="project-tagline">
-          <b>MORPH-U: Multi-Objective Resilient Motion Planning for V2X-Enabled Autonomous Driving in High-Uncertainty Environments via Simulation</b>
-          <br />
-          <i>IEEE ITSC 2026</i> (1st Author, Regular Paper, Just Accepted).
-          <span class="pub-actions">
-            <a class="pub-btn" href="https://arxiv.org/pdf/2509.21670" target="_blank"><i class="fas fa-file-alt"></i>PDF</a>
-          </span>
-          <div class="author-list">
-            <span class="me">Shih-Yu Lai</span>
-          </div>
-          <div class="pub-tags">
-            <span class="tag-chip tag-AI">#AI</span>
-            <span class="tag-chip tag-Robotics">#Robotics</span>
-          </div>
-        </span>
-      </div>
-    </div>
 
-    <div class="skillset" data-pub-item data-tags="AI,Audio,DSP">
-      <div class="item">
-        <h3 class="level-title">
-          <div style="width: 110px; height: 110px; overflow: hidden; display: flex; align-items: center; justify-content: center;">
-            <img src="assets/images/LATENT-MARK.png" alt="LATENT-MARK teaser"
-              style="width: 110px; height: 110px; object-fit: contain;" />
+
+
+
+
+<div class="skillset" data-pub-item="" data-tags="AI,HPC,Graph">
+<div class="item">
+<h3 class="level-title">
+<div style="width: 110px; height: 110px; overflow: hidden; display: flex; align-items: center; justify-content: center;">
+<img alt="ISC 2026 teaser" src="assets/images/ISC2026-POSTER.png" style="width: 110px; height: 110px; object-fit: contain;"/>
+</div>
+</h3>
+<span class="project-tagline">
+<b>Accelerating Large-Scale Federated Graph Foundation Model Pre-training for Secure Sensing via Hierarchical Parallelism</b>
+<br>
+<i>ISC High Performance 2026</i> (1st Author, Research Poster, Presented).<span class="pub-actions">
+<a class="pub-btn" href="https://isc.app.swapcard.com/widget/event/isc-high-performance-2026/planning/UGxhbm5pbmdfNDQwOTk2Nw==" target="_blank"><i class="fas fa-file-alt"></i>PDF</a>
+</span>
+<div class="author-list">
+<span class="me">Shih-Yu Lai</span>, Fukuharu Tanaka, Hamada Rizk, Hirozumi Yamaguchi, Bing-Yu Chen
           </div>
-        </h3>
-        <span class="project-tagline">
-          <b>LATENT-MARK:  An Audio Watermark Robust to Neural Codec Compression</b>
-          <br />
-          <i>Interspeech 2026</i> (Co-1st Author).
-          <span class="pub-actions">
-            <a class="pub-btn" href="https://arxiv.org/pdf/2603.05310" target="_blank"><i class="fas fa-file-alt"></i>PDF</a>
-            <a class="pub-btn" href="https://github.com/yenshan0530/Latent-Mark" target="_blank"><i class="fab fa-github"></i>Code</a>
-          </span>
-          <div class="author-list">
+<div class="pub-tags">
+<span class="tag-chip tag-AI">#AI</span>
+<span class="tag-chip tag-HPC">#HPC</span>
+<span class="tag-chip tag-Graph">#Graph</span>
+</div>
+</br></span>
+</div>
+</div><div class="skillset" data-pub-item="" data-tags="AI,Audio,DSP">
+<div class="item">
+<h3 class="level-title">
+<div style="width: 110px; height: 110px; overflow: hidden; display: flex; align-items: center; justify-content: center;">
+<img alt="LATENT-MARK teaser" src="assets/images/LATENT-MARK.png" style="width: 110px; height: 110px; object-fit: contain;"/>
+</div>
+</h3>
+<span class="project-tagline">
+<b>LATENT-MARK:  An Audio Watermark Robust to Neural Codec Compression</b>
+<br>
+<i>Interspeech 2026</i> (Co-1st Author, Long Paper; Scores: 5, 5, 5, 4).<span class="pub-actions">
+<a class="pub-btn" href="https://arxiv.org/pdf/2603.05310" target="_blank"><i class="fas fa-file-alt"></i>PDF</a>
+<a class="pub-btn" href="https://github.com/yenshan0530/Latent-Mark" target="_blank"><i class="fab fa-github"></i>Code</a>
+</span>
+<div class="author-list">
             Yen-Shan Chen, <span class="me">Shih-Yu Lai</span>, Ying-Jung Tsou, Yi-Cheng Lin, Bing-Yu Chen, Yun-Nung Chen, Hung-Yi Lee, Shang-Tse Chen
           </div>
-          <div class="pub-tags">
-            <span class="tag-chip tag-AI">#AI</span>
-            <span class="tag-chip tag-Audio">#Audio</span>
-            <span class="tag-chip tag-DSP">#DSP</span>
-          </div>
-        </span>
-      </div>
-    </div>
-
-    <div class="skillset" data-pub-item data-tags="AI,HPC,Graph">
-      <div class="item">
-        <h3 class="level-title">
-          <div style="width: 110px; height: 110px; overflow: hidden; display: flex; align-items: center; justify-content: center;">
-            <img src="assets/images/ISC2026-POSTER.png" alt="ISC 2026 teaser"
-              style="width: 110px; height: 110px; object-fit: contain;" />
-          </div>
-        </h3>
-        <span class="project-tagline">
-          <b>Accelerating Large-Scale Federated Graph Foundation Model Pre-training for Secure Sensing via Hierarchical Parallelism</b>
-          <br />
-          <i>ISC High Performance 2026</i> (1st Author, Research Poster, Just Accepted).
-          <span class="pub-actions">
-            <a class="pub-btn" href="https://isc.app.swapcard.com/widget/event/isc-high-performance-2026/planning/UGxhbm5pbmdfNDQwOTk2Nw==" target="_blank"><i class="fas fa-file-alt"></i>PDF</a>
-          </span>
-          <div class="author-list">
-            <span class="me">Shih-Yu Lai</span>, Fukuharu Tanaka, Hamada Rizk, Hirozumi Yamaguchi, Bing-Yu Chen
-          </div>
-          <div class="pub-tags">
-            <span class="tag-chip tag-AI">#AI</span>
-            <span class="tag-chip tag-HPC">#HPC</span>
-            <span class="tag-chip tag-Graph">#Graph</span>
-          </div>
-        </span>
-      </div>
-    </div>
-
-    <div class="skillset" data-pub-item data-tags="AI,Robotics,Graphics,Graph,RL,PhysicsInformedML">
-      <div class="item">
-        <h3 class="level-title">
-          <img height="110" src="assets/images/DASTGCN-SNN-DDPG.png" alt="DASTGCN-SNN-DDPG teaser" />
-        </h3>
-        <span class="project-tagline">
-          <b>Architectural CAD/CAM in Robotic Fabrication via Differentiable Energy Optimization and Few-Shot Spatiotemporal Graph RL Policy</b>
-          <br />
-          <i>ACM SIGGRAPH Asia 2025</i> (1st Author, Technical Communication).
-          <span class="pub-actions">
-            <a class="pub-btn" href="assets/papers/DASTGCN-SNN-DDPG.pdf"><i class="fas fa-file-alt"></i>PDF</a>
-            <a class="pub-btn" href="assets/bib/DASTGCN-SNN-DDPG.bib" download><i class="fas fa-quote-right"></i>Cite</a>
-          </span>
-          <div class="author-list">
-            <span class="me">Shih-Yu Lai</span>, Chia-Ching Yen, Yang-Ting Shen, Bing-Yu Chen
-          </div>
-          <div class="pub-tags">
-            <span class="tag-chip tag-AI">#AI</span>
-            <span class="tag-chip tag-Robotics">#Robotics</span>
-            <span class="tag-chip tag-Graphics">#Graphics</span>
-            <span class="tag-chip tag-Graph">#Graph</span>
-            <span class="tag-chip tag-RL">#RL</span>
-            <span class="tag-chip tag-PhysicsInformedML">#Physics-informed ML</span>
-          </div>
-        </span>
-      </div>
-    </div>
-
-    <div class="skillset" data-pub-item data-tags="AI,Robotics,Graphics,Graph,RL">
-      <div class="item">
-        <h3 class="level-title">
-          <img height="110" src="assets/images/GAT-DQN.png" alt="GAT-DQN teaser" />
-        </h3>
-        <span class="project-tagline">
-          <b>Graph Q-Learning for Automatic Assembly in Design-to-Construction</b>
-          <br />
-          <i>ACM SIGGRAPH Asia 2025</i> (1st Author, Poster).
-          <span class="pub-actions">
-            <a class="pub-btn" href="assets/papers/GAT-DQN.pdf"><i class="fas fa-file-alt"></i>PDF</a>
-            <a class="pub-btn" href="assets/bib/GAT-DQN.bib" download><i class="fas fa-quote-right"></i>Cite</a>
-          </span>
-          <div class="author-list">
-            <span class="me">Shih-Yu Lai</span>, Chia-Ching Yen, Yang-Ting Shen, Bing-Yu Chen
-          </div>
-          <div class="pub-tags">
-            <span class="tag-chip tag-AI">#AI</span>
-            <span class="tag-chip tag-Robotics">#Robotics</span>
-            <span class="tag-chip tag-Graphics">#Graphics</span>
-            <span class="tag-chip tag-Graph">#Graph</span>
-            <span class="tag-chip tag-RL">#RL</span>
-          </div>
-        </span>
-      </div>
-    </div>
-  </div>
+<div class="pub-tags">
+<span class="tag-chip tag-AI">#AI</span>
+<span class="tag-chip tag-Audio">#Audio</span>
+<span class="tag-chip tag-DSP">#DSP</span>
 </div>
-
+</br></span>
+</div>
+</div><div class="skillset" data-pub-item="" data-tags="AI,Graph,RL">
 <div class="item">
-  <h3 class="job-title">Others (6)</h3>
-  <div class="details">
-
-    <div class="skillset" data-pub-item data-tags="AI,Graph,RL">
-      <div class="item">
-        <h3 class="level-title">
-          <img height="110" src="assets/images/M3.png" alt="M3 teaser" />
-        </h3>
-        <span class="project-tagline">
-          <b>M3: Recommendation via Attention-Graph Cluster Q-Learning with Multi-Scale Spatial Heterogeneity for Multi-Purpose, Multi-Stakeholder Green Attractions in Transportation</b>
-          <br />
-          <i>ACM SIGSPATIAL 2025</i> (1st Author, Research Full Paper).
+<h3 class="level-title">
+<img alt="M3 teaser" height="110" src="assets/images/M3.png"/>
+</h3>
+<span class="project-tagline">
+<b>M3: Recommendation via Attention-Graph Cluster Q-Learning with Multi-Scale Spatial Heterogeneity for Multi-Purpose, Multi-Stakeholder Green Attractions in Transportation</b>
+<br/>
+<i>ACM SIGSPATIAL 2025</i> (1st Author, Research Full Paper).
           <span class="pub-actions">
-            <a class="pub-btn" href="assets/papers/M3.pdf"><i class="fas fa-file-alt"></i>PDF</a>
-            <a class="pub-btn" href="assets/bib/M3.bib" download><i class="fas fa-quote-right"></i>Cite</a>
-          </span>
-          <div class="author-list">
-            <span class="me">Shih-Yu Lai</span>, Tzu-Hsin Hsieh, Pei-Chi Tsai, Chao-Chun Kung, Sing-Kai Ling, Hsun-Ping Hsieh
+<a class="pub-btn" href="assets/papers/M3.pdf"><i class="fas fa-file-alt"></i>PDF</a>
+<a class="pub-btn" download="" href="assets/bib/M3.bib"><i class="fas fa-quote-right"></i>Cite</a>
+</span>
+<div class="author-list">
+<span class="me">Shih-Yu Lai</span>, Tzu-Hsin Hsieh, Pei-Chi Tsai, Chao-Chun Kung, Sing-Kai Ling, Hsun-Ping Hsieh
           </div>
-          <div class="pub-tags">
-            <span class="tag-chip tag-AI">#AI</span>
-            <span class="tag-chip tag-Graph">#Graph</span>
-            <span class="tag-chip tag-RL">#RL</span>
-          </div>
-        </span>
-      </div>
-    </div>
-
-    <div class="skillset" data-pub-item data-tags="AI">
-      <div class="item">
-        <h3 class="level-title">
-          <img height="110" src="assets/images/LINKin-PARK.png" alt="LINKin-PARK teaser" />
-        </h3>
-        <span class="project-tagline">
-          <b>LINKin-PARK: Land Valuation Information and Knowledge in Predictive Analysis and Reporting Kit via Dual Attention-DCCNN</b>
-          <br />
-          <i>ACM CIKM 2024</i> (2nd Author, Demo Paper).
+<div class="pub-tags">
+<span class="tag-chip tag-AI">#AI</span>
+<span class="tag-chip tag-Graph">#Graph</span>
+<span class="tag-chip tag-RL">#RL</span>
+</div>
+</span>
+</div>
+</div><div class="skillset" data-pub-item="" data-tags="AI">
+<div class="item">
+<h3 class="level-title">
+<img alt="LINKin-PARK teaser" height="110" src="assets/images/LINKin-PARK.png"/>
+</h3>
+<span class="project-tagline">
+<b>LINKin-PARK: Land Valuation Information and Knowledge in Predictive Analysis and Reporting Kit via Dual Attention-DCCNN</b>
+<br/>
+<i>ACM CIKM 2024</i> (2nd Author, Demo Paper).
           <span class="pub-actions">
-            <a class="pub-btn" href="assets/papers/LINKin-PARK.pdf"><i class="fas fa-file-alt"></i>PDF</a>
-            <a class="pub-btn" href="assets/bib/LINKin-PARK.bib" download><i class="fas fa-quote-right"></i>Cite</a>
-          </span>
-          <div class="author-list">
+<a class="pub-btn" href="assets/papers/LINKin-PARK.pdf"><i class="fas fa-file-alt"></i>PDF</a>
+<a class="pub-btn" download="" href="assets/bib/LINKin-PARK.bib"><i class="fas fa-quote-right"></i>Cite</a>
+</span>
+<div class="author-list">
             Teng-Yuan Tsou, <span class="me">Shih-Yu Lai</span>, Hsuan-Ching Chen, Jung-Tsang Yeh, Pei-Xuan Li, Tzu-Chang Lee, Hsun-Ping Hsieh
           </div>
-          <div class="pub-tags">
-            <span class="tag-chip tag-AI">#AI</span>
-          </div>
-        </span>
-      </div>
-    </div>
-
-    <div class="skillset" data-pub-item data-tags="AI,Graph">
-      <div class="item">
-        <h3 class="level-title">
-          <img height="110" src="assets/images/GreenSpot.png" alt="GreenSpot teaser" />
-        </h3>
-        <span class="project-tagline">
-          <b>GreenSpot: Improving Public Transport with GIS-Based AR and Cluster-GCN Recommendation</b>
-          <br />
-          <i>ACM SIGSPATIAL 2024</i> (1st Author, Demo Paper).
+<div class="pub-tags">
+<span class="tag-chip tag-AI">#AI</span>
+</div>
+</span>
+</div>
+</div><div class="skillset" data-pub-item="" data-tags="AI,Graph">
+<div class="item">
+<h3 class="level-title">
+<img alt="GreenSpot teaser" height="110" src="assets/images/GreenSpot.png"/>
+</h3>
+<span class="project-tagline">
+<b>GreenSpot: Improving Public Transport with GIS-Based AR and Cluster-GCN Recommendation</b>
+<br/>
+<i>ACM SIGSPATIAL 2024</i> (1st Author, Demo Paper).
           <span class="pub-actions">
-            <a class="pub-btn" href="assets/papers/GreenSpot.pdf"><i class="fas fa-file-alt"></i>PDF</a>
-            <a class="pub-btn" href="assets/bib/GreenSpot.bib" download><i class="fas fa-quote-right"></i>Cite</a>
-          </span>
-          <div class="author-list">
-            <span class="me">Shih-Yu Lai</span>, Tzu-Hsin Hsieh, Sing-Kai Ling, Pei-Chi Tsai, Chao-Chun Kung, Hsun-Ping Hsieh
+<a class="pub-btn" href="assets/papers/GreenSpot.pdf"><i class="fas fa-file-alt"></i>PDF</a>
+<a class="pub-btn" download="" href="assets/bib/GreenSpot.bib"><i class="fas fa-quote-right"></i>Cite</a>
+</span>
+<div class="author-list">
+<span class="me">Shih-Yu Lai</span>, Tzu-Hsin Hsieh, Sing-Kai Ling, Pei-Chi Tsai, Chao-Chun Kung, Hsun-Ping Hsieh
           </div>
-          <div class="pub-tags">
-            <span class="tag-chip tag-AI">#AI</span>
-            <span class="tag-chip tag-Graph">#Graph</span>
-          </div>
-        </span>
-      </div>
-    </div>
-
-    <div class="skillset" data-pub-item data-tags="AI">
-      <div class="item">
-        <h3 class="level-title">
-          <img height="110" src="assets/images/ACCEPT.png" alt="ACCEPT teaser" />
-        </h3>
-        <span class="project-tagline">
-          <b>ACCEPT: A Context-Sensitive, Configurable, and Extensible Prediction Tool using Grid-based Data Processing and Neural Networks in Geospatial Decision Support</b>
-          <br />
-          <i>ACM SIGSPATIAL 2024</i> (2nd Author, Demo Paper).
+<div class="pub-tags">
+<span class="tag-chip tag-AI">#AI</span>
+<span class="tag-chip tag-Graph">#Graph</span>
+</div>
+</span>
+</div>
+</div><div class="skillset" data-pub-item="" data-tags="AI">
+<div class="item">
+<h3 class="level-title">
+<img alt="ACCEPT teaser" height="110" src="assets/images/ACCEPT.png"/>
+</h3>
+<span class="project-tagline">
+<b>ACCEPT: A Context-Sensitive, Configurable, and Extensible Prediction Tool using Grid-based Data Processing and Neural Networks in Geospatial Decision Support</b>
+<br/>
+<i>ACM SIGSPATIAL 2024</i> (2nd Author, Demo Paper).
           <span class="pub-actions">
-            <a class="pub-btn" href="assets/papers/ACCEPT.pdf"><i class="fas fa-file-alt"></i>PDF</a>
-            <a class="pub-btn" href="assets/bib/ACCEPT.bib" download><i class="fas fa-quote-right"></i>Cite</a>
-          </span>
-          <div class="author-list">
+<a class="pub-btn" href="assets/papers/ACCEPT.pdf"><i class="fas fa-file-alt"></i>PDF</a>
+<a class="pub-btn" download="" href="assets/bib/ACCEPT.bib"><i class="fas fa-quote-right"></i>Cite</a>
+</span>
+<div class="author-list">
             Teng-Yuan Tsou, <span class="me">Shih-Yu Lai</span>, Jung-Tsang Yeh, Hsuan-Ching Chen, Pei-Xuan Li, Tzu-Chang Lee, Hsun-Ping Hsieh
           </div>
-          <div class="pub-tags">
-            <span class="tag-chip tag-AI">#AI</span>
-          </div>
-        </span>
-      </div>
-    </div>
-
-    <div class="skillset" data-pub-item data-tags="AI">
-      <div class="item">
-        <h3 class="level-title">
-          <img height="110" src="assets/images/FootprintsofTravel.png" alt="Footprints of Travel teaser" />
-        </h3>
-        <span class="project-tagline">
-          <b>Footprints of Travel: AIoT and AR Enhanced Tourist Gaming Experience in Unmanned Cultural Sites</b>
-          <br />
-          <i>ACM CHI 2024 - EA</i> (1st Author, Student Game Competition).
+<div class="pub-tags">
+<span class="tag-chip tag-AI">#AI</span>
+</div>
+</span>
+</div>
+</div><div class="skillset" data-pub-item="" data-tags="AI">
+<div class="item">
+<h3 class="level-title">
+<img alt="Footprints of Travel teaser" height="110" src="assets/images/FootprintsofTravel.png"/>
+</h3>
+<span class="project-tagline">
+<b>Footprints of Travel: AIoT and AR Enhanced Tourist Gaming Experience in Unmanned Cultural Sites</b>
+<br/>
+<i>ACM CHI 2024 - EA</i> (1st Author, Student Game Competition).
           <span class="pub-actions">
-            <a class="pub-btn" href="assets/papers/FootprintsofTravel.pdf"><i class="fas fa-file-alt"></i>PDF</a>
-            <a class="pub-btn" href="assets/bib/FootprintsofTravel.bib" download><i class="fas fa-quote-right"></i>Cite</a>
-          </span>
-          <div class="author-list">
-            <span class="me">Shih-Yu Lai</span>, Dai-En Liu, Zong-Fan Yeh, Chun-Che Hsu, Fu-Yao Chang, Ming-Zhi Tsai, Ruei-Hong Lin
+<a class="pub-btn" href="assets/papers/FootprintsofTravel.pdf"><i class="fas fa-file-alt"></i>PDF</a>
+<a class="pub-btn" download="" href="assets/bib/FootprintsofTravel.bib"><i class="fas fa-quote-right"></i>Cite</a>
+</span>
+<div class="author-list">
+<span class="me">Shih-Yu Lai</span>, Dai-En Liu, Zong-Fan Yeh, Chun-Che Hsu, Fu-Yao Chang, Ming-Zhi Tsai, Ruei-Hong Lin
           </div>
-          <div class="pub-tags">
-            <span class="tag-chip tag-AI">#AI</span>
-          </div>
-        </span>
-      </div>
-    </div>
-
-    <div class="skillset" data-pub-item data-tags="AI">
-      <div class="item">
-        <h3 class="level-title">
-          <img height="110" src="assets/images/UrbanCrowds.png" alt="UrbanCrowds teaser" />
-        </h3>
-        <span class="project-tagline">
-          <b>Enhancing Urban Crowd Monitoring through Predictive Modelling System with Diverse Geospatial Datasets</b>
-          <br />
-          <i>ACIS 2023</i> (3rd Author, Proceeding).
+<div class="pub-tags">
+<span class="tag-chip tag-AI">#AI</span>
+</div>
+</span>
+</div>
+</div><div class="skillset" data-pub-item="" data-tags="AI">
+<div class="item">
+<h3 class="level-title">
+<img alt="UrbanCrowds teaser" height="110" src="assets/images/UrbanCrowds.png"/>
+</h3>
+<span class="project-tagline">
+<b>Enhancing Urban Crowd Monitoring through Predictive Modelling System with Diverse Geospatial Datasets</b>
+<br/>
+<i>ACIS 2023</i> (3rd Author, Proceeding).
           <span class="pub-actions">
-            <a class="pub-btn" href="assets/papers/UrbanCrowds.pdf"><i class="fas fa-file-alt"></i>PDF</a>
-            <a class="pub-btn" href="assets/bib/UrbanCrowds.bib" download><i class="fas fa-quote-right"></i>Cite</a>
-          </span>
-          <div class="author-list">
+<a class="pub-btn" href="assets/papers/UrbanCrowds.pdf"><i class="fas fa-file-alt"></i>PDF</a>
+<a class="pub-btn" download="" href="assets/bib/UrbanCrowds.bib"><i class="fas fa-quote-right"></i>Cite</a>
+</span>
+<div class="author-list">
             Hsun-Ping Hsieh, Tzu-Chang Lee, <span class="me">Shih-Yu Lai</span>, Pei-Chi Tsai, Tzu-Hsin Hsieh
           </div>
-          <div class="pub-tags">
-            <span class="tag-chip tag-AI">#AI</span>
-          </div>
-        </span>
-      </div>
-    </div>
-
-  </div>
+<div class="pub-tags">
+<span class="tag-chip tag-AI">#AI</span>
 </div>
-
+</span>
+</div>
+</div></div>
+</div>
 </div><!--//pub-date-view-->
-
 <div class="pub-group-view" id="pub-group-view"></div>
 <div class="pub-empty" id="pub-empty">No publications match the selected tags.</div>
-
 </section>
-    
 <section class="section poster-theses-section" id="thesis">
 <h2 class="section-title"><span class="icon-holder"><i class="fas fa-archive"></i></span>Thesis</h2>
 <div class="item">
@@ -1271,86 +1240,60 @@
     </div>
 </div>
 </section>
-    
 <section class="section experiences-section" id="experience">
 <h2 class="section-title"><span class="icon-holder"><i class="fas fa-briefcase"></i></span>Research &amp; Work Experience</h2>
-    
 <div class="item">
-    <div class="meta">
-        <div class="upper-row">
-        <h3 class="job-title"> Research Intern (Fully Funded)</h3>
-        <div class="time">Jul. 2026 – Sept. 2026</div>
-        </div>
-        <div class="company">
-            <img height="40" src="assets/images/Aalto.png" alt="Aalto University" />
-            Aalto Science Institute, Aalto University, Espoo, Finland —  QuML Group (Advisor: Prof. Vikas Garg)
-          </div>
-        <div class="details">
-        <ul>
-            <li>2026 Aalto Science Institute International Summer Research Programme | Project: "Machine Learning: Foundations and New Frontiers".</li>
-            <li>The 1st Taiwanese hire in this program's 5-year history, securing a spot among 5,500+ applicants (135 countries) with a 1% acceptance rate.</li>
-            <li>Developing scalable physics-informed learning frameworks bridging numerical optimization and deep generative modeling; research aligned with Neural ODEs/SDEs and geometric deep learning.</li>
-        </ul>
-    </div>
+<div class="meta">
+<div class="upper-row">
+<h3 class="job-title">Research Intern, QuML Group (1% acceptance rate; fully funded; applicants from 135 countries)</h3>
+<div class="time">Jun. 2026 – Sep. 2026</div>
 </div>
-
+<div class="company"><img alt="Aalto University" height="40" src="assets/images/Aalto.png"/> Aalto University, School of Science — Helsinki, Finland</div>
+<div class="details">
+<ul><li>Researched scalable physics-informed learning, neural PDEs/ODEs, and generative modeling for complex geometries under Prof. Vikas Garg.</li><li>Selected as the first Taiwanese participant in the program’s five-year history.</li><li>2026 Aalto Science Institute International Summer Research Programme | Project: “Machine Learning: Foundations and New Frontiers”.</li></ul>
+</div>
+</div>
 <div class="item">
-    <div class="meta">
-        <div class="upper-row">
-            <h3 class="job-title">Visiting Researcher</h3>
-            <div class="time">Jun. 2026 – Sept. 2026</div>
-        </div>
-
-        <div class="company">
-            <img height="40" src="assets/images/Aalto.png" alt="Aalto University" />
+<div class="meta">
+<div class="upper-row">
+<h3 class="job-title">Visiting Researcher</h3>
+<div class="time">Jun. 2026 – Sep. 2026</div>
+</div>
+<div class="company">
+<img alt="Aalto University" height="40" src="assets/images/Aalto.png"/>
             Aalto Acoustics Lab, Aalto University, Espoo, Finland
         </div>
-
-        <div class="details">
-            <ul>
-                <li>
+<div class="details">
+<ul>
+<li>
                     Devising supervised flow-matching models that learn room impulse responses for robust sim-to-real transfer and cross-room generalization, in collaboration with Kyung Yun Lee, Dr. Nils Meyer-Kahlen, and Dr. Eloi Moliner.
                 </li>
-            </ul>
-        </div>
-    </div>
+</ul>
 </div>
-    
+</div>
+</div>
 <div class="item">
-    <div class="meta">
-        <div class="upper-row">
-        <h3 class="job-title">High-Performance Computing Research Intern (Fully Funded)</h3>
-        <div class="time">Jul. 2025 – Aug. 2025</div>
-        </div>
-        <div class="company">
-          <img height="40" src="assets/images/RIKEN.png" alt="RIKEN" />
-          RIKEN Center for Computational Science, Kobe/Osaka, Japan — Large-Scale Digital Twin Team (Advisor: Prof. Hirozumi Yamaguchi)
-        </div>
-        <div class="details">
-        <ul>
-        <li>Large-scale digital twin &amp; multimodal data-fusion sensing (WiFi, point cloud, RGBD) on Fugaku supercomputer.</li>
-        <li>Edge/cloud distributed computing with graph federated learning foundation models and differential privacy for human–scene interaction.</li>
-        </ul>
-    </div>
+<div class="meta">
+<div class="upper-row">
+<h3 class="job-title">HPC Research Intern (Supercomputer Fugaku), Large-Scale Digital Twin Research Team (2% acceptance rate; fully funded)</h3>
+<div class="time">Jul. 2025 – Aug. 2025</div>
 </div>
-
+<div class="company"><img alt="RIKEN" height="40" src="assets/images/RIKEN.png"/> RIKEN Center for Computational Science — Kobe–Osaka, Japan</div>
+<div class="details">
+<ul><li>Researched diffusion neural operators, ODE dynamics, and world models for robust physics-informed sensing under Prof. Hirozumi Yamaguchi.</li><li>Devised graph federated learning for multimodal sensing on supercomputer Fugaku, scaling to 10k clients with enhancing 15x training throughput.</li><li>Built edge/cloud distributed computing pipelines with graph federated learning foundation models and differential privacy for human–scene interaction.</li></ul>
+</div>
+</div>
 <div class="item">
-    <div class="meta">
-    <div class="upper-row">
-    <h3 class="job-title">AI Research Engineer</h3>
-    <div class="time">Sept. 2025 – Dec. 2026</div>
-    </div>
-    <div class="company">
-        <img height="40" src="assets/images/MoonShine.PNG" alt="MoonShine" />
-        MoonShine Animation Studio — R&amp;D Team (Dir. Shaune Jan; Xiang ‘Anthony’ Chen, UCLA)
-      </div>      
-    <div class="details">
-    <ul>
-    <li>Multi-agent MLLM-as-a-judge (AutoGen) for efficient supervisor review and improved Editable 3DGS production workflows.</li>
-    </ul>
-    </div>
+<div class="meta">
+<div class="upper-row">
+<h3 class="job-title">AI Research Engineer, R&amp;D Team</h3>
+<div class="time">Sep. 2025 – Dec. 2026</div>
 </div>
-    
+<div class="company"><img alt="MoonShine" height="40" src="assets/images/MoonShine.PNG"/> MoonShine Animation Studio — Taipei, Taiwan (Dir. Shaune Jan; Prof. Xiang “Anthony” Chen, UCLA)</div>
+<div class="details">
+<ul><li>Developed synthetic data-based world model, VLM and 3D/4DGS-based creator tools for animation, VFX, and entertainment production workflows.</li><li>Designed multi-agent MLLM-as-a-judge for efficient artist-supervisor review under Dir. Shaune Jan and Prof. Xiang “Anthony” Chen (UCLA), achieving a 74% preference rate among practitioners.</li></ul>
+</div>
+</div>
 <div class="item">
 <div class="meta">
 <div class="upper-row">
@@ -1358,9 +1301,9 @@
 <div class="time">Nov. 2024 – Aug. 2027</div>
 </div>
 <div class="company">
-    <img height="40" src="assets/images/NTU.png" alt="NTU" />
+<img alt="NTU" height="40" src="assets/images/NTU.png"/>
     Communications &amp; Multimedia Lab, National Taiwan University (Advisor: Prof. Robin Bing-Yu Chen)
-  </div>  
+  </div>
 <div class="details">
 <ul>
 <li>Differentiable Projective Dynamics hyper-elastic mesh solver with positive-definite Hessian projection; 1.65×–2.26× acceleration via stable clamping strategies.</li>
@@ -1374,9 +1317,9 @@
 <div class="time">Apr. 2022 – Jun. 2024</div>
 </div>
 <div class="company">
-    <img height="40" src="assets/images/RACCOON.png" alt="RAC-COON" />
+<img alt="RAC-COON" height="40" src="assets/images/RACCOON.png"/>
     Robot-Aided Creation &amp; Construction Research Group — Synchronization Lab (Prof. Yang-Ting Shen, Prof. Chia-Ching Yen, Prof. Alvin Wen-Yu Su)
-  </div>  
+  </div>
 <div class="details">
 <ul>
 <li>Robotic reinforcement learning on Kuka/UR10/Hiwin in Omniverse Isaac Gym/Lab; graph RL for geometric brick assembly by mobile manipulators.</li>
@@ -1387,194 +1330,149 @@
 <div class="item">
 <div class="meta">
 <div class="upper-row">
-<h3 class="job-title">Deep Learning Intern</h3>
+<h3 class="job-title">Deep Learning Intern, Power and System Business Group</h3>
 <div class="time">Jul. 2023 – Aug. 2023</div>
 </div>
-<div class="company">
-    <img height="40" src="assets/images/Delta.png" alt="Delta" />
-    Delta Electronics, Inc. — Power and System Business Group
-  </div>  
+<div class="company"><img alt="Delta" height="40" src="assets/images/Delta.png"/> Delta Electronics — Taoyuan, Taiwan</div>
 <div class="details">
-<ul>
-<li>3D point cloud generative autoencoder trained over 74k meshes (PyTorch3D, Docker, V100).</li>
-<li>XGBoost for inductance parameter prediction from electromagnetic simulation, reducing MAE to ~1% of formula-based solution.</li>
-</ul>
+<ul><li>Developed a PyTorch3D point-cloud autoencoder using 74k meshes and an XGBoost surrogate model for finite-element-based magnetic-core design, reducing prediction error to 1% of the formula-based baseline.</li><li>Implemented the PyTorch3D training pipeline with Docker and NVIDIA V100 infrastructure.</li></ul>
 </div>
 </div>
-</section>
-
+</div></div></div></div></div></div></section>
 <section class="section honors-section" id="honors">
-    <h2 class="section-title"><span class="icon-holder"><i class="fas fa-trophy"></i></span>Honors &amp; Awards</h2>
-
-    <div class="item">
-      <div class="meta">
-        <div class="upper-row">
-          <h3 class="job-title">2026 Foxconn Tech Award</h3>
-          <div class="time">Jun. 2026</div>
-        </div>
-        <div class="company">
-          <img height="40" src="assets/images/Foxconn.png" alt="Foxconn Education Foundation" />
-          <a href="https://www.foxconnfoundation.org/plan/technology_award" target="_blank" rel="noopener"><b>Foxconn Education Foundation</b></a>
-        </div>
-      </div>
-      <div class="details">
-        <ul>
-          <li>
-            Selected for the Foxconn Tech Award ($100,000), which recognizes graduate and undergraduate research solving real-world problems across AI, semiconductors, robotics, and smart cities.
-          </li>
-          <li>
-            Honored for my <b>undergraduate first-author</b> publication <b>M3</b> (<a href="https://doi.org/10.1145/3748636.3762708" target="_blank" rel="noopener">Research Full Paper</a>), presented at ACM SIGSPATIAL 2025 — combining <b>attention-based graph clustering</b> with <b>reinforcement learning</b> (Dueling DDQN) to deliver personalized green-travel recommendations for public transport.
-          </li>
-        </ul>
-      </div>
-    </div>
-  
-    <div class="item">
-      <div class="meta">
-        <div class="upper-row">
-          <h3 class="job-title">2023 AIoT Innovation Challenge</h3>
-          <div class="time">Feb. 2023 – Jun. 2023</div>
-        </div>
-        <div class="company">
-          <img height="40" src="assets/images/IEEE.png" alt="IEEE" />
-          <a href="https://signalprocessingsociety.org/" target="_blank" rel="noopener"><b>IEEE Signal Processing Society</b></a>
-        </div>
-      </div>
-      <div class="details">
-        <ul>
-          <li>
-            Secured <b>3rd Place</b> &amp; <b>Sponsors Award</b> ($30,000) from NXP Semiconductors
-            (<a href="https://www.canva.com/design/DAGYEutgu2Q/mQPg0aH1k11egrWJEQ5dkA/view?utm_content=DAGYEutgu2Q&utm_campaign=designshare&utm_medium=link&utm_source=editor" target="_blank" rel="noopener">Awards</a>).
-          </li>
-          <li>
+<h2 class="section-title"><span class="icon-holder"><i class="fas fa-trophy"></i></span>Honors &amp; Awards</h2>
+<div class="item">
+<div class="meta">
+<div class="upper-row">
+<h3 class="job-title">2026 Foxconn Tech Award</h3>
+<div class="time">Jun. 2026</div>
+</div>
+<div class="company">
+<img alt="Foxconn Education Foundation" height="40" src="assets/images/Foxconn.png"/>
+<a href="https://www.foxconnfoundation.org/plan/technology_award" rel="noopener" target="_blank"><b>Foxconn Education Foundation</b></a>
+</div>
+</div>
+<div class="details">
+<ul><li>Selected for the Foxconn Tech Award ($100,000) for my undergraduate first-author publication — combining attention-based graph clustering with reinforcement learning (Dueling DDQN).</li><li>The honored work is <b>M3</b> (<a href="https://doi.org/10.1145/3748636.3762708" rel="noopener" target="_blank">Research Full Paper</a>), presented at ACM SIGSPATIAL 2025 and applied to personalized green-travel recommendations for public transport.</li></ul>
+</div>
+</div>
+<div class="item">
+<div class="meta">
+<div class="upper-row">
+<h3 class="job-title">2023 AIoT Innovation Challenge</h3>
+<div class="time">Feb. 2023 – Jun. 2023</div>
+</div>
+<div class="company">
+<img alt="IEEE" height="40" src="assets/images/IEEE.png"/>
+<a href="https://signalprocessingsociety.org/" rel="noopener" target="_blank"><b>IEEE Signal Processing Society</b></a>
+</div>
+</div>
+<div class="details">
+<ul><li>Secured <b>3rd Place &amp; Sponsors Award</b> ($30,000) from NXP Semiconductors (<a href="https://www.canva.com/design/DAGYEutgu2Q/mQPg0aH1k11egrWJEQ5dkA/view?utm_content=DAGYEutgu2Q&amp;utm_campaign=designshare&amp;utm_medium=link&amp;utm_source=editor" rel="noopener" target="_blank">Awards</a>).</li><li>
             Built a microcontroller-based <b>SensorHub</b> (ADI/NXP/Arduino) integrating DHT11/SCD40/PMS5003T via chips communication(I²C/UART); developed calibration tests with real-time logging in HVAC/fan/lighting control linked to Unity digital twin for vision model based crowd regulation.
-          </li>
-        </ul>
-      </div>
-    </div>
-
-    <div class="item">
-      <div class="meta">
-        <div class="upper-row">
-          <h3 class="job-title">Overseas Conference Travel Grant</h3>
-          <div class="time">2026</div>
-        </div>
-        <div class="company">
-          <img height="40" src="assets/images/RIKEN.png" alt="RIKEN" />
-          <a href="https://www.riken.jp/en/" target="_blank" rel="noopener"><b>RIKEN Japan</b></a>
-        </div>
-      </div>
-      <div class="details">
-        <ul>
-          <li>Travel support recipient for attending the ISC High Performance conference 2026 (June 22-26, Hamburg, Germany).</li>
-        </ul>
-      </div>
-    </div>
-  
-    <div class="item">
-      <div class="meta">
-        <div class="upper-row">
-          <h3 class="job-title">2025 Overseas Conference Travel Grant</h3>
-          <div class="time">Dec. 2025</div>
-        </div>
-        <div class="company">
-          <img height="40" src="assets/images/NSTC.png" alt="NSTC" />
-          <a href="https://www.nstc.gov.tw/?l=en" target="_blank" rel="noopener"><b>National Science and Technology Council</b></a>
-        </div>
-      </div>
-      <div class="details">
-        <ul>
-          <li>Graduate student travel support recipient ($1,000) for SIGGRAPH Asia 2025 conference (December 16 – 18, Hong Kong).</li>
-        </ul>
-      </div>
-    </div>
-
-    <div class="item">
-      <div class="meta">
-        <div class="upper-row">
-          <h3 class="job-title">Graduate Student Scholarship</h3>
-          <div class="time">2025 – 2026</div>
-        </div>
-        <div class="company">
-          <img height="40" src="assets/images/NTU.png" alt="NTU" />
-          <a href="https://www.csie.ntu.edu.tw/" target="_blank" rel="noopener"><b>National Taiwan University (NTU CSIE)</b></a>
-        </div>
-      </div>
-      <div class="details">
-        <ul>
-          <li>Recipient of the graduate student scholarship for the 2025-2026 academic year.</li>
-        </ul>
-      </div>
-    </div>
+          </li></ul>
+</div>
+</div>
+<div class="item">
+<div class="meta">
+<div class="upper-row">
+<h3 class="job-title">Overseas Conference Travel Grant</h3>
+<div class="time">2026</div>
+</div>
+<div class="company">
+<img alt="RIKEN" height="40" src="assets/images/RIKEN.png"/>
+<a href="https://www.riken.jp/en/" rel="noopener" target="_blank"><b>RIKEN Japan</b></a>
+</div>
+</div>
+<div class="details">
+<ul>
+<li>Travel support recipient for attending the ISC High Performance conference 2026 (June 22-26, Hamburg, Germany).</li>
+</ul>
+</div>
+</div>
+<div class="item">
+<div class="meta">
+<div class="upper-row">
+<h3 class="job-title">2025 Overseas Conference Travel Grant</h3>
+<div class="time">Dec. 2025</div>
+</div>
+<div class="company">
+<img alt="NSTC" height="40" src="assets/images/NSTC.png"/>
+<a href="https://www.nstc.gov.tw/?l=en" rel="noopener" target="_blank"><b>National Science and Technology Council</b></a>
+</div>
+</div>
+<div class="details">
+<ul>
+<li>Graduate student travel support recipient ($1,000) for SIGGRAPH Asia 2025 conference (December 16 – 18, Hong Kong).</li>
+</ul>
+</div>
+</div>
+<div class="item">
+<div class="meta">
+<div class="upper-row">
+<h3 class="job-title">Graduate Student Scholarship</h3>
+<div class="time">2025 – 2026</div>
+</div>
+<div class="company">
+<img alt="NTU" height="40" src="assets/images/NTU.png"/>
+<a href="https://www.csie.ntu.edu.tw/" rel="noopener" target="_blank"><b>National Taiwan University (NTU CSIE)</b></a>
+</div>
+</div>
+<div class="details">
+<ul>
+<li>Recipient of the graduate student scholarship for the 2025-2026 academic year.</li>
+</ul>
+</div>
+</div>
 </section>
-
-<section class="section experiences-section" id="service">
-<h2 class="section-title"><span class="icon-holder"><i class="fas fa-briefcase"></i></span>Academic &amp; Community Service</h2>
+<section class="section experiences-section" id="service"><h2 class="section-title"><span class="icon-holder"><i class="fas fa-briefcase"></i></span>Academic &amp; Community Service</h2>
+<div class="item">
+<div class="meta"><div class="upper-row">
+<h3 class="job-title">Reviewer</h3><div class="time">Jan. 2024 – Jan. 2025</div>
+</div></div>
+<div class="company"><img alt="ACM" height="40" src="assets/images/ACM.png"/> ACM @ SIGGRAPH ASIA’26, CHI’25, HRI’25, CSCW’24, WWW’25</div>
+<div class="details"><ul><li>Reviewed 9 full- and short-paper submissions in animation/simulation, human–computer/robot interaction and web retrieval.</li></ul></div>
+</div>
+<div class="item">
+<div class="meta"><div class="upper-row">
+<h3 class="job-title">Reviewer</h3><div class="time">Mar. 2026 – Apr. 2026</div>
+</div></div>
+<div class="company"><img alt="IEEE" height="40" src="assets/images/IEEE.png"/> IEEE @ ITSC’26</div>
+<div class="details"><ul><li>Reviewed 1 full-paper submission in intelligent transportation systems.</li></ul></div>
+</div>
+<div class="item">
+<div class="meta"><div class="upper-row">
+<h3 class="job-title">Lead Technical Specialist</h3><div class="time">Jan. 2025 – Jun. 2027</div>
+</div>
+<div class="company"><img alt="NTU AI Club" height="40" src="assets/images/NTUAI.png"/> NTU AI Club @ Taipei, Taiwan</div></div>
+<div class="details"><ul><li>Spearheaded academic research initiatives and lectures on AI; designed and mentored advanced technical workshops in AI research.</li></ul></div>
+</div>
 <div class="item">
 <div class="meta">
 <div class="upper-row">
-<h3 class="job-title">Reviewer</h3>
-<div class="time">Jan. 2024 – Jan. 2025</div>
-</div>
-</div>
-<div class="company">
-    <img height="40" src="assets/images/ACM.png" alt="ACM" />
-    Association for Computing Machinery Conferences
-  </div>  
-<div class="details">
-<ul>
-<li>IEEE ITSC’26</li>
-<li>ACM CHI’25</li>
-<li>ACM HRI’25</li>
-<li>ACM CSCW’24</li>
-<li>ACM WWW’25</li>
-</ul>
-</div>
-</div>
-<div class="item">
-<div class="meta">
-<div class="upper-row">
-<h3 class="job-title">Lead Technical Specialist</h3>
-<div class="time">Feb. 2025 – Jun. 2025</div>
+<h3 class="job-title">Mandatory Military Service</h3>
+<div class="time">Jul. 2024 – Nov. 2024</div>
 </div>
 <div class="company">
-    <img height="40" src="assets/images/NTUAI.png" alt="NTU AI Club" />
-    NTU AI Club, Taipei, Taiwan
-  </div>  
-<div class="details">
-<ul>
-<li>Led academic initiatives and lectures on multimodal learning and reinforcement learning; mentored undergrads toward accepted submissions.</li>
-</ul>
-</div>
-</div>
-<div class="item">
-    <div class="meta">
-    <div class="upper-row">
-    <h3 class="job-title">Mandatory Military Service</h3>
-    <div class="time">Jul. 2024 – Nov. 2024</div>
-    </div>
-    <div class="company">
-        <img height="40" src="assets/images/AirForce.png" alt="Taiwan Air Force" />
+<img alt="Taiwan Air Force" height="40" src="assets/images/AirForce.png"/>
         Taiwan Air Force
-      </div>         
-    <div class="details">
-        <ul>
-        </ul>
-        </div>
-        </div>
-</section>
+      </div>
+<div class="details">
+<ul>
+</ul>
+</div>
+</div>
+</div></section>
 </div><!--//main-wrapper-->
 </div><!--//wrapper-->
-
 <div style="width:300px; max-width:100%; margin:0 auto;">
-  <script type='text/javascript' id='clustrmaps' src='//cdn.clustrmaps.com/map_v2.js?cl=7a7a7a&w=a&t=n&d=vB-nhNKOa7tb-GN0q-od_1fdnb6k3CWPehxCb6YERlg&co=000000&cmo=dfcbef&cmn=2f9ebf'></script>
-</div>  
+<script id="clustrmaps" src="//cdn.clustrmaps.com/map_v2.js?cl=7a7a7a&amp;w=a&amp;t=n&amp;d=vB-nhNKOa7tb-GN0q-od_1fdnb6k3CWPehxCb6YERlg&amp;co=000000&amp;cmo=dfcbef&amp;cmn=2f9ebf" type="text/javascript"></script>
+</div>
 <footer class="footer">
 <div class="text-center">
-<small class="copyright">Stolen from Xiaoying Riley · Last updated by Shih-Yu Lai 02/02/2026</small>
+<small class="copyright">Stolen from Xiaoying Riley · Last updated by Shih-Yu Lai 08/07/2026</small>
 </div>
 </footer>
-
 <script>
     (function () {
       const img = document.getElementById("profile-photo");
@@ -1586,7 +1484,6 @@
       img.addEventListener("mouseleave", () => img.setAttribute("src", a));
     })();
 </script>
-
 <canvas id="graffiti"></canvas>
 <script>
     (() => {
@@ -1708,7 +1605,6 @@
       });
     })();
 </script>
-
 <script>
 (function () {
   const TAG_LABELS = {
@@ -1818,8 +1714,7 @@
   btnTag.addEventListener("click", switchToTag);
 })();
 </script>
-
-<script src="https://unpkg.com/twemoji@latest/dist/twemoji.min.js" crossorigin="anonymous"></script>
+<script crossorigin="anonymous" src="https://unpkg.com/twemoji@latest/dist/twemoji.min.js"></script>
 <script>
   window.addEventListener('load', function() {
     document.querySelectorAll('.summary, .opening-quote').forEach(function(el){
@@ -1878,6 +1773,5 @@
   }
 })();
 </script>
-  
 </body>
 </html>
