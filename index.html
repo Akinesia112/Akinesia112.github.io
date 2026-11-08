@@ -365,19 +365,19 @@ img.emoji{width:1.2em;height:1.2em;vertical-align:-.2em;margin:0 .1em}
 </div>
 <div class="tag-bar" id="pub-filter-bar">
 <div class="filter-options"><span class="filter-label">Domain</span><button type="button" class="filter-btn chip" data-tag="AI">#AI</button><button type="button" class="filter-btn chip" data-tag="Robotics">#Robotics</button><button type="button" class="filter-btn chip" data-tag="Graphics">#Graphics</button><button type="button" class="filter-btn chip" data-tag="HPC">#HPC</button><button type="button" class="filter-btn chip" data-tag="Audio">#Audio</button><button type="button" class="filter-btn clear" id="pub-clear">Clear all</button></div>
-<div class="filter-options"><span class="filter-label">Method</span><button type="button" class="filter-btn chip" data-tag="SimReal">#Sim-Real Transfer</button><button type="button" class="filter-btn chip" data-tag="Graph">#Graph</button><button type="button" class="filter-btn chip" data-tag="RL">#RL</button><button type="button" class="filter-btn chip" data-tag="DSP">#DSP</button><button type="button" class="filter-btn chip" data-tag="PhysicsInformedML">#Physics-informed ML</button></div>
+<div class="filter-options"><span class="filter-label">Method</span><button type="button" class="filter-btn chip" data-tag="Graph">#Graph</button><button type="button" class="filter-btn chip" data-tag="RL">#RL</button><button type="button" class="filter-btn chip" data-tag="DSP">#DSP</button><button type="button" class="filter-btn chip" data-tag="PhysicsInformedML">#Physics-informed ML</button></div>
 </div>
 </div>
 <div id="pubs-scope">
 <p class="talk-series talk-title">Selected (8/16)</p>
 
-<div class="md-card" id="diffphd" data-tags="Graphics,Robotics,SimReal"><div class="card-image"><img src="assets/images/DiffPhD.png" alt="DiffPhD" loading="lazy"></div><div class="card-content">
+<div class="md-card" id="diffphd" data-tags="Graphics,Robotics"><div class="card-image"><img src="assets/images/DiffPhD.png" alt="DiffPhD" loading="lazy"></div><div class="card-content">
 <p><font size="4"><strong>DiffPhD: A Unified Differentiable Solver for Projective Heterogeneous Materials in Elastodynamics with Contact-Rich GPU-Acceleration</strong><br></font>
 <strong>Shih-Yu Lai</strong>, <span class="coauthor">Sung-Han Tien, Jui-I Huang, Yen-Chen Tseng, Yi-Ting Chiu, Siyuan Luo, Ziqiu Zeng, Fan Shi, Peter Yichen Chen, Tiantian Liu, Yu-Lun Liu, Bing-Yu Chen</span><br>
 <span class="venue-text"><strong>ACM Transactions on Graphics (TOG), SIGGRAPH ASIA 2026</strong></span> <font size="2">(1st Author, Q1 Journal, IF=13)</font><br>
 <font size="2">preprint arXiv:2605.14526</font></p>
 <a href="https://arxiv.org/abs/2605.14526" class="link-btn">PDF</a> <a href="https://chabu-tseng.github.io/diffphd/" target="_blank" rel="noopener" class="link-btn">Project Page</a> <a href="https://youtu.be/bGPnIgAsy2A" target="_blank" rel="noopener" class="link-btn">Video</a> <a href="https://github.com/Akinesia112/DiffPhD" target="_blank" rel="noopener" class="link-btn">Code</a> <a href="assets/bib/DiffPhD.bib" download class="link-btn">Cite</a>
-<div class="tags">#Graphics, #Robotics, #Sim-Real Transfer</div>
+<div class="tags">#Graphics, #Robotics</div>
 </div></div>
 
 <div class="md-card" id="rir-handclaps" data-tags="AI,Audio,DSP"><div class="card-image"><img src="assets/images/ICASSP_Clap.png" alt="ICASSP 2027" loading="lazy"></div><div class="card-content">
@@ -684,8 +684,8 @@ Taiwan Air Force @ Taipei Songshan Airport<br>
   document.getElementById("sidebar-mask").addEventListener("click", function () { theme.classList.remove("sidebar-open"); });
   document.querySelectorAll(".sidebar a").forEach(function (l) { l.addEventListener("click", function () { theme.classList.remove("sidebar-open"); }); });
   // Publications: By Date / By Tag
-  var TAG_LABELS = {AI:"#AI",Robotics:"#Robotics",Graphics:"#Graphics",HPC:"#HPC",Audio:"#Audio",Graph:"#Graph",RL:"#RL",DSP:"#DSP",PhysicsInformedML:"#Physics-informed ML",SimReal:"#Sim-Real Transfer"};
-  var TAG_ORDER = ["AI","Robotics","Graphics","HPC","Audio","Graph","RL","DSP","PhysicsInformedML","SimReal"];
+  var TAG_LABELS = {AI:"#AI",Robotics:"#Robotics",Graphics:"#Graphics",HPC:"#HPC",Audio:"#Audio",Graph:"#Graph",RL:"#RL",DSP:"#DSP",PhysicsInformedML:"#Physics-informed ML"};
+  var TAG_ORDER = ["AI","Robotics","Graphics","HPC","Audio","Graph","RL","DSP","PhysicsInformedML"];
   var dateView = document.getElementById("pubs-scope"), groupView = document.getElementById("pub-group-view");
   var bar = document.getElementById("pub-filter-bar"), emptyMsg = document.getElementById("pub-empty");
   var btnDate = document.getElementById("btn-view-date"), btnTag = document.getElementById("btn-view-tag");
