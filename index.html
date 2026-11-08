@@ -169,6 +169,44 @@ blockquote>p{margin:0}
 .exp .org{font-size:.9rem;color:#3c78cd}
 @media (max-width:719px){.exp .head{flex-direction:column}.exp .time{margin-left:0}}
 
+
+/* ===== Research map (as on minghaoguo.com) ===== */
+.atlas-sub{font-weight:400;color:#34495e}
+.cf-full{max-width:1040px;margin:.6rem auto 0}
+.cf2{position:relative;display:flex;align-items:center;gap:.4rem;width:100%}
+.cf2 .cf2-tri{position:relative;flex:0 0 40%;aspect-ratio:1/.9}
+.cf2 .cf2-canvas,.cf2 .cf2-edges{position:absolute;inset:0}
+.cf2 .cf2-canvas{width:100%;height:100%}
+.cf2 .cf2-edges{width:100%;height:100%}
+.cf2 .cf2-edges .cf2-outline{fill:none;stroke:#1c1c1c;stroke-width:1.4}
+.cf2 .cf2-corner{position:absolute;transform:translate(-50%,-50%);font-weight:800;font-size:1.12rem;letter-spacing:.02em;white-space:nowrap;pointer-events:none}
+.cf2 .cf2-G{color:#e74c3c}.cf2 .cf2-R{color:#2a9d8f}.cf2 .cf2-A{color:#3c78cd}
+.cf2 .cf2-halo{position:absolute;transform:translate(-50%,-50%);text-align:center;font-weight:800;color:#34495e;font-size:1.18rem;line-height:1.16;white-space:nowrap;pointer-events:none;text-shadow:0 1px 3px #fff,0 -1px 3px #fff,1px 0 3px #fff,-1px 0 3px #fff,0 0 6px #fff;z-index:6}
+.cf2 .cf2-dot{position:absolute;transform:translate(-50%,-50%);width:14px;height:14px;border-radius:50%;border:2px solid #fff;box-shadow:0 1px 3px rgba(0,0,0,.35);cursor:pointer;z-index:4;transition:transform .2s,box-shadow .2s;box-sizing:content-box}
+.cf2 .cf2-dot.hot,.cf2 .cf2-dot:hover{transform:translate(-50%,-50%) scale(1.5);box-shadow:0 4px 12px rgba(0,0,0,.4);z-index:5;text-decoration:none}
+.cf2 .cf2-leaders{position:absolute;inset:0;width:100%;height:100%;pointer-events:none;z-index:2;overflow:visible}
+.cf2 .cf2-leaders path{fill:none;stroke:#8a8a8a;stroke-width:1.2;transition:stroke .2s,stroke-width .2s}
+.cf2 .cf2-leaders path.hot{stroke-width:2.2}
+.cf2 .cf2-mobile{display:none}
+.cf2 .cf2-mobile,.cf2 .cf2-side{list-style:none;padding:0;margin:0;z-index:3}
+.cf2 .cf2-side{flex:1 1 0;display:flex;flex-direction:column;justify-content:space-around;gap:4px;align-self:stretch;padding:2.2rem 0}
+.cf2 .cf2-side li{margin:0;display:flex}
+.cf2 .cf2-side.left li{justify-content:flex-end}
+.cf2 .cf2-side.right li{justify-content:flex-start}
+.cf2 .cf2-item{display:flex;flex-direction:column;padding:3px 8px;border:1.5px solid #ccc;border-radius:6px;background:#fff;text-decoration:none;max-width:100%;transition:box-shadow .2s,transform .2s}
+.cf2 .cf2-item:hover{text-decoration:none}
+.cf2 .cf2-item.hot .cf2-name{text-decoration:underline}
+.cf2 .cf2-side.left .cf2-item{align-items:flex-end;text-align:right}
+.cf2 .cf2-side.right .cf2-item{align-items:flex-start;text-align:left}
+.cf2 .cf2-side.left .cf2-item.hot,.cf2 .cf2-side.left .cf2-item:hover{box-shadow:0 6px 16px -8px rgba(0,0,0,.4);transform:translateX(2px)}
+.cf2 .cf2-side.right .cf2-item.hot,.cf2 .cf2-side.right .cf2-item:hover{box-shadow:0 6px 16px -8px rgba(0,0,0,.4);transform:translateX(-2px)}
+.cf2 .cf2-name{font-weight:700;font-size:.82rem;line-height:1.15;color:#34495e}
+.cf2 .cf2-venue{font-size:.68rem;line-height:1.2;color:#8a97a5}
+@media (max-width:900px) and (min-width:641px){.cf2{gap:.25rem}.cf2 .cf2-tri{flex-basis:44%}.cf2 .cf2-corner{font-size:.86rem}.cf2 .cf2-halo{font-size:1rem}.cf2 .cf2-name{font-size:.72rem}.cf2 .cf2-venue{font-size:.6rem}}
+@media (max-width:640px){.cf2{flex-direction:column;align-items:center;gap:0}.cf2 .cf2-leaders{display:none}.cf2 .cf2-tri{order:-1;flex:none;width:94%;max-width:340px;margin:1.4rem 0 2.2rem}.cf2 .cf2-corner{font-size:.82rem}.cf2 .cf2-halo{font-size:.95rem}.cf2 .cf2-side{display:none}.cf2 .cf2-mobile{display:flex;flex-direction:column;gap:6px;width:100%}.cf2 .cf2-mobile li{display:flex;width:100%}.cf2 .cf2-mobile .cf2-item{flex-direction:row;flex-wrap:wrap;align-items:baseline;gap:5px;width:100%;padding:4px 9px}.cf2 .cf2-mobile .cf2-name{font-size:.9rem}.cf2 .cf2-mobile .cf2-venue{font-size:.76rem}}
+.md-card{transition:transform .35s ease,box-shadow .35s ease}
+.md-card.card-highlight{position:relative;z-index:2;transform:scale(1.03);box-shadow:0 18px 42px -18px var(--hl,rgba(0,0,0,.3));border-radius:.5rem;background:#fff}
+
 /* ===== Footer ===== */
 .footer{text-align:center;color:#7f8c8d;font-size:.8rem;padding:1rem 0 2rem;font-family:Lucida Grande,Lucida Sans Unicode,Lucida Sans,Arial,sans-serif}
 .page img.ilogo{height:1.25em;width:auto;max-width:2.4em;object-fit:contain;vertical-align:-.3em;margin-right:.15em}
@@ -290,6 +328,9 @@ img.emoji{width:1.2em;height:1.2em;vertical-align:-.2em;margin:0 .1em}
   <li><span class="news-date">[2023/06]</span> <strong class="award-text">3rd Place &amp; Sponsors Award</strong>, IEEE SPS 2023 AIoT Innovation Challenge.</li>
 </ul></details>
 
+<h2 id="research-map-shaded-by-field">Research Map <span class="atlas-sub">(shaded by field)</span></h2>
+<div class="cf-full"><div class="cf2" id="cf2"></div></div>
+
 <h2 id="selected-initiatives">Selected Initiatives</h2>
 <div class="md-card logo-card"><div class="card-image"><img src="assets/images/SIGGRAPH.png" alt="ACM SIGGRAPH" loading="lazy"></div><div class="card-content">
 <p><font size="4"><strong>Beyond Rigid Bodies × Newton for Robotics: Open GPU Physics, Differentiable Simulation, and Multi-Solver Ecosystems for Physical AI and Embodied Robotics</strong><br></font>
@@ -316,7 +357,7 @@ Lead Organizer · proposal, speaker outreach, program<br>
 <div id="pubs-scope">
 <p class="talk-series talk-title">Selected (8/16)</p>
 
-<div class="md-card" data-tags="Graphics,Robotics,SimReal"><div class="card-image"><img src="assets/images/DiffPhD.png" alt="DiffPhD" loading="lazy"></div><div class="card-content">
+<div class="md-card" id="diffphd" data-tags="Graphics,Robotics,SimReal"><div class="card-image"><img src="assets/images/DiffPhD.png" alt="DiffPhD" loading="lazy"></div><div class="card-content">
 <p><font size="4"><strong>DiffPhD: A Unified Differentiable Solver for Projective Heterogeneous Materials in Elastodynamics with Contact-Rich GPU-Acceleration</strong><br></font>
 <strong>Shih-Yu Lai</strong>, <span class="coauthor">Sung-Han Tien, Jui-I Huang, Yen-Chen Tseng, Yi-Ting Chiu, Siyuan Luo, Ziqiu Zeng, Fan Shi, Peter Yichen Chen, Tiantian Liu, Yu-Lun Liu, Bing-Yu Chen</span><br>
 <span class="venue-text"><strong>ACM Transactions on Graphics (TOG), SIGGRAPH ASIA 2026</strong></span> <font size="2">(1st Author · Q1 Journal · IF=13)</font><br>
@@ -325,7 +366,7 @@ Lead Organizer · proposal, speaker outreach, program<br>
 <div class="tags">#Graphics · #Robotics · #Sim-Real Transfer</div>
 </div></div>
 
-<div class="md-card" data-tags="AI,Audio,DSP"><div class="card-image"><img src="assets/images/ICASSP_Clap.png" alt="ICASSP 2027" loading="lazy"></div><div class="card-content">
+<div class="md-card" id="rir-handclaps" data-tags="AI,Audio,DSP"><div class="card-image"><img src="assets/images/ICASSP_Clap.png" alt="ICASSP 2027" loading="lazy"></div><div class="card-content">
 <p><font size="4"><strong>Estimation of Room Impulse Responses from Handclaps</strong><br></font>
 <strong>Shih-Yu Lai</strong>, <span class="coauthor">Kyung Yun Lee, Nils Meyer-Kahlen, Eloi Moliner, Bing-Yu Chen, Vesa Välimäki</span><br>
 <span class="venue-text"><strong>IEEE ICASSP 2027</strong></span> <font size="2">(Under Review)</font><br>
@@ -334,7 +375,7 @@ Lead Organizer · proposal, speaker outreach, program<br>
 <div class="tags">#AI · #Audio · #DSP</div>
 </div></div>
 
-<div class="md-card" data-tags="AI,Robotics"><div class="card-image"><img src="assets/images/ITSC2026-MORPH-U.png" alt="MORPH-U" loading="lazy"></div><div class="card-content">
+<div class="md-card" id="morph-u" data-tags="AI,Robotics"><div class="card-image"><img src="assets/images/ITSC2026-MORPH-U.png" alt="MORPH-U" loading="lazy"></div><div class="card-content">
 <p><font size="4"><strong>MORPH-U: Multi-Objective Resilient Motion Planning for V2X-Enabled Autonomous Driving in High-Uncertainty Environments via Simulation</strong><br></font>
 <strong>Shih-Yu Lai</strong><br>
 <span class="venue-text"><strong>IEEE ITSC 2026</strong></span> <font size="2">(1st Author · Regular Paper)</font></p>
@@ -342,7 +383,7 @@ Lead Organizer · proposal, speaker outreach, program<br>
 <div class="tags">#AI · #Robotics</div>
 </div></div>
 
-<div class="md-card" data-tags="AI,Robotics,Graphics,Graph,RL,PhysicsInformedML"><div class="card-image"><img src="assets/images/DASTGCN-SNN-DDPG.png" alt="DASTGCN-SNN-DDPG" loading="lazy"></div><div class="card-content">
+<div class="md-card" id="cadcam-graph-rl" data-tags="AI,Robotics,Graphics,Graph,RL,PhysicsInformedML"><div class="card-image"><img src="assets/images/DASTGCN-SNN-DDPG.png" alt="DASTGCN-SNN-DDPG" loading="lazy"></div><div class="card-content">
 <p><font size="4"><strong>Architectural CAD/CAM in Robotic Fabrication via Differentiable Energy Optimization and Few-Shot Spatiotemporal Graph RL Policy</strong><br></font>
 <strong>Shih-Yu Lai</strong>, <span class="coauthor">Chia-Ching Yen, Yang-Ting Shen, Bing-Yu Chen</span><br>
 <span class="venue-text"><strong>ACM SIGGRAPH Asia 2025</strong></span> <font size="2">(1st Author · Technical Communications)</font></p>
@@ -350,7 +391,7 @@ Lead Organizer · proposal, speaker outreach, program<br>
 <div class="tags">#AI · #Robotics · #Graphics · #Graph · #RL · #Physics-informed ML</div>
 </div></div>
 
-<div class="md-card" data-tags="AI,Robotics,Graphics,Graph,RL"><div class="card-image"><img src="assets/images/GAT-DQN.png" alt="GAT-DQN" loading="lazy"></div><div class="card-content">
+<div class="md-card" id="graph-q-learning" data-tags="AI,Robotics,Graphics,Graph,RL"><div class="card-image"><img src="assets/images/GAT-DQN.png" alt="GAT-DQN" loading="lazy"></div><div class="card-content">
 <p><font size="4"><strong>Graph Q-Learning for Automatic Assembly in Design-to-Construction</strong><br></font>
 <strong>Shih-Yu Lai</strong>, <span class="coauthor">Chia-Ching Yen, Yang-Ting Shen, Bing-Yu Chen</span><br>
 <span class="venue-text"><strong>ACM SIGGRAPH Asia 2025</strong></span> <font size="2">(1st Author · Poster)</font></p>
@@ -358,7 +399,7 @@ Lead Organizer · proposal, speaker outreach, program<br>
 <div class="tags">#AI · #Robotics · #Graphics · #Graph · #RL</div>
 </div></div>
 
-<div class="md-card" data-tags="AI,Robotics,PhysicsInformedML"><div class="card-image"><img src="assets/images/Euphoria.jpg" alt="EUPHORIA" loading="lazy"></div><div class="card-content">
+<div class="md-card" id="euphoria" data-tags="AI,Robotics,PhysicsInformedML"><div class="card-image"><img src="assets/images/Euphoria.jpg" alt="EUPHORIA" loading="lazy"></div><div class="card-content">
 <p><font size="4"><strong>EUPHORIA: Efficient Universal Planning via Hybrid Optimization for Robust Industrial Robotic Assembly</strong><br></font>
 <strong>Shih-Yu Lai</strong>, <span class="coauthor">Chia-Ching Yen, Yang-Ting Shen, Peter Yichen Chen, Yu-Lun Liu, Bing-Yu Chen</span><br>
 <span class="venue-text"><strong>ArXiv 2026</strong></span> <font size="2">(1st Author · Preprint)</font></p>
@@ -366,7 +407,7 @@ Lead Organizer · proposal, speaker outreach, program<br>
 <div class="tags">#AI · #Robotics · #Physics-informed ML</div>
 </div></div>
 
-<div class="md-card" data-tags="AI,HPC,Graph,PhysicsInformedML"><div class="card-image"><img src="assets/images/Umeda.png" alt="UMEDA" loading="lazy"></div><div class="card-content">
+<div class="md-card" id="umeda" data-tags="AI,HPC,Graph,PhysicsInformedML"><div class="card-image"><img src="assets/images/Umeda.png" alt="UMEDA" loading="lazy"></div><div class="card-content">
 <p><font size="4"><strong>UMEDA: Unified Multi-modal Efficient Data Fusion for Privacy-Preserving Graph Federated Learning via Spectral-Gated Attention and Diffusion-Based Operator Alignment</strong><br></font>
 <strong>Shih-Yu Lai</strong>, <span class="coauthor">Hirozumi Yamaguchi, Shang-Tse Chen, Yu-Lun Liu, Bing-Yu Chen</span><br>
 <span class="venue-text"><strong>ArXiv 2026</strong></span> <font size="2">(1st Author · Preprint)</font></p>
@@ -374,7 +415,7 @@ Lead Organizer · proposal, speaker outreach, program<br>
 <div class="tags">#AI · #HPC · #Graph · #Physics-informed ML</div>
 </div></div>
 
-<div class="md-card" data-tags="AI,Graphics"><div class="card-image"><img src="assets/images/MOONWALK.png" alt="MOONWALK" loading="lazy"></div><div class="card-content">
+<div class="md-card" id="moonwalk" data-tags="AI,Graphics"><div class="card-image"><img src="assets/images/MOONWALK.png" alt="MOONWALK" loading="lazy"></div><div class="card-content">
 <p><font size="4"><strong>MOONWALK: Mediating Operations with Intent-Evidence-Action Alignment Across Junior-Supervisor Review Workflows in Animation/VFX Pre-Production</strong><br></font>
 <strong>Shih-Yu Lai</strong>, <span class="coauthor">Wen-Fan Wang, Sai Ling, Shaune Jan, Bing-Yu Chen, Xiang Anthony Chen</span><br>
 <span class="venue-text"><strong>ArXiv 2026</strong></span> <font size="2">(1st Author · Preprint)</font></p>
@@ -384,7 +425,7 @@ Lead Organizer · proposal, speaker outreach, program<br>
 
 <p class="talk-series talk-title">Others (8/16)</p>
 
-<div class="md-card" data-tags="AI,HPC,Graph"><div class="card-image"><img src="assets/images/ISC2026-POSTER.png" alt="ISC 2026" loading="lazy"></div><div class="card-content">
+<div class="md-card" id="fed-gfm" data-tags="AI,HPC,Graph"><div class="card-image"><img src="assets/images/ISC2026-POSTER.png" alt="ISC 2026" loading="lazy"></div><div class="card-content">
 <p><font size="4"><strong>Accelerating Large-Scale Federated Graph Foundation Model Pre-training for Secure Sensing via Hierarchical Parallelism</strong><br></font>
 <strong>Shih-Yu Lai</strong>, <span class="coauthor">Fukuharu Tanaka, Hamada Rizk, Hirozumi Yamaguchi, Bing-Yu Chen</span><br>
 <span class="venue-text"><strong>ISC High Performance 2026</strong></span> <font size="2">(1st Author · Research Poster · Presented)</font></p>
@@ -392,7 +433,7 @@ Lead Organizer · proposal, speaker outreach, program<br>
 <div class="tags">#AI · #HPC · #Graph</div>
 </div></div>
 
-<div class="md-card" data-tags="AI,Audio,DSP"><div class="card-image"><img src="assets/images/LATENT-MARK.png" alt="LATENT-MARK" loading="lazy"></div><div class="card-content">
+<div class="md-card" id="latent-mark" data-tags="AI,Audio,DSP"><div class="card-image"><img src="assets/images/LATENT-MARK.png" alt="LATENT-MARK" loading="lazy"></div><div class="card-content">
 <p><font size="4"><strong>LATENT-MARK: An Audio Watermark Robust to Neural Codec Compression</strong><br></font>
 <span class="coauthor">Yen-Shan Chen</span>, <strong>Shih-Yu Lai</strong>, <span class="coauthor">Ying-Jung Tsou, Yi-Cheng Lin, Bing-Yu Chen, Yun-Nung Chen, Hung-Yi Lee, Shang-Tse Chen</span><br>
 <span class="venue-text"><strong>Interspeech 2026</strong></span> <font size="2">(Co-1st Author · Long Paper · Scores: 5, 5, 5, 4)</font></p>
@@ -614,7 +655,7 @@ Taiwan Air Force @ Taipei Songshan Airport<br>
     var hd = document.createElement("p"); hd.className = "talk-series talk-title";
     hd.innerHTML = TAG_LABELS[tag] + '<span class="pub-group-count">' + m.length + " paper" + (m.length === 1 ? "" : "s") + "</span>";
     g.appendChild(hd);
-    m.forEach(function (it) { g.appendChild(it.node.cloneNode(true)); });
+    m.forEach(function (it) { var c = it.node.cloneNode(true); c.removeAttribute("id"); g.appendChild(c); });
     groupView.appendChild(g);
   });
   groupView.classList.add("is-hidden"); groupView.style.display = "none";
@@ -643,6 +684,114 @@ Taiwan Air Force @ Taipei Songshan Airport<br>
   }
   btnDate.addEventListener("click", function () { view(false); });
   btnTag.addEventListener("click", function () { view(true); });
+
+  // Research map (shaded by field)
+  (function () {
+    var root = document.getElementById("cf2"); if (!root) return;
+    var C = { G: [231, 76, 60], R: [42, 157, 143], A: [60, 120, 205] };          // Graphics / Robotics / Audio
+    var V = { G: [50, 6], R: [5, 93], A: [95, 93] };                                 // triangle vertices (% of box)
+    var P = [
+      ["diffphd", "DiffPhD", "[TOG / SIGGRAPH Asia 2026]", .55, .40, .05],
+      ["cadcam-graph-rl", "Robotic CAD/CAM Graph RL", "[SIGGRAPH Asia 2025]", .45, .50, .05],
+      ["graph-q-learning", "Graph Q-Learning Assembly", "[SIGGRAPH Asia 2025]", .35, .60, .05],
+      ["euphoria", "EUPHORIA", "[arXiv 2026]", .20, .75, .05],
+      ["umeda", "UMEDA", "[arXiv 2026]", .15, .50, .35],
+      ["morph-u", "MORPH-U", "[ITSC 2026]", .08, .87, .05],
+      ["moonwalk", "MOONWALK", "[arXiv 2026]", .85, .05, .10],
+      ["rir-handclaps", "RIR from Handclaps", "[ICASSP 2027, under review]", .15, .10, .75],
+      ["fed-gfm", "Federated Graph Foundation Model", "[ISC High Performance 2026]", .10, .40, .50],
+      ["latent-mark", "LATENT-MARK", "[Interspeech 2026]", .05, .12, .83]
+    ].map(function (d) {
+      var w = { G: d[3], R: d[4], A: d[5] };
+      var x = w.G * V.G[0] + w.R * V.R[0] + w.A * V.A[0], y = w.G * V.G[1] + w.R * V.R[1] + w.A * V.A[1];
+      var rgb = [0, 1, 2].map(function (k) { return Math.round(w.G * C.G[k] + w.R * C.R[k] + w.A * C.A[k]); });
+      return { id: d[0], name: d[1], venue: d[2], x: x, y: y, color: "rgb(" + rgb.join(",") + ")" };
+    });
+    var NS = "http://www.w3.org/2000/svg";
+    function item(p) {
+      var a = document.createElement("a"); a.href = "#" + p.id; a.className = "cf2-item cf-link"; a.setAttribute("data-id", p.id);
+      a.style.borderColor = p.color;
+      a.innerHTML = '<span class="cf2-name"></span> <span class="cf2-venue"></span>';
+      a.firstChild.textContent = p.name; a.lastChild.textContent = p.venue;
+      var li = document.createElement("li"); li.appendChild(a); return li;
+    }
+    var left = document.createElement("ul"); left.className = "cf2-side left";
+    var right = document.createElement("ul"); right.className = "cf2-side right";
+    var mobile = document.createElement("ul"); mobile.className = "cf2-mobile";
+    P.slice().sort(function (a, b) { return a.y - b.y; }).forEach(function (p) {
+      (p.x < 50 ? left : right).appendChild(item(p)); mobile.appendChild(item(p));
+    });
+    var tri = document.createElement("div"); tri.className = "cf2-tri";
+    var cv = document.createElement("canvas"); cv.className = "cf2-canvas"; tri.appendChild(cv);
+    var edges = document.createElementNS(NS, "svg"); edges.setAttribute("viewBox", "0 0 100 100"); edges.setAttribute("preserveAspectRatio", "none"); edges.setAttribute("class", "cf2-edges");
+    var poly = document.createElementNS(NS, "polygon"); poly.setAttribute("points", "50,6 5,93 95,93"); poly.setAttribute("vector-effect", "non-scaling-stroke"); poly.setAttribute("class", "cf2-outline");
+    edges.appendChild(poly); tri.appendChild(edges);
+    [["cf2-G", "Graphics", "50%", "1.5%"], ["cf2-R", "Robotics", "7%", "99%"], ["cf2-A", "Audio", "93%", "99%"]].forEach(function (c) {
+      var s = document.createElement("span"); s.className = "cf2-corner " + c[0]; s.textContent = c[1]; s.style.left = c[2]; s.style.top = c[3]; tri.appendChild(s);
+    });
+    var halo = document.createElement("span"); halo.className = "cf2-halo"; halo.style.left = "56%"; halo.style.top = "67%";
+    halo.innerHTML = "Sim-Real Learning<br>&amp; Solvers"; tri.appendChild(halo);
+    P.forEach(function (p) {
+      var d = document.createElement("a"); d.href = "#" + p.id; d.className = "cf2-dot cf-link"; d.setAttribute("data-id", p.id);
+      d.title = p.name + " " + p.venue; d.style.left = p.x + "%"; d.style.top = p.y + "%"; d.style.background = p.color; tri.appendChild(d);
+    });
+    var leaders = document.createElementNS(NS, "svg"); leaders.setAttribute("class", "cf2-leaders");
+    root.appendChild(left); root.appendChild(tri); root.appendChild(right); root.appendChild(mobile); root.appendChild(leaders);
+    function shade() {
+      var r = tri.getBoundingClientRect(), dpr = Math.min(2, window.devicePixelRatio || 1);
+      var W = Math.max(1, Math.round(r.width * dpr)), H = Math.max(1, Math.round(r.height * dpr));
+      cv.width = W; cv.height = H;
+      var ctx = cv.getContext("2d"), img = ctx.createImageData(W, H), D = img.data;
+      var ax = V.G[0] / 100 * W, ay = V.G[1] / 100 * H, bx = V.R[0] / 100 * W, by = V.R[1] / 100 * H, cx = V.A[0] / 100 * W, cy = V.A[1] / 100 * H;
+      var den = (by - cy) * (ax - cx) + (cx - bx) * (ay - cy);
+      for (var y = 0; y < H; y++) for (var x = 0; x < W; x++) {
+        var l1 = ((by - cy) * (x - cx) + (cx - bx) * (y - cy)) / den, l2 = ((cy - ay) * (x - cx) + (ax - cx) * (y - cy)) / den, l3 = 1 - l1 - l2;
+        if (l1 < 0 || l2 < 0 || l3 < 0) continue;
+        var i = (y * W + x) * 4;
+        for (var k = 0; k < 3; k++) D[i + k] = Math.round(255 - 0.55 * (255 - (l1 * C.G[k] + l2 * C.R[k] + l3 * C.A[k])));
+        D[i + 3] = 255;
+      }
+      ctx.putImageData(img, 0, 0);
+    }
+    function draw() {
+      while (leaders.firstChild) leaders.removeChild(leaders.firstChild);
+      if (getComputedStyle(leaders).display === "none") return;
+      var R = root.getBoundingClientRect();
+      root.querySelectorAll(".cf2-side .cf2-item").forEach(function (a) {
+        var id = a.getAttribute("data-id"), dot = tri.querySelector('.cf2-dot[data-id="' + id + '"]');
+        var ar = a.getBoundingClientRect(), dr = dot.getBoundingClientRect(), isLeft = !!a.closest(".left");
+        var x0 = (isLeft ? ar.right : ar.left) - R.left, y0 = ar.top + ar.height / 2 - R.top;
+        var x2 = dr.left + dr.width / 2 - R.left, y2 = dr.top + dr.height / 2 - R.top, x1 = x0 + (isLeft ? 10 : -10);
+        var path = document.createElementNS(NS, "path");
+        path.setAttribute("d", "M" + x0 + "," + y0 + " L" + x1 + "," + y0 + " L" + x2 + "," + y2);
+        path.setAttribute("data-id", id); leaders.appendChild(path);
+      });
+    }
+    function hot(id, on) {
+      var p = P.filter(function (q) { return q.id === id; })[0];
+      root.querySelectorAll('[data-id="' + id + '"]').forEach(function (el) {
+        el.classList.toggle("hot", on);
+        if (el.tagName.toLowerCase() === "path") el.style.stroke = on ? p.color : "";
+      });
+    }
+    root.addEventListener("mouseover", function (e) { var t = e.target.closest("[data-id]"); if (t) hot(t.getAttribute("data-id"), true); });
+    root.addEventListener("mouseout", function (e) { var t = e.target.closest("[data-id]"); if (t) hot(t.getAttribute("data-id"), false); });
+    root.addEventListener("click", function (e) {
+      var t = e.target.closest(".cf-link"); if (!t) return;
+      e.preventDefault();
+      if (btnTag.classList.contains("active")) view(false);
+      var id = t.getAttribute("data-id"), card = document.getElementById(id), p = P.filter(function (q) { return q.id === id; })[0];
+      if (!card) return;
+      card.style.setProperty("--hl", p.color);
+      card.scrollIntoView({ behavior: "smooth", block: "center" });
+      card.classList.add("card-highlight");
+      setTimeout(function () { card.classList.remove("card-highlight"); }, 1800);
+    });
+    function redraw() { shade(); draw(); }
+    window.addEventListener("resize", redraw);
+    window.addEventListener("load", draw);
+    redraw();
+  })();
   // Scroll spy (navbar underline)
   var navLinks = Array.prototype.slice.call(document.querySelectorAll(".navbar .nav-link"));
   var secs = navLinks.map(function (l) { return document.getElementById(l.getAttribute("href").slice(1)); });
