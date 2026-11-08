@@ -69,6 +69,7 @@ blockquote>p{margin:0}
 .content>h2{margin-top:-3.1rem;padding-top:4.6rem;margin-bottom:.5rem;font-size:1.4rem;font-weight:600;color:#34495e;letter-spacing:-.02em}
 .content>h2+p{margin-top:.5rem}
 .page .hl{color:#e74c3c}
+.page .hl-purple{color:#8e44ad}
 .page .impact{font-style:italic;text-decoration:underline;text-decoration-thickness:1px;text-underline-offset:2px}
 
 /* ===== Profile ===== */
@@ -122,20 +123,22 @@ blockquote>p{margin:0}
 
 /* ===== Publication cards ===== */
 .md-card{background-color:#fff;min-height:200px;display:flex;flex-direction:row;align-items:center;margin-top:.5em}
-.md-card .card-image{display:flex;align-items:center;max-width:325px;max-height:200px;width:100%;flex-direction:column;padding:.2rem;position:relative;flex:0 0 325px}
-.md-card .card-image img{max-width:90%;max-height:200px;width:auto;height:auto;object-fit:contain}
+.md-card .card-image{display:flex;align-items:center;justify-content:center;width:292px;height:200px;flex:0 0 292px;padding:0;margin:.2rem 1rem .2rem .2rem;position:relative}
+.md-card .card-image img{width:100%;height:100%;object-fit:cover;display:block}
+.md-card.logo-card .card-image img{width:auto;height:auto;max-width:180px;max-height:110px;object-fit:contain}
 .md-card .card-content{padding:.5rem;flex-grow:1;position:relative}
 .md-card .card-content p{line-height:1.5;max-width:1080px;margin:0 0 .2em}
 .md-card .card-content a:not(.link-btn){color:inherit}
 .md-card .card-content .coauthor{color:#34495e}
 .md-card .card-content .link-btn{background-color:#f5f5f5;border:none;border-radius:4px;padding:4px 12px;font-size:16px;font-family:Lucida Grande,Lucida Sans Unicode,Lucida Sans,Arial,sans-serif;color:#7f8c8d!important;font-weight:600!important;cursor:pointer;transition:all .3s ease;text-decoration:none;display:inline-block;margin:0 .15rem .25rem 0}
 .md-card .card-content .link-btn:hover{background-color:#e0e0e0;color:#7f8c8d!important}
-.md-card .card-content .tags{font-size:13px;color:#7f8c8d;margin-top:.15rem}
+.md-card .card-content .tags{font-size:15px;color:#7f8c8d;margin-top:.15rem}
 .md-card.is-hidden{display:none}
 @media (max-width:719px){
   .md-card{flex-direction:column;align-items:stretch;margin:1rem 0;padding:.5rem;box-sizing:border-box}
-  .md-card .card-image{max-width:100%;max-height:none;flex:0 0 auto;padding:.5rem}
-  .md-card .card-image img{width:100%;height:auto;max-width:100%;max-height:none;object-fit:contain}
+  .md-card .card-image{width:100%;height:auto;aspect-ratio:292/200;flex:0 0 auto;margin:0 0 .5rem}
+  .md-card .card-image img{width:100%;height:100%;object-fit:cover}
+  .md-card.logo-card .card-image{aspect-ratio:auto;height:130px}
 }
 .publication-filter{margin:1rem 0 1.2rem;text-align:center}
 .publication-filter .filter-options{display:flex;flex-wrap:wrap;justify-content:center;gap:2px}
@@ -210,7 +213,7 @@ img.emoji{width:1.2em;height:1.2em;vertical-align:-.2em;margin:0 .1em}
 <h2 id="bio">Bio</h2>
 <blockquote><p>‘Science plus arts multiplied by faith then divided by the number of our ethnic race.’ — Nujabes, feat. Shing02, <i>Luv(sic) pt2</i></p></blockquote>
 <p>M.S. student @ <a href="https://www.ntu.edu.tw/" target="_blank" rel="noopener">National Taiwan University</a> 🇹🇼 · <a href="http://graphics.csie.ntu.edu.tw/~robin/" target="_blank" rel="noopener">Communications and Multimedia Lab</a> · advised by <a href="http://graphics.csie.ntu.edu.tw/~robin/" target="_blank" rel="noopener">Prof. Robin Bing-Yu Chen</a>.</p>
-<p>AI researcher: <span class="hl"><strong>sim-real learning</strong></span> &amp; <span class="hl"><strong>computational solvers</strong></span> for high-performance, physical and embodied systems.</p>
+<p>AI researcher: <span class="hl-purple"><strong>sim-real learning</strong></span> &amp; <span class="hl-purple"><strong>computational solvers</strong></span> for high-performance, physical and embodied systems.</p>
 <ul>
   <li><span class="hl"><strong>Graphics</strong></span> — simulation, animation production</li>
   <li><span class="hl"><strong>Robotics</strong></span> — manipulation, dynamics, sensing</li>
@@ -273,6 +276,7 @@ img.emoji{width:1.2em;height:1.2em;vertical-align:-.2em;margin:0 .1em}
 
 <h2 id="news">News</h2>
 <ul class="news-list">
+  <li><span class="news-date">[2026/12]</span> <a href="https://www.linkedin.com/in/beerilan/" target="_blank" rel="noopener">Ilan Beer</a> (NVIDIA) integrated <strong>DiffPhD</strong> as a <a href="https://github.com/nvidia-beer/newton-solver-diff-phd#example-controls-and-local-data" target="_blank" rel="noopener">standalone Newton solver</a>. See it in action during <a href="https://beyondrigidbodies.github.io/" target="_blank" rel="noopener"><strong>Beyond Rigid Bodies × Newton for Robotics</strong></a> at <a href="https://sa2026.conference-schedule.org/presentation/?id=dfwksp_115&amp;sess=sess208" target="_blank" rel="noopener">ACM SIGGRAPH Asia 2026</a> (<strong>December 3, 2026 · 9:00 AM–5:00 PM MYT (UTC+8)</strong>, MR 401/402, Level 4, Kuala Lumpur Convention Centre, Malaysia).</li>
   <li><span class="news-date">[2026/12]</span> Lead Organizer, <em>Beyond Rigid Bodies × Newton for Robotics</em> workshop @ SIGGRAPH Asia 2026.</li>
   <li><span class="news-date">[2026/06]</span> Research Intern @ Aalto University (QuML Group) &amp; Visiting Researcher @ Aalto Acoustics Lab.</li>
   <li><span class="news-date">[2026/06]</span> <strong class="award-text">2026 Foxconn Tech Award</strong> ($100,000) for <em>M3</em>.</li>
@@ -486,35 +490,92 @@ img.emoji{width:1.2em;height:1.2em;vertical-align:-.2em;margin:0 .1em}
 </div></div>
 
 <h2 id="awards">Awards</h2>
-<ul class="news-list">
-  <li><span class="news-date">[2026]</span> <span class="award-text"><strong>2026 Foxconn Tech Award</strong></span> ($100,000), <img class="ilogo" src="assets/images/Foxconn.png" alt="Foxconn Education Foundation"> <a href="https://www.foxconnfoundation.org/plan/technology_award" target="_blank" rel="noopener">Foxconn Education Foundation</a>, for <em>M3</em> (<a href="https://doi.org/10.1145/3748636.3762708" target="_blank" rel="noopener">Research Full Paper</a>, ACM SIGSPATIAL 2025) · attention-based graph clustering + Dueling DDQN · green-travel recommendation</li>
-  <li><span class="news-date">[2026]</span> <span class="award-text"><strong>Overseas Conference Travel Grant</strong></span>, <img class="ilogo" src="assets/images/RIKEN.png" alt="RIKEN"> <a href="https://www.riken.jp/en/" target="_blank" rel="noopener">RIKEN Japan</a>, for ISC High Performance 2026 (June 22–26, Hamburg, Germany)</li>
-  <li><span class="news-date">[2025]</span> <span class="award-text"><strong>2025 Overseas Conference Travel Grant</strong></span> ($1,000), <img class="ilogo" src="assets/images/NSTC.png" alt="NSTC"> <a href="https://www.nstc.gov.tw/?l=en" target="_blank" rel="noopener">National Science and Technology Council</a>, for SIGGRAPH Asia 2025 (December 16–18, Hong Kong)</li>
-  <li><span class="news-date">[2025]</span> <span class="award-text"><strong>Graduate Student Scholarship</strong></span>, <img class="ilogo" src="assets/images/NTU.png" alt="NTU"> <a href="https://www.csie.ntu.edu.tw/" target="_blank" rel="noopener">National Taiwan University (NTU CSIE)</a>, 2025–2026</li>
-  <li><span class="news-date">[2023]</span> <span class="award-text"><strong>3rd Place &amp; Sponsors Award</strong></span> ($30,000, NXP Semiconductors; <a href="https://www.canva.com/design/DAGYEutgu2Q/mQPg0aH1k11egrWJEQ5dkA/view?utm_content=DAGYEutgu2Q&amp;utm_campaign=designshare&amp;utm_medium=link&amp;utm_source=editor" target="_blank" rel="noopener">Awards</a>), 2023 AIoT Innovation Challenge, <img class="ilogo" src="assets/images/IEEE_SPS.png" alt="IEEE Signal Processing Society"> <a href="https://signalprocessingsociety.org/" target="_blank" rel="noopener">IEEE Signal Processing Society</a> · <em>SensorHub</em>: ADI/NXP/Arduino, DHT11/SCD40/PMS5003T, I²C/UART, HVAC/fan/lighting control, Unity digital twin</li>
-</ul>
+
+<div class="md-card logo-card"><div class="card-image"><img src="assets/images/Foxconn.png" alt="Foxconn Education Foundation" loading="lazy"></div><div class="card-content">
+<p><font size="4"><strong>2026 Foxconn Tech Award</strong><br></font>
+<a href="https://www.foxconnfoundation.org/plan/technology_award" target="_blank" rel="noopener">Foxconn Education Foundation</a><br>
+<span class="venue-text"><strong>$100,000</strong></span> <font size="2">(Jun. 2026)</font><br>
+<span class="award-text"><strong>M3</strong></span> (<a href="https://doi.org/10.1145/3748636.3762708" target="_blank" rel="noopener">Research Full Paper</a>, ACM SIGSPATIAL 2025) · attention-based graph clustering + Dueling DDQN · green-travel recommendation</p>
+<a href="https://www.foxconnfoundation.org/plan/technology_award" target="_blank" rel="noopener" class="link-btn">Website</a> <a href="https://doi.org/10.1145/3748636.3762708" target="_blank" rel="noopener" class="link-btn">Paper</a>
+</div></div>
+
+<div class="md-card logo-card"><div class="card-image"><img src="assets/images/RIKEN.png" alt="RIKEN" loading="lazy"></div><div class="card-content">
+<p><font size="4"><strong>Overseas Conference Travel Grant</strong><br></font>
+<a href="https://www.riken.jp/en/" target="_blank" rel="noopener">RIKEN Japan</a><br>
+<span class="venue-text"><strong>ISC High Performance 2026</strong></span> <font size="2">(2026)</font><br>
+June 22–26, Hamburg, Germany</p>
+<a href="https://www.riken.jp/en/" target="_blank" rel="noopener" class="link-btn">Website</a>
+</div></div>
+
+<div class="md-card logo-card"><div class="card-image"><img src="assets/images/NSTC.png" alt="NSTC" loading="lazy"></div><div class="card-content">
+<p><font size="4"><strong>2025 Overseas Conference Travel Grant</strong><br></font>
+<a href="https://www.nstc.gov.tw/?l=en" target="_blank" rel="noopener">National Science and Technology Council</a><br>
+<span class="venue-text"><strong>SIGGRAPH Asia 2025</strong></span> <font size="2">($1,000 · Dec. 2025)</font><br>
+December 16–18, Hong Kong</p>
+<a href="https://www.nstc.gov.tw/?l=en" target="_blank" rel="noopener" class="link-btn">Website</a>
+</div></div>
+
+<div class="md-card logo-card"><div class="card-image"><img src="assets/images/NTU.png" alt="NTU" loading="lazy"></div><div class="card-content">
+<p><font size="4"><strong>Graduate Student Scholarship</strong><br></font>
+<a href="https://www.csie.ntu.edu.tw/" target="_blank" rel="noopener">National Taiwan University (NTU CSIE)</a><br>
+<span class="venue-text"><strong>2025 – 2026</strong></span> <font size="2">(academic year)</font></p>
+<a href="https://www.csie.ntu.edu.tw/" target="_blank" rel="noopener" class="link-btn">Website</a>
+</div></div>
+
+<div class="md-card logo-card"><div class="card-image"><img src="assets/images/IEEE_SPS.png" alt="IEEE Signal Processing Society" loading="lazy"></div><div class="card-content">
+<p><font size="4"><strong>2023 AIoT Innovation Challenge — 3rd Place &amp; Sponsors Award</strong><br></font>
+<a href="https://signalprocessingsociety.org/" target="_blank" rel="noopener">IEEE Signal Processing Society</a><br>
+<span class="venue-text"><strong>$30,000 · NXP Semiconductors</strong></span> <font size="2">(Feb. 2023 – Jun. 2023)</font><br>
+<em>SensorHub</em>: ADI/NXP/Arduino, DHT11/SCD40/PMS5003T, I²C/UART, HVAC/fan/lighting control, Unity digital twin</p>
+<a href="https://www.canva.com/design/DAGYEutgu2Q/mQPg0aH1k11egrWJEQ5dkA/view?utm_content=DAGYEutgu2Q&amp;utm_campaign=designshare&amp;utm_medium=link&amp;utm_source=editor" target="_blank" rel="noopener" class="link-btn">Awards</a> <a href="https://signalprocessingsociety.org/" target="_blank" rel="noopener" class="link-btn">Website</a>
+</div></div>
 
 <h2 id="academic-services">Academic Services</h2>
-<p class="talk-series">Organizer</p>
-<ul class="news-list service-list">
-  <li><span><img class="ilogo" src="assets/images/SIGGRAPH.png" alt="ACM SIGGRAPH"> Lead Organizer, <a href="https://beyondrigidbodies.github.io/" target="_blank" rel="noopener"><span class="venue-text">ACM SIGGRAPH Asia 2026 Workshop</span></a></span> <span class="svc-time">@Dec. 2026</span></li>
-</ul>
-<ul class="sub-list">
-  <li><i><a href="https://beyondrigidbodies.github.io/" target="_blank" rel="noopener">“Beyond Rigid Bodies × Newton for Robotics: Open GPU Physics, Differentiable Simulation, and Multi-Solver Ecosystems for Physical AI and Embodied Robotics”</a></i> — proposal, speaker outreach, program</li>
-  <li>Full-day program w/ <strong>NVIDIA Newton / Physical AI team</strong> · <strong>NVIDIA Warp, Newton, Isaac Lab</strong></li>
-  <li>NVIDIA organizers &amp; speakers: Johnny Nunez Cano, Asier Arranz, Lu Shi</li>
-  <li>Invited talks: <a href="https://i.cs.hku.hk/~taku/" target="_blank" rel="noopener">Taku Komura (HKU)</a>, <a href="https://people.iiis.tsinghua.edu.cn/~taodu/" target="_blank" rel="noopener">Tao Du (Tsinghua)</a>, <a href="https://srinathsridhar.com/" target="_blank" rel="noopener">Srinath Sridhar (Brown)</a>, <a href="https://yunzhuli.github.io/" target="_blank" rel="noopener">Yunzhu Li (Columbia)</a></li>
-</ul>
-<p class="talk-series">Reviewer</p>
-<ul class="news-list service-list">
-  <li><span><img class="ilogo" src="assets/images/ACM.png" alt="ACM"> ACM @ SIGGRAPH ASIA’26, CHI’25, HRI’25, CSCW’24, WWW’25 — 9 papers (animation/simulation, HCI/HRI, web retrieval)</span> <span class="svc-time">@Jan. 2024 – Jan. 2025</span></li>
-  <li><span><img class="ilogo" src="assets/images/IEEE.png" alt="IEEE"> IEEE @ ICRA'27, ITSC’26, ICASSP'27 — 2 papers (intelligent transportation) + 10 papers (audio &amp; acoustic signal processing)</span> <span class="svc-time">@Mar. 2026 – Apr. 2026</span></li>
-</ul>
-<p class="talk-series">Community</p>
-<ul class="news-list service-list">
-  <li><span><img class="ilogo" src="assets/images/NTUAI.png" alt="NTU AI Club"> Lead Technical Specialist, <span class="venue-text">NTU AI Club</span> @ Taipei, Taiwan — AI research initiatives, lectures, technical workshops</span> <span class="svc-time">@Jan. 2025 – Jun. 2027</span></li>
-  <li><span><img class="ilogo" src="assets/images/AirForce.png" alt="Taiwan Air Force"> Mandatory Military Service, <span class="venue-text">Taiwan Air Force</span> @ Taipei Songshan Airport</span> <span class="svc-time">@Jul. 2024 – Nov. 2024</span></li>
-</ul>
+<p class="talk-series talk-title">Organizer</p>
+
+<div class="md-card logo-card"><div class="card-image"><img src="assets/images/SIGGRAPH.png" alt="ACM SIGGRAPH" loading="lazy"></div><div class="card-content">
+<p><font size="4"><strong>Beyond Rigid Bodies × Newton for Robotics: Open GPU Physics, Differentiable Simulation, and Multi-Solver Ecosystems for Physical AI and Embodied Robotics</strong><br></font>
+Lead Organizer · proposal, speaker outreach, program<br>
+<span class="venue-text"><strong>ACM SIGGRAPH Asia 2026 Workshop</strong></span> <font size="2">(Dec. 2026)</font><br>
+<font size="2"><strong>NVIDIA Newton / Physical AI team</strong> · NVIDIA Warp, Newton, Isaac Lab · NVIDIA organizers &amp; speakers: Johnny Nunez Cano, Asier Arranz, Lu Shi</font><br>
+<font size="2">Invited talks: <a href="https://i.cs.hku.hk/~taku/" target="_blank" rel="noopener">Taku Komura (HKU)</a>, <a href="https://people.iiis.tsinghua.edu.cn/~taodu/" target="_blank" rel="noopener">Tao Du (Tsinghua)</a>, <a href="https://srinathsridhar.com/" target="_blank" rel="noopener">Srinath Sridhar (Brown)</a>, <a href="https://yunzhuli.github.io/" target="_blank" rel="noopener">Yunzhu Li (Columbia)</a></font></p>
+<a href="https://beyondrigidbodies.github.io/" target="_blank" rel="noopener" class="link-btn">Workshop Page</a>
+</div></div>
+
+<p class="talk-series talk-title">Reviewer</p>
+
+<div class="md-card logo-card"><div class="card-image"><img src="assets/images/ACM.png" alt="ACM" loading="lazy"></div><div class="card-content">
+<p><font size="4"><strong>ACM Reviewer</strong><br></font>
+SIGGRAPH ASIA’26, CHI’25, HRI’25, CSCW’24, WWW’25<br>
+<span class="venue-text"><strong>9 papers</strong></span> <font size="2">(Jan. 2024 – Jan. 2025)</font><br>
+Animation/simulation, HCI/HRI, web retrieval</p>
+
+</div></div>
+
+<div class="md-card logo-card"><div class="card-image"><img src="assets/images/IEEE.png" alt="IEEE" loading="lazy"></div><div class="card-content">
+<p><font size="4"><strong>IEEE Reviewer</strong><br></font>
+ICRA'27, ITSC’26, ICASSP'27<br>
+<span class="venue-text"><strong>12 papers</strong></span> <font size="2">(Mar. 2026 – Apr. 2026)</font><br>
+2 intelligent transportation · 10 audio &amp; acoustic signal processing</p>
+
+</div></div>
+
+<p class="talk-series talk-title">Community</p>
+
+<div class="md-card logo-card"><div class="card-image"><img src="assets/images/NTUAI.png" alt="NTU AI Club" loading="lazy"></div><div class="card-content">
+<p><font size="4"><strong>Lead Technical Specialist</strong><br></font>
+NTU AI Club @ Taipei, Taiwan<br>
+<span class="venue-text"><strong>Jan. 2025 – Jun. 2027</strong></span><br>
+AI research initiatives, lectures, technical workshops</p>
+
+</div></div>
+
+<div class="md-card logo-card"><div class="card-image"><img src="assets/images/AirForce.png" alt="Taiwan Air Force" loading="lazy"></div><div class="card-content">
+<p><font size="4"><strong>Mandatory Military Service</strong><br></font>
+Taiwan Air Force @ Taipei Songshan Airport<br>
+<span class="venue-text"><strong>Jul. 2024 – Nov. 2024</strong></span></p>
+
+</div></div>
 
 </div>
 <div style="width:300px; max-width:100%; margin:1rem auto 0;">
